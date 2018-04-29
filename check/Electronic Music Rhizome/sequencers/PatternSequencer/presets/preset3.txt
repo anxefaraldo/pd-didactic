@@ -1,0 +1,94 @@
+inBeats 4;
+inSubdivision 2;
+inBpm 120;
+inInstruments 15;
+50 1-pattern 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+50 2-pattern 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+50 3-pattern 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0;
+50 4-pattern 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0;
+50 5-pattern 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1;
+50 6-pattern 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0;
+50 7-pattern 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0;
+50 8-pattern 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0;
+50 9-pattern 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0;
+50 10-pattern 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0;
+50 11-pattern 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+50 12-pattern 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+50 13-pattern 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0;
+50 14-pattern 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+50 15-pattern 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0;
+10 1-visualizePattern bang;
+2-visualizePattern bang;
+3-visualizePattern bang;
+4-visualizePattern bang;
+5-visualizePattern bang;
+6-visualizePattern bang;
+7-visualizePattern bang;
+8-visualizePattern bang;
+9-visualizePattern bang;
+10-visualizePattern bang;
+11-visualizePattern bang;
+12-visualizePattern bang;
+13-visualizePattern bang;
+14-visualizePattern bang;
+15-visualizePattern bang;
+10 1-inPan 23;
+10 2-inPan 11;
+10 3-inPan 6;
+10 4-inPan -13;
+10 5-inPan 24;
+10 6-inPan -21;
+10 7-inPan 25;
+10 8-inPan 23;
+10 9-inPan 12;
+10 10-inPan -18;
+10 11-inPan 42;
+10 12-inPan 2;
+10 13-inPan 6;
+10 14-inPan 45;
+10 15-inPan -16;
+10 1-inVolume 137;
+10 2-inVolume 119;
+10 3-inVolume 73;
+10 4-inVolume 148;
+10 5-inVolume 139;
+10 6-inVolume 93;
+10 7-inVolume 148;
+10 8-inVolume 126;
+10 9-inVolume 105;
+10 10-inVolume 126;
+10 11-inVolume 65;
+10 12-inVolume 137;
+10 13-inVolume 116;
+10 14-inVolume 148;
+10 15-inVolume 118;
+10 1-inFile /Users/Mondegreen/Desktop/seqMetro/samples/jazz/bop kick
+- snares on.wav;
+10 2-inFile /Users/Mondegreen/Desktop/seqMetro/samples/jazz/floor tom
+- snares on.wav;
+10 3-inFile /Users/Mondegreen/Desktop/seqMetro/samples/jazz/hihat -
+open.wav;
+10 4-inFile /Users/Mondegreen/Desktop/seqMetro/samples/jazz/turn snare
+on.wav;
+10 5-inFile /Users/Mondegreen/Desktop/seqMetro/samples/jazz/turn off
+snares.wav;
+10 6-inFile /Users/Mondegreen/Desktop/seqMetro/samples/jazz/floor tom
+- snares on.wav;
+10 7-inFile /Users/Mondegreen/Desktop/seqMetro/samples/jazz/ride -
+bell.wav;
+10 8-inFile /Users/Mondegreen/Desktop/seqMetro/samples/jazz/stickshot
+- snares on.wav;
+10 9-inFile /Users/Mondegreen/Desktop/seqMetro/samples/jazz/xstick
+- snares off.wav;
+10 10-inFile /Users/Mondegreen/Desktop/seqMetro/samples/jazz/snare
+- snares off.wav;
+10 11-inFile /Users/Mondegreen/Desktop/seqMetro/samples/jazz/ride -
+crash.wav;
+10 12-inFile /Users/Mondegreen/Desktop/seqMetro/samples/jazz/rimshot
+- snares on.wav;
+10 13-inFile /Users/Mondegreen/Desktop/seqMetro/samples/jazz/hihat
+- close.wav;
+10 14-inFile /Users/Mondegreen/Desktop/seqMetro/samples/jazz/kick -
+snares on.wav;
+10 15-inFile /Users/Mondegreen/Desktop/seqMetro/samples/jazz/rack tom
+- snares off.wav;

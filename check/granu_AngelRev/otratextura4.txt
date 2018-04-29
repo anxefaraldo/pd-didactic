@@ -1,0 +1,73 @@
+activator 15;
+
+gui.pitch.min 800;
+gui.pitch.max 1400;
+
+gui.amplitude.min 30;
+gui.amplitude.max 95;
+
+gui.pan.min -45;
+gui.pan.max 45;
+
+gui.IOT.max 0.5;
+IOT.max 19;
+
+gui.Qvalue.min 1;
+gui.Qvalue.max 1000;
+
+gui.rest.min 1.5;
+gui.rest.max 3;
+
+10000
+activator 0;
+
+3000
+gui.pitch.min 50;
+gui.pitch.max 1400;
+
+amplitude.min 30;
+amplitude.max 95;
+
+gui.pan.min -45;
+gui.pan.max 45;
+
+gui.IOT.max 19;
+gui.IOT.max 100;
+
+gui.Qvalue.min 1;
+gui.Qvalue.max 1000;
+
+gui.rest.min 0.5;
+gui.rest.max 1.5;
+
+activator 7;
+
+10000
+activator 0;
+
+3000
+
+activator 9;
+
+score.pitch.min 700, 50 11000;
+score.pitch.max 710, 1400 11000;
+
+score.amplitude.min 50, 65 10000;
+score.amplitude.max 70, 95 10000;
+
+score.pan.min -45, -5 10000;
+score.pan.max 45, 5 10000;
+
+gui.IOT.max 50;
+gui.IOT.max 210;
+
+gui.Qvalue.min 1;
+gui.Qvalue.max 1000;
+
+gui.rest.min 0.5;
+gui.rest.max 1.5;
+
+
+
+15000
+activator 0;

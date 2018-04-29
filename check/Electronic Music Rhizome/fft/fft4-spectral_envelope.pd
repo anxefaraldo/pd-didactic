@@ -1,0 +1,122 @@
+#N canvas 735 22 218 383 10;
+#X obj 14 330 dac~;
+#X obj 26 272 *~;
+#X obj 38 252 line~;
+#X msg 38 231 \$1 30;
+#X obj 26 294 hip~ 5;
+#X obj 38 97 vsl 15 128 0 1 0 0 empty empty vol. 0 -9 0 10 -262144
+-1 -1 0 0;
+#N canvas 190 181 411 257 hanning-window_calculation 0;
+#N canvas 0 22 454 304 (subpatch) 0;
+#X array hanning 1024 float 2;
+#X coords 0 1 1023 0 200 140 1;
+#X restore 158 47 graph;
+#X obj 15 73 osc~;
+#X msg 34 51 0;
+#X obj 8 136 tabwrite~ hanning;
+#X obj 15 94 *~ -0.5;
+#X obj 15 115 +~ 0.5;
+#X obj 8 5 loadbang;
+#X obj 64 4 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 15 31 expr 44100/1024;
+#X msg 0 157 \; pd dsp 1;
+#X connect 1 0 4 0;
+#X connect 2 0 1 1;
+#X connect 4 0 5 0;
+#X connect 5 0 3 0;
+#X connect 6 0 2 0;
+#X connect 6 0 3 0;
+#X connect 6 0 8 0;
+#X connect 6 0 9 0;
+#X connect 7 0 2 0;
+#X connect 7 0 3 0;
+#X connect 7 0 8 0;
+#X connect 8 0 1 0;
+#X restore 13 -14 pd hanning-window_calculation;
+#N canvas 5 22 657 341 spectral_envelope 0;
+#N canvas 0 22 454 304 (subpatch) 0;
+#X array spectrum_envelope 256 float 1;
+#A 0 0 0.0433115 0 0.0682939 0 0.0681914 0.0789434 0.00512766 0 0 0.0372593
+0 0 0 0.0221789 0.0626617 0.0667488 0.00960505 0 0 0.0196012 0.0110939
+0.010682 0 0 0.0425311 0.0372575 0.00941621 0 0 0.023515 0.0131795
+0 0 0.0262138 0 0 0 0 0.0188994 0.0128947 0.0296277 0 0 0 0 0 0 0 0
+0 0.0145098 0.00250461 0 0 0 0 0 0 0.00408378 0 0 0.0094477 0.0154064
+0 0 0.0104506 0.0115395 0 0.0170312 0 0.0101232 0.00603467 0 0 0 0
+0.0241379 0.0228354 0 0 0.00911951 0 0 0 0 0.00599327 0 0.00778786
+0 0 0 0 0 0.00896105 0.0161503 0.0155802 0 0 0.00691323 0 0.00940013
+0 0 0.00595576 0.0240602 0.0166889 0 0.0102561 0.0119277 0 0 0.00533199
+0.00691058 0.00864132 0 0 0 0 0 0.0139337 0.0139906 0.0164743 0.011932
+0 0 0 0 0 0 0 0.0133204 0.0205804 0 0 0 0.0165958 0.0106629 0 0 0.00585157
+0.0108843 0 0 0 0.00931814 0.0076174 0.000210093 0.00366719 0.0153634
+0.0180869 0 0.00614501 0.00835222 0 0.00149746 0 0 0.00553966 0.00852703
+0 0.00870673 0.0201307 0.017225 0.00494 0 0 0.00944866 0.0156067 0.0075302
+0.00545888 0.00648835 0 0.00988029 0 0 0 0 0.0075504 0.00804643 0.00843256
+0 0 0 0.0114839 0.0103877 0.00641509 0 0.00279342 0.0112457 0 0 0.000922119
+0.0103483 0 0.0174289 0.0202555 0 0.0156705 0.0182516 0.00364448 0
+0 0.00533283 0.00224221 0 0.00574464 0.00148024 0 0.00286648 0 0 0
+0 0.00337838 0 0 0 0 0 0 0.00313248 0.0057439 0.012998 0.0154885 0.00921031
+0.00713717 0 0.00430472 0.011578 0.0123945 0.0110849 0 0 0.00280929
+0 0.0107725 0.00762246 0.00872989 0 0.00445978 0 0 0 0.00319771 0.00493319
+0.00647431 0.00178477 0 0.00483915 0 0.00583029 0.00112004 0 0 0.00186637
+;
+#X coords 0 2 255 0 600 300 1;
+#X restore 22 16 graph;
+#X restore 13 6 pd spectral_envelope;
+#N canvas 640 22 310 580 fft-analysis 1;
+#X obj 28 14 inlet~;
+#X obj 28 401 outlet~;
+#X obj 28 77 rfft~;
+#X obj 28 56 *~;
+#X obj 28 337 rifft~;
+#X obj 28 380 *~;
+#X obj 44 359 tabreceive~ hanning;
+#X obj 44 35 tabreceive~ hanning;
+#X obj 28 314 *~;
+#X obj 61 313 *~;
+#X floatatom 44 259 5 0 0 0 - - -;
+#X obj 28 237 *~;
+#X obj 55 237 *~;
+#X obj 70 208 tabreceive~ spectrum_envelope;
+#X obj 44 279 sig~ 0.001;
+#X obj 91 185 tabsend~ spectrum_envelope;
+#X obj 83 122 *~;
+#X obj 108 122 *~;
+#X obj 91 143 +~;
+#X obj 91 164 sqrt~;
+#X obj 75 14 block~ 1024 2;
+#X connect 0 0 3 0;
+#X connect 2 0 11 0;
+#X connect 2 0 16 0;
+#X connect 2 0 17 0;
+#X connect 2 1 12 0;
+#X connect 2 1 16 1;
+#X connect 2 1 17 1;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 1 0;
+#X connect 6 0 5 1;
+#X connect 7 0 3 1;
+#X connect 8 0 4 0;
+#X connect 9 0 4 1;
+#X connect 10 0 14 0;
+#X connect 11 0 8 0;
+#X connect 12 0 9 0;
+#X connect 13 0 11 1;
+#X connect 13 0 12 1;
+#X connect 14 0 9 1;
+#X connect 14 0 8 1;
+#X connect 16 0 18 0;
+#X connect 17 0 18 1;
+#X connect 18 0 19 0;
+#X connect 19 0 15 0;
+#X restore 25 63 pd fft-analysis;
+#X obj 25 38 adc~ 1;
+#X connect 1 0 4 0;
+#X connect 2 0 1 1;
+#X connect 3 0 2 0;
+#X connect 4 0 0 0;
+#X connect 4 0 0 1;
+#X connect 5 0 3 0;
+#X connect 8 0 1 0;
+#X connect 9 0 8 0;

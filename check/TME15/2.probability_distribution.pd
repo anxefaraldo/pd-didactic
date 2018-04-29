@@ -1,0 +1,104 @@
+#N canvas 88 85 1011 605 10;
+#X obj -549 -266 cnv 15 400 220 empty empty empty 20 12 0 14 -261234
+-66577 0;
+#X msg -543 -32 bang;
+#X floatatom -526 140 5 0 0 0 - - -;
+#X obj -543 227 tabread \$0-rand;
+#X obj -543 205 t a a;
+#X obj -530 39 until;
+#X obj -543 252 + 0.001;
+#X obj -543 276 tabwrite \$0-rand;
+#X msg -520 13 1000;
+#X floatatom -474 98 5 0 0 1 length - -;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-rand 12 float 0;
+#X coords 0 1 11 0 200 140 1;
+#X restore -238 179 graph;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-dist 12 float 0;
+#X coords 0 1 11 0 200 140 1;
+#X restore -238 179 graph;
+#X obj -20 59 t a a;
+#N canvas 0 22 450 300 write-to-tables 0;
+#X obj 227 103 list-len;
+#X obj 308 180 s \$0-rand;
+#X obj 112 103 list prepend 0;
+#X obj 112 128 s \$0-dist;
+#X obj 93 256 s \$0-dist;
+#X msg 308 158 resize \$1 \, const 0;
+#X msg 93 155 normalize 1;
+#X msg 227 159 resize \$1;
+#X obj 93 55 t b a a;
+#X obj 93 33 inlet;
+#X connect 0 0 7 0;
+#X connect 0 0 5 0;
+#X connect 2 0 3 0;
+#X connect 5 0 1 0;
+#X connect 6 0 4 0;
+#X connect 7 0 4 0;
+#X connect 8 0 6 0;
+#X connect 8 1 2 0;
+#X connect 8 2 0 0;
+#X connect 9 0 8 0;
+#X restore 7 80 pd write-to-tables;
+#X text -409 -263 [list-wrandom];
+#X msg -530 -10 100;
+#X obj -543 76 list-wrandom;
+#X text -536 -208 Inlets;
+#X text -516 -153 1: list of random weights. The weigths are used as
+probabilities for their positions (zero-based);
+#X text -537 -116 Outlets:;
+#X text -521 -96 0: random number;
+#X text -521 -81 1: size of probability table (for convenience);
+#X text -517 -186 0: connected to [random] internally. "bang" to make
+random choice \, "seed X" to seed;
+#X text -546 -262 ingrediente principal:;
+#X text -546 -244 Uses a list as a probability table for weighted random
+numbers.;
+#X obj 92 -130 tabset pitch_histogram;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array pitch_histogram 12 float 3;
+#A 0 1 0.05 0.25 0.075 0.45 0.6 0.05 0.75 0.1 0.325 0.15 0.225;
+#X coords 0 1 12 0 200 140 2 0 0;
+#X restore -121 -251 graph;
+#X msg 92 -169 40 2 10 3 18 24 2 30 4 13 6 9 \; pitch_histogram normalize
+;
+#X text 92 -254 -> we can fill a table with content from a list with
+the object "tabset";
+#X text 94 -224 -> Also \, we can normalize the table values so that
+the maximum value in the table equals 1 \, by sending a "normalize"
+message to the table.;
+#X text -138 -259 1;
+#X text -140 -121 0;
+#X obj -20 37 tabdump pitch_histogram;
+#X msg -20 6 bang;
+#X text 19 2 -> Complementarty to "tabset \, " "tabdump" reads the
+content of an array (a.k.a. table) and converts it to a list;
+#X text -505 -35 single random value;
+#X text -501 -10 100 random values (sequentially);
+#X text -484 11 1000 random values (sequentially);
+#X text -484 33 OBSERVE IN THE GRAPH HOW THE RANDOM NUMBERS ARE DISTRIBUTED
+ACCORDINGLY TO THE RANDOM PROBABILITY DISTRIBUTION!;
+#X text -485 141 <-- HERE'S OUR RANDOM NUMBER... USEFUL FOR TONS OF
+THINGS...;
+#X text -536 185 (this bit is for visualization purposes only);
+#X text -18 -22 FIRST WE NEED A PROBABILITY DISTRIBUTION!;
+#X text -399 83 It should be 12 in our example since we are dealing
+with 12 pitch–classes. It will determine the range of the random
+generator!;
+#X connect 1 0 16 0;
+#X connect 3 0 6 0;
+#X connect 4 0 3 0;
+#X connect 4 1 7 1;
+#X connect 5 0 16 0;
+#X connect 6 0 7 0;
+#X connect 8 0 5 0;
+#X connect 12 0 16 1;
+#X connect 12 1 13 0;
+#X connect 15 0 5 0;
+#X connect 16 0 2 0;
+#X connect 16 0 4 0;
+#X connect 16 1 9 0;
+#X connect 27 0 25 0;
+#X connect 32 0 12 0;
+#X connect 33 0 32 0;

@@ -1,0 +1,123 @@
+#N canvas 246 22 578 498 10;
+#X obj 10 150 s duracion;
+#X obj 6 118 cnv 15 260 25 empty empty empty 20 12 0 12 -261234 -66577
+0;
+#X floatatom 10 122 5 0 0 1 - - -;
+#X text 43 122 duración del evento en milisegundos;
+#X obj 3 179 cnv 15 260 150 empty empty empty 20 12 0 12 -261234 -66577
+0;
+#X obj 10 220 vsl 15 100 0.01 1 0 1 p1g r-p1g 1 0 -9 0 10 -262144 -1
+-1 4600 1;
+#X obj 25 220 vsl 15 100 0.01 1 0 1 p2g r-p2g 2 0 -9 0 10 -262144 -1
+-1 9900 1;
+#X obj 40 220 vsl 15 100 0.01 1 0 1 p3g r-p3g 3 0 -9 0 10 -262144 -1
+-1 5000 1;
+#X obj 55 220 vsl 15 100 0.01 1 0 1 p4g r-p4g 4 0 -9 0 10 -262144 -1
+-1 6300 1;
+#X obj 70 220 vsl 15 100 0.01 1 0 1 p5g r-p5g 5 0 -9 0 10 -262144 -1
+-1 5700 1;
+#X obj 85 220 vsl 15 100 0.01 1 0 1 p6g r-p6g 6 0 -9 0 10 -262144 -1
+-1 4800 1;
+#X obj 100 220 vsl 15 100 0.01 1 0 1 p7g r-p7g 7 0 -9 0 10 -262144
+-1 -1 7800 1;
+#X obj 115 220 vsl 15 100 0.01 1 0 1 p8g r-p8g 8 0 -9 0 10 -262144
+-1 -1 5500 1;
+#X obj 130 220 vsl 15 100 0.01 1 0 1 p9g r-p9g 9 0 -9 0 10 -262144
+-1 -1 7800 1;
+#X obj 145 220 vsl 15 100 0.01 1 0 1 p10g r-p10g 10 0 -9 0 10 -262144
+-1 -1 4500 1;
+#X text 12 181 ajustar el volumen de cada parcial...;
+#X obj 4 339 cnv 15 260 150 empty empty empty 20 12 0 12 -204786 -66577
+0;
+#X obj 11 373 a.oscilador 1;
+#X obj 11 393 a.oscilador 3;
+#X obj 11 413 a.oscilador 5;
+#X obj 11 433 a.oscilador 7;
+#X obj 11 453 a.oscilador 9;
+#X obj 101 453 a.oscilador 10;
+#X obj 101 433 a.oscilador 8;
+#X obj 101 413 a.oscilador 6;
+#X obj 101 393 a.oscilador 4;
+#X obj 101 373 a.oscilador 2;
+#X text 11 347 este es el banco de osciladores;
+#X obj 27 58 cnv 15 180 25 empty empty empty 20 12 0 12 -204786 -66577
+0;
+#X obj 11 85 s fundamental;
+#X obj 11 38 mtof;
+#X floatatom 34 62 10 0 0 1 fundamental_en_Hz - -;
+#X obj 6 7 cnv 15 225 25 empty empty empty 20 12 0 12 -261234 -66577
+0;
+#X text 44 11 frecuencia fundamental en midi;
+#X floatatom 11 11 5 0 0 0 - - -;
+#X obj 277 278 cnv 15 290 25 empty empty empty 20 12 0 12 -162280 -66577
+0;
+#X obj 285 7 cnv 15 150 25 empty empty empty 20 12 0 12 -261234 -66577
+0;
+#X obj 298 36 s trigger2;
+#X obj 298 14 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 323 12 dispara el sonido;
+#X obj 288 79 cnv 15 150 40 empty empty empty 20 12 0 12 -261234 -66577
+0;
+#X obj 313 231 catch~ sumaOsciladores;
+#X obj 286 282 dac~;
+#X obj 298 161 line~;
+#X obj 298 121 dbtorms;
+#X msg 298 141 \$1 30;
+#X obj 298 252 *~;
+#X obj 298 212 *~;
+#X text 298 79 OUTPUT (VOLUMEN);
+#X obj 301 100 hsl 128 15 0 112 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 7100 1;
+#X text 319 282 angelfaraldo@gmail.com - 2008 (rev.2012);
+#X obj 309 182 cnv 15 220 25 empty empty empty 20 12 0 12 -204786 -66577
+0;
+#N canvas 62 286 284 348 envolvente 0;
+#X obj 105 37 r duracion;
+#X obj 72 60 random;
+#X obj 90 81 r duracion;
+#X obj 72 101 -;
+#X obj 72 121 abs;
+#X text 120 59 tiempo de ataque;
+#X text 99 121 tiempo de decay;
+#X obj 18 275 line~;
+#X obj 19 98 f;
+#X obj 31 182 delay;
+#X msg 58 241 0 \$1;
+#X obj 57 220 f;
+#X obj 43 30 t b b;
+#X msg 19 231 1 \$1;
+#X obj 18 297 outlet~;
+#X obj 43 7 r trigger2;
+#X connect 0 0 1 1;
+#X connect 1 0 3 0;
+#X connect 1 0 8 1;
+#X connect 2 0 3 1;
+#X connect 3 0 4 0;
+#X connect 4 0 11 1;
+#X connect 7 0 14 0;
+#X connect 8 0 13 0;
+#X connect 8 0 9 0;
+#X connect 9 0 11 0;
+#X connect 10 0 7 0;
+#X connect 11 0 10 0;
+#X connect 12 0 8 0;
+#X connect 12 1 1 0;
+#X connect 13 0 7 0;
+#X connect 15 0 12 0;
+#X restore 313 186 pd envolvente;
+#X text 400 186 aquí la envolvente...;
+#X connect 2 0 0 0;
+#X connect 30 0 29 0;
+#X connect 30 0 31 0;
+#X connect 34 0 30 0;
+#X connect 38 0 37 0;
+#X connect 41 0 46 1;
+#X connect 43 0 47 0;
+#X connect 44 0 45 0;
+#X connect 45 0 43 0;
+#X connect 46 0 42 1;
+#X connect 46 0 42 0;
+#X connect 47 0 46 0;
+#X connect 49 0 44 0;
+#X connect 52 0 47 1;

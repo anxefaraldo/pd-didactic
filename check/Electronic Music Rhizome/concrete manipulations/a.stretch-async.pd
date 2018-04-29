@@ -1,0 +1,49 @@
+#N canvas 70 22 621 418 10;
+#X obj 17 92 outlet~;
+#X obj 78 21 inlet;
+#X obj 147 21 inlet;
+#X obj 17 22 inlet~;
+#X obj 78 45 s \$1-sigma;
+#X obj 147 45 s \$1-mean;
+#X obj 17 45 s~ in-\$1;
+#X obj 17 69 catch~ out-\$1;
+#X obj 229 20 cnv 15 360 50 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X text 229 22 the way to avoid the windowing effect \, or at least
+to minimize it \, is to obtain granular synthesis by replicating reading
+points of the original files at non-periodic times.;
+#X obj 15 124 cnv 15 370 100 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X text 24 131 for that we've created an 'abstraction' and we made
+a few replicas of it (because each one has it's own random generator).
+You can copy/paste this object as many times as your cpu can handle...
+;
+#X obj 142 233 a.stretch-grain \$1;
+#X obj 22 293 a.stretch-grain \$1;
+#X obj 22 233 a.stretch-grain \$1;
+#X obj 22 253 a.stretch-grain \$1;
+#X obj 22 273 a.stretch-grain \$1;
+#X obj 22 196 a.stretch-grain \$1;
+#X obj 22 373 a.stretch-grain \$1;
+#X obj 22 313 a.stretch-grain \$1;
+#X obj 22 333 a.stretch-grain \$1;
+#X obj 22 353 a.stretch-grain \$1;
+#X obj 142 373 a.stretch-grain \$1;
+#X obj 142 313 a.stretch-grain \$1;
+#X obj 142 333 a.stretch-grain \$1;
+#X obj 142 353 a.stretch-grain \$1;
+#X obj 142 293 a.stretch-grain \$1;
+#X obj 142 253 a.stretch-grain \$1;
+#X obj 142 273 a.stretch-grain \$1;
+#X obj 262 373 a.stretch-grain \$1;
+#X obj 262 313 a.stretch-grain \$1;
+#X obj 262 333 a.stretch-grain \$1;
+#X obj 262 353 a.stretch-grain \$1;
+#X obj 262 293 a.stretch-grain \$1;
+#X obj 262 233 a.stretch-grain \$1;
+#X obj 262 253 a.stretch-grain \$1;
+#X obj 262 273 a.stretch-grain \$1;
+#X connect 1 0 4 0;
+#X connect 2 0 5 0;
+#X connect 3 0 6 0;
+#X connect 7 0 0 0;

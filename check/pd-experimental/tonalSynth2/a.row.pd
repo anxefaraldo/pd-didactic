@@ -1,0 +1,2 @@
+#N canvas 521 274 450 300 10;
+#X obj 8 8 table row-\$1 \$2;

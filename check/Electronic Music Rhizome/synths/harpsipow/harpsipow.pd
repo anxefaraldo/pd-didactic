@@ -1,0 +1,86 @@
+#N canvas 0 22 658 359 10;
+#N canvas 0 22 176 681 keyboard 0;
+#X obj 5 540 au.karlpulse key_25 21;
+#X obj 5 15 au.karlpulse key_4 0;
+#X obj 5 465 au.karlpulse key_22 18;
+#X obj 5 215 au.karlpulse key_12 8;
+#X obj 5 90 au.karlpulse key_7 3;
+#X obj 5 140 au.karlpulse key_9 5;
+#X obj 5 265 au.karlpulse key_14 10;
+#X obj 5 340 au.karlpulse key_17 13;
+#X obj 5 40 au.karlpulse key_5 1;
+#X obj 5 65 au.karlpulse key_6 2;
+#X obj 5 115 au.karlpulse key_8 4;
+#X obj 5 165 au.karlpulse key_10 6;
+#X obj 5 190 au.karlpulse key_11 7;
+#X obj 5 240 au.karlpulse key_13 9;
+#X obj 5 290 au.karlpulse key_15 11;
+#X obj 5 315 au.karlpulse key_16 12;
+#X obj 5 365 au.karlpulse key_18 14;
+#X obj 5 389 au.karlpulse key_19 15;
+#X obj 5 415 au.karlpulse key_20 16;
+#X obj 5 440 au.karlpulse key_21 17;
+#X obj 5 490 au.karlpulse key_23 19;
+#X obj 5 515 au.karlpulse key_24 20;
+#X obj 5 565 au.karlpulse key_26 22;
+#X obj 5 590 au.karlpulse key_27 23;
+#X obj 5 615 au.karlpulse key_28 24;
+#X obj 5 640 au.karlpulse key_29 25;
+#X restore -221 129 pd keyboard;
+#X obj -214 -12 hid;
+#X msg -207 -36 open 1;
+#X obj -214 12 route key;
+#X obj -234 -57 t f b;
+#X obj -145 63 s karlpow-voice;
+#X obj -214 37 route key_-1;
+#X msg -234 -80 1;
+#X obj -226 198 cnv 15 245 25 empty empty empty 20 12 0 14 -162280
+-66577 0;
+#X obj -221 151 catch~ karlpow-sumL;
+#X obj -200 173 catch~ karlpow-sumR;
+#X text -162 203 angelfaraldo@gmail.com - 2012;
+#X obj -25 -49 cnv 15 245 25 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 27 -44 low pass filter cut-off;
+#X obj -22 -106 cnv 15 130 25 empty empty empty 20 12 0 14 -261234
+-66577 0;
+#X obj -15 -17 s karl-lop;
+#X floatatom -15 -43 5 0 0 0 - - -;
+#X obj -17 -77 s karl-fdb;
+#X floatatom -17 -102 5 0 0 0 - - -;
+#X text 18 -101 feedback (0-1);
+#X obj -22 5 cnv 15 130 25 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X obj -14 33 s keyRepeat;
+#X obj -14 12 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 6 10 key repetition?;
+#X obj -25 154 cnv 15 420 35 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X obj -18 159 s capsLock;
+#X obj -14 62 keyname;
+#X obj -17 135 route Caps_Lock;
+#X obj -17 87 pack f s;
+#X msg -17 111 \$2 \$1;
+#X text 54 153 you can also press the 'caps lock' button to change
+the pitch range;
+#X obj -221 203 dac~;
+#X obj -234 -102 loadbang;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 3 0 6 0;
+#X connect 4 0 1 0;
+#X connect 4 1 2 0;
+#X connect 6 1 5 0;
+#X connect 7 0 4 0;
+#X connect 9 0 31 0;
+#X connect 10 0 31 1;
+#X connect 16 0 15 0;
+#X connect 18 0 17 0;
+#X connect 22 0 21 0;
+#X connect 26 0 28 0;
+#X connect 26 1 28 1;
+#X connect 27 0 25 0;
+#X connect 28 0 29 0;
+#X connect 29 0 27 0;
+#X connect 32 0 7 0;

@@ -1,0 +1,16 @@
+#N canvas 1062 294 306 272 10;
+#X obj 5 119 dac~;
+#X floatatom 44 117 1 0 0 0 - - -;
+#X msg 15 19 disconnect;
+#X obj 5 96 mp3amp~;
+#X msg 5 -6 connecturl s31.myradiostream.com:14118;
+#X obj 25 52 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X msg 25 71 standby \$1;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X connect 3 1 0 1;
+#X connect 3 2 1 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 6 0 3 0;

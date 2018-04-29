@@ -1,0 +1,442 @@
+#N canvas 301 212 761 228 10;
+#X declare -path ./_externals -path ./_abs;
+#X obj -291 -50 cnv 15 700 225 empty empty empty 20 12 0 14 -128992
+-66577 0;
+#X obj -114 -50 cnv 15 70 225 empty empty 1 5 20 0 32 -191407 -99865
+0;
+#X obj -75 23 vsl 20 128 0 127 0 0 out_fader1 in_fader1 empty 0 -9
+0 10 -262144 -1 -1 0 1;
+#X obj -63 11 bng 8 250 50 0 learn_fader1 --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj -63 -34 bng 8 250 50 0 learn_knob1 --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj -93 21 bng 8 250 50 0 learn_tgl1a --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj -93 74 bng 8 250 50 0 learn_tgl1b --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj -105 84 tgl 20 0 out_tgl1b in_tgl1b empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj -105 31 tgl 20 0 out_tgl1a in_tgl1a empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj -143 124 bng 8 250 50 0 learn_rec --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj -173 124 bng 8 250 50 0 learn_play --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj -203 124 bng 8 250 50 0 learn_stop --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj -233 124 bng 8 250 50 0 learn_ff --- empty 17 7 0 10 -4034 -1
+-1;
+#X obj -263 124 bng 8 250 50 0 learn_rew --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj -143 74 bng 8 250 50 0 learn_MFF --- empty 17 7 0 10 -4034 -1
+-1;
+#X obj -173 74 bng 8 250 50 0 learn_MRew --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj -203 74 bng 8 250 50 0 learn_set --- empty 17 7 0 10 -4034 -1
+-1;
+#X obj -263 74 bng 8 250 50 0 learn_cycle --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj -275 84 tgl 20 0 out_cycle in_cycle empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj -263 21 bng 8 250 50 0 learn_track- --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj -93 123 bng 8 250 50 0 learn_bng1 --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj -233 21 bng 8 250 50 0 learn_track+ --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj -275 31 bng 20 250 50 0 out_track- in_track- empty 17 7 0 10
+-262144 -1 -1;
+#X obj -245 31 bng 20 250 50 0 out_track+ in_track+ empty 17 7 0 10
+-262144 -1 -1;
+#X obj -185 84 bng 20 250 50 0 out_MRew in_MRew empty 17 7 0 10 -262144
+-1 -1;
+#X obj -155 84 bng 20 250 50 0 out_MFF in_MFF empty 17 7 0 10 -262144
+-1 -1;
+#X obj -275 134 bng 20 250 50 0 out_rew in_rew empty 17 7 0 10 -262144
+-1 -1;
+#X obj -245 134 bng 20 250 50 0 out_ff in_ff empty 17 7 0 10 -262144
+-1 -1;
+#X obj -204 11 cnv 15 50 60 empty scene 2 20 12 0 48 -128992 -262144
+0;
+#X obj -105 134 bng 20 250 50 0 out_bng1 in_bng1 empty 17 7 0 10 -262144
+-1 -1;
+#X obj -205 36 cnv 15 10 10 empty empty scene 20 12 0 10 -128992 -262144
+0;
+#X obj -79 -22 mknob 25 127 0 127 0 0 out_knob1 in_knob1 empty -2 -6
+192 8 -262144 -1 -1 0 1;
+#X obj -41 -50 cnv 15 70 225 empty empty 2 5 20 0 32 -191407 -99865
+0;
+#X obj -2 23 vsl 20 128 0 127 0 0 out_fader2 in_fader2 empty 0 -9 0
+10 -262144 -1 -1 0 1;
+#X obj 10 11 bng 8 250 50 0 learn_fader2 --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 10 -34 bng 8 250 50 0 learn_knob2 --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj -20 21 bng 8 250 50 0 learn_tgl2a --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj -20 74 bng 8 250 50 0 learn_tgl2b --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj -32 84 tgl 20 0 out_tgl2b in_tgl2b empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X obj -32 31 tgl 20 0 out_tgl2a in_tgl2a empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X obj -20 123 bng 8 250 50 0 learn_bng2 --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj -32 134 bng 20 250 50 0 out_bng2 in_bng2 empty 17 7 0 10 -262144
+-1 -1;
+#X obj -6 -22 mknob 25 127 0 127 0 0 out_knob2 in_knob2 empty -2 -6
+192 8 -262144 -1 -1 0 1;
+#X obj 32 -50 cnv 15 70 225 empty empty 3 5 20 0 32 -191407 -99865
+0;
+#X obj 71 23 vsl 20 128 0 127 0 0 out_fader3 in_fader3 empty 0 -9 0
+10 -262144 -1 -1 0 1;
+#X obj 83 11 bng 8 250 50 0 learn_fader3 --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 83 -34 bng 8 250 50 0 learn_knob3 --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 53 21 bng 8 250 50 0 learn_tgl3a --- empty 17 7 0 10 -4034 -1
+-1;
+#X obj 53 74 bng 8 250 50 0 learn_tgl3b --- empty 17 7 0 10 -4034 -1
+-1;
+#X obj 41 84 tgl 20 0 out_tgl3b in_tgl3b empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X obj 41 31 tgl 20 0 out_tgl3a in_tgl3a empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X obj 53 123 bng 8 250 50 0 learn_bng3 --- empty 17 7 0 10 -4034 -1
+-1;
+#X obj 41 134 bng 20 250 50 0 out_bng3 in_bng3 empty 17 7 0 10 -262144
+-1 -1;
+#X obj 67 -22 mknob 25 127 0 127 0 0 out_knob3 in_knob3 empty -2 -6
+192 8 -262144 -1 -1 0 1;
+#X obj 105 -50 cnv 15 70 225 empty empty 4 5 20 0 32 -191407 -99865
+0;
+#X obj 144 23 vsl 20 128 0 127 0 0 out_fader4 in_fader4 empty 0 -9
+0 10 -262144 -1 -1 0 1;
+#X obj 156 11 bng 8 250 50 0 learn_fader4 --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 156 -34 bng 8 250 50 0 learn_knob4 --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 126 21 bng 8 250 50 0 learn_tgl4a --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 126 74 bng 8 250 50 0 learn_tgl4b --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 114 84 tgl 20 0 out_tgl4b in_tgl4b empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X obj 114 31 tgl 20 0 out_tgl4a in_tgl4a empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X obj 126 123 bng 8 250 50 0 learn_bng4 --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 114 134 bng 20 250 50 0 out_bng4 in_bng4 empty 17 7 0 10 -262144
+-1 -1;
+#X obj 140 -22 mknob 25 127 0 127 0 0 out_knob4 in_knob4 empty -2 -6
+192 8 -262144 -1 -1 0 1;
+#X obj 178 -50 cnv 15 70 225 empty empty 5 5 20 0 32 -191407 -99865
+0;
+#X obj 217 23 vsl 20 128 0 127 0 0 out_fader5 in_fader5 empty 0 -9
+0 10 -262144 -1 -1 7900 1;
+#X obj 229 11 bng 8 250 50 0 learn_fader5 --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 229 -34 bng 8 250 50 0 learn_knob5 --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 199 21 bng 8 250 50 0 learn_tgl5a --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 199 74 bng 8 250 50 0 learn_tgl5b --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 187 84 tgl 20 0 out_tgl5b in_tgl5b empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X obj 187 31 tgl 20 0 out_tgl5a in_tgl5a empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X obj 199 123 bng 8 250 50 0 learn_bng5 --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 187 134 bng 20 250 50 0 out_bng5 in_bng5 empty 17 7 0 10 -262144
+-1 -1;
+#X obj 213 -22 mknob 25 127 0 127 0 0 out_knob5 in_knob5 empty -2 -6
+192 8 -262144 -1 -1 0 1;
+#X obj 251 -50 cnv 15 70 225 empty empty 6 5 20 0 32 -191407 -99865
+0;
+#X obj 290 23 vsl 20 128 0 127 0 0 out_fader6 in_fader6 empty 0 -9
+0 10 -262144 -1 -1 7900 1;
+#X obj 302 11 bng 8 250 50 0 learn_fader6 --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 302 -34 bng 8 250 50 0 learn_knob6 --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 272 21 bng 8 250 50 0 learn_tgl6a --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 272 74 bng 8 250 50 0 learn_tgl6b --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 260 84 tgl 20 0 out_tgl6b in_tgl6b empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X obj 260 31 tgl 20 0 out_tgl6a in_tgl6a empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X obj 272 123 bng 8 250 50 0 learn_bng6 --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 260 134 bng 20 250 50 0 out_bng6 in_bng6 empty 17 7 0 10 -262144
+-1 -1;
+#X obj 286 -22 mknob 25 127 0 127 0 0 out_knob6 in_knob6 empty -2 -6
+192 8 -262144 -1 -1 0 1;
+#X obj 324 -50 cnv 15 70 225 empty empty 7 5 20 0 32 -191407 -99865
+0;
+#X obj 363 23 vsl 20 128 0 127 0 0 out_fader7 in_fader7 empty 0 -9
+0 10 -262144 -1 -1 6500 1;
+#X obj 375 11 bng 8 250 50 0 learn_fader7 --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 375 -34 bng 8 250 50 0 learn_knob7 --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 345 21 bng 8 250 50 0 learn_tgl7a --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 345 74 bng 8 250 50 0 learn_tgl7b --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 333 84 tgl 20 0 out_tgl7b in_tgl7b empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X obj 333 31 tgl 20 0 out_tgl7a in_tgl7a empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X obj 345 123 bng 8 250 50 0 learn_bng7 --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 333 134 bng 20 250 50 0 out_bng7 in_bng7 empty 17 7 0 10 -262144
+-1 -1;
+#X obj 359 -22 mknob 25 127 0 127 0 0 out_knob7 in_knob7 empty -2 -6
+192 8 -262144 -1 -1 0 1;
+#X obj 397 -50 cnv 15 70 225 empty empty 8 5 20 0 32 -191407 -99865
+0;
+#X obj 436 23 vsl 20 128 0 127 0 0 out_fader8 in_fader8 empty 0 -9
+0 10 -262144 -1 -1 5700 1;
+#X obj 448 11 bng 8 250 50 0 learn_fader8 --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 448 -34 bng 8 250 50 0 learn_knob8 --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 418 21 bng 8 250 50 0 learn_tgl8a --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 418 74 bng 8 250 50 0 learn_tgl8b --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 406 84 tgl 20 0 out_tgl8b in_tgl8b empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X obj 406 31 tgl 20 0 out_tgl8a in_tgl8a empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X obj 418 123 bng 8 250 50 0 learn_bng8 --- empty 17 7 0 10 -4034
+-1 -1;
+#X obj 406 134 bng 20 250 50 0 out_bng8 in_bng8 empty 17 7 0 10 -262144
+-1 -1;
+#X obj 432 -22 mknob 25 127 0 127 0 0 out_knob8 in_knob8 empty -2 -6
+192 8 -262144 -1 -1 12600 1;
+#X obj -215 84 bng 20 250 50 0 out_set in_set empty 17 7 0 10 -262144
+-1 -1;
+#X obj -215 134 bng 20 250 50 0 out_stop in_stop empty 17 7 0 10 -262144
+-1 -1;
+#X obj -185 134 bng 20 250 50 0 out_play in_play empty 17 7 0 10 -262144
+-1 -1;
+#X obj -155 134 bng 20 250 50 0 out_rec in_rec empty 17 7 0 10 -262144
+-1 -1;
+#N canvas 354 152 921 497 midi_mappings 0;
+#X obj -45 4 declare -path ./_externals -path ./_abs;
+#X msg -43 257 40;
+#X msg -43 277 0;
+#X msg -43 297 30;
+#X msg -43 317 20;
+#X msg -43 337 10;
+#X msg 137 257 41;
+#X msg 137 277 1;
+#X msg 137 297 31;
+#X msg 137 317 21;
+#X msg 137 337 11;
+#X msg 327 257 42;
+#X msg 327 277 2;
+#X msg 327 297 32;
+#X msg 327 317 22;
+#X msg 327 337 12;
+#X msg 517 257 43;
+#X msg 517 277 3;
+#X msg 517 297 33;
+#X msg 517 317 23;
+#X msg 517 337 13;
+#X msg -43 387 44;
+#X msg -43 407 4;
+#X msg -43 427 34;
+#X msg -43 447 24;
+#X msg -43 467 14;
+#X msg 137 387 45;
+#X msg 137 407 5;
+#X msg 137 427 35;
+#X msg 137 447 25;
+#X msg 137 467 15;
+#X msg 327 387 46;
+#X msg 327 407 6;
+#X msg 327 427 36;
+#X msg 327 447 26;
+#X msg 327 467 16;
+#X msg 517 387 47;
+#X msg 517 407 7;
+#X msg 517 427 37;
+#X msg 517 447 27;
+#X msg 517 467 17;
+#X msg 711 279 menusave;
+#X obj 711 256 r savePatch;
+#X msg -47 64 59;
+#X msg 133 64 60;
+#X msg -47 114 55;
+#X msg 313 114 56;
+#X msg 473 114 57;
+#X msg 643 114 58;
+#X msg -47 164 50;
+#X msg 313 164 52;
+#X msg 473 164 53;
+#X msg 643 164 54;
+#X msg 133 164 51;
+#X text -52 40 TRANSPORT (LEFT SIDE);
+#X text -51 230 CHANNELS (RIGHT SIDE);
+#X obj -3 337 abs.midilearn_b bng1;
+#X obj 177 337 abs.midilearn_b bng2;
+#X obj 367 337 abs.midilearn_b bng3;
+#X obj 557 337 abs.midilearn_b bng4;
+#X obj 557 467 abs.midilearn_b bng8;
+#X obj 367 467 abs.midilearn_b bng7;
+#X obj 177 467 abs.midilearn_b bng6;
+#X obj -3 467 abs.midilearn_b bng5;
+#X obj -17 164 abs.midilearn_b rew;
+#X obj 163 164 abs.midilearn_b ff;
+#X obj 343 164 abs.midilearn_b stop;
+#X obj 503 164 abs.midilearn_b play;
+#X obj 673 164 abs.midilearn_b rec;
+#X obj 673 114 abs.midilearn_b MFF;
+#X obj 503 114 abs.midilearn_b MRew;
+#X obj 343 114 abs.midilearn_b set;
+#X obj 163 64 abs.midilearn_b track+;
+#X obj -17 64 abs.midilearn_b track-;
+#X obj 177 387 abs.midilearn knob6;
+#X obj -3 277 abs.midilearn fader1;
+#X obj -3 297 abs.midilearn tgl1a;
+#X obj -3 317 abs.midilearn tgl1b;
+#X obj 177 277 abs.midilearn fader2;
+#X obj 177 297 abs.midilearn tgl2a;
+#X obj 177 317 abs.midilearn tgl2b;
+#X obj 367 277 abs.midilearn fader3;
+#X obj 367 297 abs.midilearn tgl3a;
+#X obj 367 317 abs.midilearn tgl3b;
+#X obj 557 317 abs.midilearn tgl4b;
+#X obj 557 297 abs.midilearn tgl4a;
+#X obj 557 277 abs.midilearn fader4;
+#X obj 557 407 abs.midilearn fader8;
+#X obj 557 427 abs.midilearn tgl8a;
+#X obj 557 447 abs.midilearn tgl8b;
+#X obj 367 447 abs.midilearn tgl7b;
+#X obj 367 427 abs.midilearn tgl7a;
+#X obj 367 407 abs.midilearn fader7;
+#X obj -3 407 abs.midilearn fader5;
+#X obj -3 427 abs.midilearn tgl5a;
+#X obj -3 447 abs.midilearn tgl5b;
+#X obj 177 407 abs.midilearn fader6;
+#X obj 177 427 abs.midilearn tgl6a;
+#X obj 177 447 abs.midilearn tgl6b;
+#X obj -17 114 abs.midilearn cycle;
+#X obj -3 257 abs.midilearn knob1;
+#X obj 177 257 abs.midilearn knob2;
+#X obj 367 257 abs.midilearn knob3;
+#X obj 557 257 abs.midilearn knob4;
+#X obj 557 387 abs.midilearn knob8;
+#X obj 367 387 abs.midilearn knob7;
+#X obj -3 387 abs.midilearn knob5;
+#X obj 711 302 s pd-nanoKontrol2.pd;
+#X connect 1 0 100 0;
+#X connect 2 0 75 0;
+#X connect 3 0 76 0;
+#X connect 4 0 77 0;
+#X connect 5 0 56 0;
+#X connect 6 0 101 0;
+#X connect 7 0 78 0;
+#X connect 8 0 79 0;
+#X connect 9 0 80 0;
+#X connect 10 0 57 0;
+#X connect 11 0 102 0;
+#X connect 12 0 81 0;
+#X connect 13 0 82 0;
+#X connect 14 0 83 0;
+#X connect 15 0 58 0;
+#X connect 16 0 103 0;
+#X connect 17 0 86 0;
+#X connect 18 0 85 0;
+#X connect 19 0 84 0;
+#X connect 20 0 59 0;
+#X connect 21 0 106 0;
+#X connect 22 0 93 0;
+#X connect 23 0 94 0;
+#X connect 24 0 95 0;
+#X connect 25 0 63 0;
+#X connect 26 0 74 0;
+#X connect 27 0 96 0;
+#X connect 28 0 97 0;
+#X connect 29 0 98 0;
+#X connect 30 0 62 0;
+#X connect 31 0 105 0;
+#X connect 32 0 92 0;
+#X connect 33 0 91 0;
+#X connect 34 0 90 0;
+#X connect 35 0 61 0;
+#X connect 36 0 104 0;
+#X connect 37 0 87 0;
+#X connect 38 0 88 0;
+#X connect 39 0 89 0;
+#X connect 40 0 60 0;
+#X connect 41 0 107 0;
+#X connect 42 0 41 0;
+#X connect 43 0 73 0;
+#X connect 44 0 72 0;
+#X connect 45 0 99 0;
+#X connect 46 0 71 0;
+#X connect 47 0 70 0;
+#X connect 48 0 69 0;
+#X connect 49 0 64 0;
+#X connect 50 0 66 0;
+#X connect 51 0 67 0;
+#X connect 52 0 68 0;
+#X connect 53 0 65 0;
+#X connect 56 0 5 0;
+#X connect 57 0 10 0;
+#X connect 58 0 15 0;
+#X connect 59 0 20 0;
+#X connect 60 0 40 0;
+#X connect 61 0 35 0;
+#X connect 62 0 30 0;
+#X connect 63 0 25 0;
+#X connect 64 0 49 0;
+#X connect 65 0 53 0;
+#X connect 66 0 50 0;
+#X connect 67 0 51 0;
+#X connect 68 0 52 0;
+#X connect 69 0 48 0;
+#X connect 70 0 47 0;
+#X connect 71 0 46 0;
+#X connect 72 0 44 0;
+#X connect 73 0 43 0;
+#X connect 74 0 26 0;
+#X connect 75 0 2 0;
+#X connect 76 0 3 0;
+#X connect 77 0 4 0;
+#X connect 78 0 7 0;
+#X connect 79 0 8 0;
+#X connect 80 0 9 0;
+#X connect 81 0 12 0;
+#X connect 82 0 13 0;
+#X connect 83 0 14 0;
+#X connect 84 0 19 0;
+#X connect 85 0 18 0;
+#X connect 86 0 17 0;
+#X connect 87 0 37 0;
+#X connect 88 0 38 0;
+#X connect 89 0 39 0;
+#X connect 90 0 34 0;
+#X connect 91 0 33 0;
+#X connect 92 0 32 0;
+#X connect 93 0 22 0;
+#X connect 94 0 23 0;
+#X connect 95 0 24 0;
+#X connect 96 0 27 0;
+#X connect 97 0 28 0;
+#X connect 98 0 29 0;
+#X connect 99 0 45 0;
+#X connect 100 0 1 0;
+#X connect 101 0 6 0;
+#X connect 102 0 11 0;
+#X connect 103 0 16 0;
+#X connect 104 0 36 0;
+#X connect 105 0 31 0;
+#X connect 106 0 21 0;
+#X restore -288 -47 pd midi_mappings;

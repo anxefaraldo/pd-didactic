@@ -1,0 +1,22 @@
+#N canvas 140 22 486 311 10;
+#X obj 95 142 cos~;
+#X text 133 120 range;
+#X obj 95 166 *~ -0.5;
+#X text 146 165 inverted cos;
+#X text 142 189 scaled between 0-1;
+#X obj 95 189 +~ 0.5;
+#X text 137 213 range;
+#X text 124 97 divides in 2 to use only the rising half of the cycle
+;
+#X obj 95 236 outlet~;
+#X obj 95 120 /~ \$1;
+#X obj 95 213 *~ \$1;
+#X obj 95 97 /~ 2;
+#X obj 95 74 inlet~;
+#X connect 0 0 2 0;
+#X connect 2 0 5 0;
+#X connect 5 0 10 0;
+#X connect 9 0 0 0;
+#X connect 10 0 8 0;
+#X connect 11 0 9 0;
+#X connect 12 0 11 0;

@@ -1,0 +1,57 @@
+#N canvas 161 83 1119 614 10;
+#X obj 112 77 osc~ 300;
+#X obj 172 77 osc~ 300;
+#X obj 192 104 env~;
+#X floatatom 192 128 5 0 0 0 - - -;
+#X obj 67 106 env~;
+#X floatatom 67 130 5 0 0 0 - - -;
+#X text 226 104 rms average level is around 3 db less than peak level
+;
+#X obj 192 150 + 3.02;
+#X floatatom 192 174 5 0 0 0 - - -;
+#X obj 67 150 + 3.02;
+#X floatatom 67 174 5 0 0 0 - - -;
+#X text 239 176 peak;
+#X obj 158 213 +~;
+#X obj 158 237 env~;
+#X floatatom 158 261 5 0 0 0 - - -;
+#X msg 206 30 0;
+#X msg 136 21 0.2;
+#X obj 172 346 env~;
+#X floatatom 172 370 5 0 0 0 - - -;
+#X obj 47 348 env~;
+#X floatatom 47 372 5 0 0 0 - - -;
+#X text 206 346 rms average level is around 3 db less than peak level
+;
+#X obj 128 415 +~;
+#X obj 128 439 env~;
+#X floatatom 128 463 5 0 0 0 - - -;
+#X obj 152 319 noise~;
+#X obj 92 319 noise~;
+#X text 217 239 DOUBLING CORRELATED SIGNALS (WHAT WE NORMALLY HAVE!)=
++ 6 DB;
+#X text 170 441 DOUBLING NON-CORRELATED SIGNALS (WHAT WE NORMALLY HAVE!)=
++3DB;
+#X connect 0 0 4 0;
+#X connect 0 0 12 0;
+#X connect 1 0 2 0;
+#X connect 1 0 12 1;
+#X connect 2 0 3 0;
+#X connect 3 0 7 0;
+#X connect 4 0 5 0;
+#X connect 5 0 9 0;
+#X connect 7 0 8 0;
+#X connect 9 0 10 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 15 0 1 1;
+#X connect 16 0 15 0;
+#X connect 16 0 0 1;
+#X connect 17 0 18 0;
+#X connect 19 0 20 0;
+#X connect 22 0 23 0;
+#X connect 23 0 24 0;
+#X connect 25 0 17 0;
+#X connect 25 0 22 1;
+#X connect 26 0 19 0;
+#X connect 26 0 22 0;

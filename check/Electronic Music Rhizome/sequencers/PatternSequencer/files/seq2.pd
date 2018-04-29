@@ -1,0 +1,6 @@
+#N canvas 167 211 267 116 10;
+#X obj 0 0 tgl 30 0 \$1-outTgl1 \$1-inTgl1 empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 30 0 tgl 30 0 \$1-outTgl2 \$1-inTgl2 empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X coords 0 -1 1 1 60 30 2 0 0;

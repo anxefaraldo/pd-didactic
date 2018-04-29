@@ -1,0 +1,143 @@
+pitch.min 800;
+pitch.max 1400;
+
+amplitude.min 30;
+amplitude.max 90;
+
+pan.min -45;
+pan.max 45;
+
+IOT.min 0.5;
+IOT.max 19;
+
+Qvalue.min .05;
+Qvalue.max 1000;
+
+rest.min 10;
+rest.max 40;
+
+activator 1;
+
+10000
+activator 0;
+
+
+3000
+pitch.min 800;
+pitch.max 1400;
+
+amplitude.min 30;
+amplitude.max 90;
+
+pan.min -45;
+pan.max 45;
+
+IOT.min 0.5;
+IOT.max 19;
+
+Qvalue.min .05;
+Qvalue.max 1000;
+
+rest.min 10;
+rest.max 40;
+
+activator 17;
+
+10000
+activator 0;
+
+3000
+pitch.min 800;
+pitch.max 1400;
+
+amplitude.min 30;
+amplitude.max 90;
+
+pan.min -45;
+pan.max 45;
+
+IOT.min 0.5;
+IOT.max 19;
+
+Qvalue.min .05;
+Qvalue.max 1000;
+
+rest.min 5;
+rest.max 20;
+
+activator 13;
+
+10000
+activator 0;
+
+3000
+pitch.min 800;
+pitch.max 1400;
+
+amplitude.min 30;
+amplitude.max 95;
+
+pan.min -45;
+pan.max 45;
+
+IOT.min 0.5;
+IOT.max 19;
+
+Qvalue.min .05;
+Qvalue.max 1000;
+
+rest.min 1.5;
+rest.max 3;
+
+activator 7;
+
+10000
+activator 0;
+
+3000
+pitch.min 50;
+pitch.max 1400;
+
+amplitude.min 30;
+amplitude.max 95;
+
+pan.min -45;
+pan.max 45;
+
+IOT.min 19;
+IOT.max 100;
+
+Qvalue.min .05;
+Qvalue.max 1000;
+
+rest.min 0.5;
+rest.max 1.5;
+
+activator 7;
+
+10000
+activator 0;
+
+3000
+pitch.min 50;
+pitch.max 1400;
+
+amplitude.min 30;
+amplitude.max 95;
+
+pan.min -45;
+pan.max 45;
+
+IOT.min 50;
+IOT.max 210;
+
+Qvalue.min .05;
+Qvalue.max 1000;
+
+rest.min 0.5;
+rest.max 1.5;
+
+activator 7;
+
+10000
+activator 0;

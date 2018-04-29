@@ -1,0 +1,34 @@
+inBeats 3;
+inSubdivision 0;
+inBpm 120;
+inInstruments 5;
+50 1-pattern 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+50 2-pattern 0 0 0 1 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0;
+50 3-pattern 0 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0 0 0 0 0;
+50 4-pattern 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+50 5-pattern 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0;
+10 1-visualizePattern bang;
+2-visualizePattern bang;
+3-visualizePattern bang;
+4-visualizePattern bang;
+5-visualizePattern bang;
+10 1-inPan 36;
+10 2-inPan -21;
+10 3-inPan -34;
+10 4-inPan 0;
+10 5-inPan 18;
+10 1-inVolume 105;
+10 2-inVolume 148;
+10 3-inVolume 58;
+10 4-inVolume 148;
+10 5-inVolume 139;
+10 1-inFile /Users/Mondegreen/Dropbox/myStuff/Electronic Music Tree/sequencers/PatternSequencer/samples/jazz/ride
+- bell.wav;
+10 2-inFile /Users/Mondegreen/Dropbox/myStuff/Electronic Music Tree/sequencers/PatternSequencer/samples/jazz/snare
+- snares on.wav;
+10 3-inFile /Users/Mondegreen/Dropbox/myStuff/Electronic Music Tree/sequencers/PatternSequencer/samples/jazz/hihat
+- closed.wav;
+10 4-inFile /Users/Mondegreen/Dropbox/myStuff/Electronic Music Tree/sequencers/PatternSequencer/samples/jazz/bop
+kick - snares on.wav;
+10 5-inFile /Users/Mondegreen/Dropbox/myStuff/Electronic Music Tree/sequencers/PatternSequencer/samples/jazz/floor
+tom - snares on.wav;

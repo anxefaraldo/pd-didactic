@@ -1,0 +1,33 @@
+#N canvas 393 271 757 353 10;
+#X declare -lib iemmatrix;
+#X obj 248 42 savepanel;
+#X obj 248 64 makefilename %s.mtx;
+#X obj 248 23 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 186 176 mtx_print;
+#X obj 260 125 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 186 24 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 186 64 read \$1;
+#X msg 248 85 write \$1;
+#X obj 186 43 openpanel;
+#X msg 47 5 matrix 29 29;
+#X text 314 -78 FREQUENCIES;
+#X msg 315 -57 row 1 20 25 31.5 40 50 63 80 100 125 160 200 250 315
+400 500 630 800 1000 1250 1600 2000 2500 3150 4000 5000 6300 8000 10000
+12500;
+#X obj 186 152 matrix loudnessCurve.mtx;
+#X obj 47 29 mtx_check;
+#X obj 3 -69 import iemmatrix;
+#X connect 0 0 1 0;
+#X connect 1 0 7 0;
+#X connect 2 0 0 0;
+#X connect 4 0 12 0;
+#X connect 5 0 8 0;
+#X connect 6 0 12 0;
+#X connect 7 0 12 0;
+#X connect 8 0 6 0;
+#X connect 9 0 13 0;
+#X connect 12 0 3 0;
+#X connect 13 0 12 0;

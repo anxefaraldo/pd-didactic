@@ -1,0 +1,68 @@
+#N canvas 33 22 1050 755 10;
+#N canvas 507 56 695 440 FFT-analysis 1;
+#X obj 8 7 inlet~;
+#X obj 8 27 rfft~;
+#X text 149 7 <- Debemos cambiar el blocksize del subpatch de acuerdo
+al tamanio en samples deseado (siempre potencias de 2).;
+#X obj 56 88 tabsend~ ReX_rectangular;
+#X obj 55 58 tabsend~ ImX_rectangular;
+#X obj -17 217 *~;
+#X obj 15 217 *~;
+#X obj -6 260 sqrt~;
+#X obj 59 7 block~ 64;
+#X obj 5 329 expr~ 20*log10($v1);
+#X obj 5 354 tabsend~ magnitude_log;
+#X obj -6 379 tabsend~ magnitude_linear;
+#X obj -6 282 /~ 64;
+#X obj -6 239 +~;
+#X obj 536 356 expr 20*log10($f1);
+#X floatatom 536 335 5 0 0 0 - - -;
+#X floatatom 536 379 5 0 0 0 - - -;
+#X text 161 341 el resultado expresado logarítmicamente es negativo
+\, puesto que la magnitud está en rango 0-1 y log 0 = -inf y log 1
+= 0 Esta es la razón por la que los decibelios en el mundo de la ingeniería
+de sonido se expresan en negativo.;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 1 0 5 1;
+#X connect 1 0 5 0;
+#X connect 1 1 6 1;
+#X connect 1 1 6 0;
+#X connect 1 1 4 0;
+#X connect 5 0 13 0;
+#X connect 6 0 13 1;
+#X connect 7 0 12 0;
+#X connect 9 0 10 0;
+#X connect 12 0 11 0;
+#X connect 12 0 9 0;
+#X connect 13 0 7 0;
+#X connect 14 0 16 0;
+#X connect 15 0 14 0;
+#X restore -279 -95 pd FFT-analysis;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array ReX_rectangular 33 float 4;
+#X coords 0 12 32 -12 440 160 1;
+#X restore -805 -197 graph;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array ImX_rectangular 33 float 4;
+#X coords 0 12 32 -12 440 160 1;
+#X restore -805 -15 graph;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array magnitude_linear 33 float 4;
+#X coords 0 1 32 0 440 220 1;
+#X restore -805 175 graph;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array magnitude_log 33 float 4;
+#X coords 0 0 32 -96 440 220 1;
+#X restore -330 174 graph;
+#X text -806 -285 Esta serie de experimentos utiliza un tamanio de
+ventana de 64 samples \, lo que implica que las bandas resultantes
+son 32 (ventana de analisis / 2) espaciadas regularmente en el rango
+de frecuencias de 0 a 22050 Hz (samplerate / 2) con una separacion
+de 689.062 (samplerate / blocksize).;
+#X text 119 166 0 dB;
+#X text 117 381 - 96 dB;
+#X text -357 385 0;
+#X text -358 167 1;
+#X obj -279 -117 osc~ 20000;
+#X connect 10 0 0 0;

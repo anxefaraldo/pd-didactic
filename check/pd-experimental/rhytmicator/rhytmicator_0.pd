@@ -1,0 +1,35 @@
+#N canvas 86 22 1086 698 10;
+#X obj 744 136 metro 1000;
+#X obj 744 115 tgl 15 0 empty empty on/off 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 801 97 * 1000;
+#X floatatom 801 116 5 0 0 1 ms. - -;
+#X obj 801 77 /;
+#X msg 801 56 60;
+#X obj 801 35 t b f;
+#X obj 801 17 nbx 5 14 -1e+37 1e+37 0 0 empty empty M.M. 0 -6 0 10
+-262144 -1 -1 0 256;
+#X obj 9 16 hradio 15 1 0 8 empty empty beats 0 -8 0 10 -262144 -1
+-1 3;
+#X obj 9 96 hradio 15 1 0 8 empty empty subdivision 0 -8 0 10 -262144
+-1 -1 0;
+#X text 357 63 por otra parte especificar longitud de los sonidos.
+;
+#X text 357 43 por una parte especificar relacion silencios/sonidos.
+;
+#X obj 9 38 + 1;
+#X obj 9 61 s beats;
+#X obj 9 118 + 1;
+#X obj 9 141 s beats;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 1;
+#X connect 4 0 2 0;
+#X connect 5 0 4 0;
+#X connect 6 0 5 0;
+#X connect 6 1 4 1;
+#X connect 7 0 6 0;
+#X connect 8 0 12 0;
+#X connect 9 0 14 0;
+#X connect 12 0 13 0;
+#X connect 14 0 15 0;

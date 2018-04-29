@@ -1,0 +1,113 @@
+#N canvas 584 22 407 147 10;
+#X declare -path ./_externals -path ./_abs;
+#X declare -path ./dependencies;
+#X obj 3 46 nanoKontrol2;
+#N canvas 141 22 437 496 sound_processing 1;
+#X obj -1 8 adc~ 1 2;
+#X text 59 8 <- Canales de entrada. Para hacer pruebas con archivos
+de sonido en lugar de micrófonos \, vete a 'Pd' -> 'Preferences' ->
+'Audio Settings' y selecciona 'Soundflower (2ch)' como tu interfaz
+de entrada. El interfaz de salida debe ser el que está conectado a
+tus altavoces \, bien el 'Built-in' del ordenador o un interfaz externo.
+A parte \, en las preferencias generales del sistema \, debes seleccionar
+'Soundflower (2ch)' como interfaz de SALIDA. De este modo \, todo el
+audio del sistema (iTunes \, Quicktime...) servirá como entrada de
+Pd (y por tanto no lo oirás hasta que tengas Pd activado y computando
+audio.;
+#X obj -1 315 dac~ 1 2;
+#X text 63 313 <- Canales de salida. Envía el sonido irectamente a
+las salidas L y R de tu tarjeta de sonido.;
+#N canvas 526 210 496 301 procc 1;
+#X obj 16 17 inlet~;
+#X obj 76 17 inlet~;
+#X obj 16 263 outlet~;
+#X obj 76 263 outlet~;
+#X obj 16 237 *~;
+#X obj 76 237 *~;
+#X obj 152 65 r tablesize;
+#X obj 131 121 *~ 1;
+#X obj 131 146 +~ 1;
+#X obj 152 87 - 3;
+#X obj 131 174 tabread4~ waveform;
+#X floatatom 131 20 5 0 0 1 Hz. - -;
+#X obj 131 43 phasor~ 1;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array waveform 32 float 0;
+#X coords 0 1 31 -1 200 140 1;
+#X restore 268 53 graph;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 4 0 2 0;
+#X connect 5 0 3 0;
+#X connect 6 0 9 0;
+#X connect 7 0 8 0;
+#X connect 8 0 10 0;
+#X connect 9 0 7 1;
+#X connect 10 0 5 1;
+#X connect 10 0 4 1;
+#X connect 11 0 12 0;
+#X connect 12 0 7 0;
+#X restore -1 224 pd procc;
+#X connect 0 0 4 0;
+#X connect 0 1 4 1;
+#X connect 4 0 2 0;
+#X connect 4 1 2 1;
+#X restore 3 91 pd sound_processing;
+#X text 84 44 <- click to see GUI;
+#N canvas 585 200 455 516 maps 0;
+#X obj 8 7 r out_track-;
+#X obj 37 28 r out_track+;
+#X obj 8 137 + 1;
+#X msg 37 106 1;
+#X msg 8 106 -1;
+#X obj 8 263 s controlGate;
+#X obj 72 51 r init_controlGate;
+#X obj 72 78 t b f;
+#X obj 14 205 tosymbol;
+#X msg 14 227 \; scene label \$1;
+#X obj 8 159 mod 3;
+#X obj 8 182 + 1;
+#X text 46 158 number of Scenes;
+#X obj 34 137 f 1;
+#X msg 61 464 \; waveform resize \$1;
+#X floatatom 61 414 5 0 0 0 - - -;
+#X floatatom 61 346 5 0 0 0 - - -;
+#X obj 61 388 * 8;
+#X obj 71 368 s timescale;
+#X obj 59 304 loadbang;
+#X obj 217 7 map.fader 1 2;
+#X msg 61 323 4;
+#X obj 196 447 s tablesize;
+#X obj 347 423 s cr;
+#X floatatom 349 391 5 0 0 0 - - -;
+#X obj 217 47 map.fader 3 4;
+#X obj 217 27 map.fader 2 3;
+#X obj 217 67 map.fader 4 5;
+#X obj 217 87 map.fader 5 6;
+#X obj 217 107 map.fader 6 7;
+#X obj 217 127 map.fader 7 8;
+#X obj 217 147 map.fader 8 0;
+#X connect 0 0 4 0;
+#X connect 1 0 3 0;
+#X connect 2 0 10 0;
+#X connect 2 0 13 0;
+#X connect 3 0 2 0;
+#X connect 4 0 2 0;
+#X connect 6 0 7 0;
+#X connect 7 0 3 0;
+#X connect 7 1 13 0;
+#X connect 8 0 9 0;
+#X connect 10 0 11 0;
+#X connect 11 0 8 0;
+#X connect 11 0 5 0;
+#X connect 13 0 2 1;
+#X connect 15 0 14 0;
+#X connect 15 0 22 0;
+#X connect 16 0 17 0;
+#X connect 16 0 18 0;
+#X connect 17 0 15 0;
+#X connect 19 0 21 0;
+#X connect 21 0 16 0;
+#X connect 24 0 23 0;
+#X restore 3 68 pd maps;
+#X obj -2 18 declare -path ./dependencies;

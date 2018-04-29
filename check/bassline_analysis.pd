@@ -1,0 +1,61 @@
+#N canvas 96 33 661 684 10;
+#X obj 16 23 openpanel;
+#X obj 16 1 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 16 46 read \$1;
+#X obj 15 476 noteout;
+#X msg 155 31 loop \$1;
+#X obj 155 10 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 95 10 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X msg 95 31 play \$1;
+#X msg 168 64 flush;
+#X msg 168 88 panic;
+#X floatatom 123 221 5 0 0 0 - - -, f 5;
+#X floatatom 100 242 5 0 0 0 - - -, f 5;
+#X text 208 88 all notes off;
+#X floatatom 77 263 5 0 0 0 - - -, f 5;
+#X msg 214 30 quantize \$1;
+#X obj 214 12 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 295 30 default = 1;
+#X floatatom 170 179 5 0 0 0 - - -, f 5;
+#X text 206 178 tempo (bpm);
+#X text 162 220 real duration (in ticks);
+#X text 137 243 tentative length (to match complete beats!);
+#X obj 46 447 print flush_midi_notes;
+#X text 114 264 estimated beats (in quarter notes \, after rounding
+up length);
+#X text 210 65 flushes all midi-notes at once (via 2nd outlet);
+#X obj 108 138 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 128 137 FOURTH outlet sends a bang when the file ends;
+#X text 72 475 FIRST outlet outputs midi notes in pd style;
+#X obj 77 157 unpack 0 0 0 0 0;
+#X text 182 157 THIRD outlet outputs temporal info:;
+#X text 189 442 SECOND outlet flushes all midi-note information as
+quadruplets containing: tick \, note \, vel \, channel;
+#X floatatom 146 200 5 0 0 0 - - -, f 5;
+#X text 185 199 ticks per quarternote;
+#X obj 15 116 gspd/midi-player;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 32 0;
+#X connect 4 0 32 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 7 0 32 0;
+#X connect 8 0 32 0;
+#X connect 9 0 32 0;
+#X connect 14 0 32 0;
+#X connect 15 0 14 0;
+#X connect 27 0 13 0;
+#X connect 27 1 11 0;
+#X connect 27 2 10 0;
+#X connect 27 3 30 0;
+#X connect 27 4 17 0;
+#X connect 32 0 3 0;
+#X connect 32 1 21 0;
+#X connect 32 2 27 0;
+#X connect 32 3 24 0;

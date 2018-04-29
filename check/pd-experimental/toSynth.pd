@@ -1,0 +1,9 @@
+#N canvas 243 389 229 127 10;
+#X obj 9 78 noteout;
+#X obj 9 53 unpack 0 0;
+#X obj 9 9 r \$1-midiOut;
+#X obj 9 31 route \$2;
+#X connect 1 0 0 0;
+#X connect 1 1 0 1;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;

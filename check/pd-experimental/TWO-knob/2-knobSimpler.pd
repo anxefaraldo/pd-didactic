@@ -1,0 +1,234 @@
+#N canvas 825 24 365 203 10;
+#N canvas 94 22 853 576 control 0;
+#X obj 12 124 midilearn;
+#X msg 75 124 1;
+#X obj 12 105 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 401 117 midilearn;
+#X msg 464 117 2;
+#X obj 401 98 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 11 -4 knob1: Controls speed of change by setting the sampling
+rate of knob2. Simultaneously \, sets a proportional random walk step-size
+according to the length of the pulse (knob2). Initial position (midi
+value 0) sets a no-sampling (continuous tracking of knob2) and no-random-walk
+(stable frequency of knob2).;
+#X text 398 -7 knob2: Controls the pulse size and therefore the continuum
+between frequency and rythhm. Final position (midi value 127) sets
+the synthesizer to silence.;
+#X text 400 42 La frecuencia de cada una de las posiciones no será
+la misma siempre \, sino que se almacenará con el incremento/decremento
+del random-walk en la posición correspondiente.;
+#X obj 401 314 s \$0-outInitSamps;
+#X obj 401 140 s \$0-midiKnob2;
+#X obj 12 146 s \$0-midiKnob1;
+#X obj 401 271 tabread \$0-k2Map;
+#X obj 12 339 / 127;
+#X obj 12 363 * 2000;
+#X obj 12 384 s \$0-clock;
+#X obj 401 160 r \$0-guiKnob2;
+#X obj 428 205 != 127;
+#X obj 401 183 t f f;
+#X obj 428 226 change;
+#X obj 428 248 s \$0-silence;
+#X obj 201 464 s \$0-stepSize;
+#X obj 13 168 r \$0-guiKnob1;
+#X obj 201 378 *;
+#X obj 201 352 t b f;
+#X obj 162 329 / 127;
+#X obj 201 402 + 0.5;
+#X obj 201 423 int;
+#X floatatom 207 445 5 0 0 0 - - -;
+#X obj 201 330 / 4;
+#X floatatom 408 293 5 0 0 0 - - -;
+#X connect 0 0 11 0;
+#X connect 0 1 1 0;
+#X connect 1 0 0 1;
+#X connect 2 0 0 0;
+#X connect 3 0 10 0;
+#X connect 3 1 4 0;
+#X connect 4 0 3 1;
+#X connect 5 0 3 0;
+#X connect 12 0 9 0;
+#X connect 12 0 29 0;
+#X connect 12 0 30 0;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 16 0 18 0;
+#X connect 17 0 19 0;
+#X connect 18 0 12 0;
+#X connect 18 1 17 0;
+#X connect 19 0 20 0;
+#X connect 22 0 13 0;
+#X connect 22 0 25 0;
+#X connect 23 0 26 0;
+#X connect 24 0 23 0;
+#X connect 24 1 23 1;
+#X connect 25 0 23 0;
+#X connect 26 0 27 0;
+#X connect 27 0 28 0;
+#X connect 27 0 21 0;
+#X connect 29 0 24 0;
+#X restore -98 8 pd control;
+#N canvas 0 22 653 493 maps 0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-k2Map 128 float 3;
+#A 0 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 20 21 23 24 26 28 30
+32 34 37 39 42 45 49 52 56 60 64 69 74 79 84 91 97 104 111 119 128
+137 147 158 169 181 194 208 223 239 256 274 294 315 338 362 388 416
+446 478 512 549 588 630 676 724 776 832 891 955 1024 1097 1176 1261
+1351 1448 1552 1663 1783 1911 2048 2195 2353 2521 2702 2896 3014 3327
+3566 3822 4096 4390 4705 5043 5405 5793 6208 6654 7132 7643 8192 8780
+9410 10086 10809 11585 12417 13308 14263 15287 16384 17560 18820 20171
+21619 23170 24834 26616 28526 30574 32768 35120 37641 40342 43238;
+#X coords 0 44000 128 0 600 200 1;
+#X restore 17 -66 graph;
+#X obj 16 141 loadbang;
+#X msg 16 164 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 20 21 23 24
+26 28 30 32 34 37 39 42 45 49 52 56 60 64 69 74 79 84 91 97 104 111
+119 128 137 147 158 169 181 194 208 223 239 256 274 294 315 338 362
+388 416 446 478 512 549 588 630 676 724 776 832 891 955 1024 1097 1176
+1261 1351 1448 1552 1663 1783 1911 2048 2195 2353 2521 2702 2896 3014
+3327 3566 3822 4096 4390 4705 5043 5405 5793 6208 6654 7132 7643 8192
+8780 9410 10086 10809 11585 12417 13308 14263 15287 16384 17560 18820
+20171 21619 23170 24834 26616 28526 30574 32768 35120 37641 40342 43238
+;
+#X obj 16 304 tabset \$0-k2Map;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X restore 0 8 pd maps;
+#X floatatom -44 59 6 0 1e+07 0 samp: #0-inInitSamps #0-outInitSamps
+;
+#X floatatom 70 59 6 -2048 2047 0 amp: #0-inInitAmp #0-outInitAmp;
+#X obj 70 49 bng 8 250 50 0 \$0-learnAmp \$0-nothing empty 17 7 0 10
+-228856 -1 -1;
+#X obj -44 49 bng 8 250 50 0 \$0-learnSamps \$0-nothing empty 17 7
+0 10 -228856 -1 -1;
+#X floatatom -2 59 6 0 0 0 - #0-visSamps #0-nothing2;
+#X obj 162 59 tgl 16 0 \$0-outSwitchMetro \$0-inSwitchMetro monitor
+20 8 0 10 -228856 -1 -1 1 1;
+#X floatatom 112 59 6 0 0 0 - #0-visAmp #0-nothing2;
+#X obj 163 49 bng 8 250 50 0 \$0-learnMonitor \$0-nothing empty 17
+7 0 10 -228856 -1 -1;
+#N canvas 363 22 457 405 p 0;
+#X obj 64 4 samplerate~;
+#X obj 64 44 /;
+#X msg 64 24 1 \$1;
+#X obj 28 146 z~;
+#X obj 43 64 *~ 1;
+#X obj 28 84 /~;
+#X obj 43 -36 r~ \$0-freqloop;
+#X obj -1 57 sig~ 1;
+#X obj 28 104 phasor~ 1;
+#N canvas 0 22 194 142 pulse 0;
+#X obj 7 76 expr~ if($v1 > $v2 \, 0 \, 1);
+#X obj 154 53 z~;
+#X obj 7 6 inlet~;
+#X obj 7 106 outlet~;
+#X connect 0 0 3 0;
+#X connect 1 0 0 1;
+#X connect 2 0 0 0;
+#X connect 2 0 1 0;
+#X restore 28 168 pd pulse;
+#X obj 28 327 dac~ 1 2;
+#X obj 28 192 lop~ 12000;
+#X obj 28 212 lop~ 12000;
+#X obj 28 232 lop~ 12000;
+#X obj 28 252 lop~ 12000;
+#X obj 205 28 \$0;
+#X obj 205 -16 loadbang;
+#X obj 215 8 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 205 171 s \$0-metro;
+#X obj 205 150 metro 400;
+#X obj 64 -16 r \$0-loadbang;
+#X obj 205 128 r \$0-outSwitchMetro;
+#N canvas 627 52 529 667 freq 0;
+#X obj 66 20 inlet~;
+#X obj 15 52 samphold~;
+#X obj 15 21 noise~;
+#X obj 276 69 z~;
+#X obj 15 92 expr~ if($v1 == $v2 \, 0 \, if($v1 >= 0 \, 1 \, -1));
+#X obj 130 380 fexpr~ abs($x[0] + $y[-1]);
+#X obj 130 458 s~ \$0-freqloop;
+#X obj 138 403 pulseVisInt \$0 visSamps;
+#X msg 190 349 set \$1;
+#X obj 190 268 r \$0-outInitSamps;
+#X obj 133 304 f;
+#X obj 133 267 metro 10;
+#X obj 106 178 r \$0-clock;
+#X obj 106 221 != 0;
+#X obj 106 243 change;
+#X obj 106 200 t f f;
+#X obj 151 244 sel 0;
+#X obj 190 303 spigot;
+#X obj 100 267 == 0;
+#X obj 312 366 print;
+#X obj 190 328 change;
+#X obj 258 199 r \$0-silence;
+#X obj 258 223 switch~;
+#X obj 36 117 r \$0-stepSize;
+#X obj 15 139 *~ 1;
+#X obj 130 429 mirrorWall~ 3 48000;
+#X connect 0 0 1 1;
+#X connect 1 0 3 0;
+#X connect 1 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 4 1;
+#X connect 4 0 24 0;
+#X connect 5 0 7 0;
+#X connect 5 0 25 0;
+#X connect 8 0 19 0;
+#X connect 8 0 5 0;
+#X connect 9 0 17 0;
+#X connect 9 0 10 1;
+#X connect 10 0 20 0;
+#X connect 11 0 10 0;
+#X connect 12 0 15 0;
+#X connect 13 0 14 0;
+#X connect 14 0 11 0;
+#X connect 14 0 18 0;
+#X connect 15 0 13 0;
+#X connect 15 1 16 0;
+#X connect 16 1 11 1;
+#X connect 17 0 20 0;
+#X connect 18 0 17 1;
+#X connect 20 0 8 0;
+#X connect 21 0 22 0;
+#X connect 23 0 24 1;
+#X connect 24 0 5 0;
+#X connect 25 0 6 0;
+#X restore 36 125 pd freq;
+#X obj 49 275 r \$0-silence;
+#X msg 205 50 \; \$1-loadbang bang \; \$1-inInitSamps 100 \; \$1-inSwitchMetro
+1;
+#X obj 28 297 *~ 0;
+#X connect 0 0 2 0;
+#X connect 1 0 4 1;
+#X connect 2 0 1 0;
+#X connect 3 0 9 0;
+#X connect 4 0 5 1;
+#X connect 5 0 8 0;
+#X connect 6 0 4 0;
+#X connect 7 0 5 0;
+#X connect 8 0 3 0;
+#X connect 8 0 22 0;
+#X connect 9 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 14 0 25 0;
+#X connect 15 0 24 0;
+#X connect 16 0 15 0;
+#X connect 17 0 15 0;
+#X connect 19 0 18 0;
+#X connect 20 0 0 0;
+#X connect 21 0 19 0;
+#X connect 23 0 25 1;
+#X connect 25 0 10 1;
+#X connect 25 0 10 0;
+#X restore -31 8 pd p;
+#X obj 73 -54 nbx 3 48 -1e+37 1e+37 0 0 \$0-guiKnob2 \$0-midiKnob2
+empty 0 -8 0 48 -262144 -1 -1 126 256;
+#X obj -97 -54 nbx 3 48 -1e+37 1e+37 0 0 \$0-guiKnob1 \$0-midiKnob1
+empty 0 -8 0 48 -262144 -1 -1 0 256;
