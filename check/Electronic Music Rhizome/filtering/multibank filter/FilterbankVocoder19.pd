@@ -1,14 +1,14 @@
-#N canvas 129 22 856 502 12;
+#N canvas 129 23 856 502 12;
 #X obj 123 76 readsf~;
 #X obj 632 298 dac~;
 #X obj 126 57 tgl 15 0 empty empty play/stop-> -80 7 0 8 -262144 -1
--1 1 1;
+-1 0 1;
 #X obj 123 -28 bng 15 250 50 0 empty empty <-Open_file 18 7 0 8 -262144
 -1 -1;
 #X obj 123 -11 openpanel;
 #X msg 123 33 open \$1;
 #X obj 422 64 noise~;
-#X floatatom 542 271 5 1 20 0 Set_Q-> - -;
+#X floatatom 542 271 5 1 20 0 Set_Q-> - -, f 5;
 #X obj 542 293 s Q;
 #N canvas 283 131 417 532 filterbank 0;
 #X obj -94 -102 inlet;
@@ -56,13 +56,13 @@
 #X obj 645 242 catch~ filterbanksum;
 #X obj 4 227 loadbang;
 #X obj 590 136 vsl 15 128 0.75 75 0 0 empty empty vol -2 -10 0 8 -262144
--1 -1 7100 1;
+-1 -1 0 1;
 #X obj 644 267 *~;
 #X msg 542 247 15;
-#X symbolatom 123 13 20 0 0 0 - - -;
+#X symbolatom 123 13 20 0 0 0 - - -, f 20;
 #X obj 184 78 spigot;
 #X obj 227 60 tgl 15 0 empty empty <-loop?? 18 7 0 8 -262144 -1 -1
-1 1;
+0 1;
 #X obj 65 76 adc~ 1;
 #N canvas 0 22 486 336 in_selection 0;
 #X msg 127 75 1;
@@ -97,7 +97,7 @@
 -1 -1;
 #X obj 480 -24 openpanel;
 #X msg 480 20 open \$1;
-#X symbolatom 480 0 20 0 0 0 - - -;
+#X symbolatom 480 0 20 0 0 0 - - -, f 20;
 #X msg 7 -37 symbol file;
 #X msg 16 -13 symbol mic;
 #X obj 184 101 t b b;
@@ -131,7 +131,7 @@
 #X msg 374 -17 symbol noise;
 #X text 363 -61 Select source SOUND2;
 #X text 7 -58 Select source SOUND1;
-#X floatatom 590 271 5 0 0 0 - - -;
+#X floatatom 590 271 5 0 0 0 - - -, f 5;
 #X text 115 316 This patch is dependant of vocfilter.pd abstraction
 \, zexy and iemlib externals.;
 #X msg 184 124 1;

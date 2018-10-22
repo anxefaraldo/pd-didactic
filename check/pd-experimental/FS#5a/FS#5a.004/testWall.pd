@@ -1,8 +1,0 @@
-#N canvas 0 22 450 300 10;
-#X obj 222 120 mirrorWallOLD~ 10;
-#X obj 222 97 sig~;
-#X floatatom 224 72 5 0 0 0 - - -;
-#X obj 232 242 snaps~;
-#X connect 0 0 3 0;
-#X connect 1 0 0 0;
-#X connect 2 0 1 0;

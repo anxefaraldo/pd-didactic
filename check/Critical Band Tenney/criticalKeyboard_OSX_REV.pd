@@ -1,4 +1,4 @@
-#N canvas 540 69 386 445 10;
+#N canvas 540 69 637 553 10;
 #N canvas 0 1007 852 413 gemwin 0;
 #X obj 101 186 gemwin;
 #X obj 118 81 r screenSize;
@@ -74,8 +74,8 @@
 #X connect 36 0 37 0;
 #X connect 37 0 0 0;
 #X connect 38 0 0 0;
-#X restore -3 136 pd gemwin;
-#X text -7 178 the synth is 100% monophonic and it works as follows:
+#X restore 40 284 pd gemwin;
+#X text 36 326 the synth is 100% monophonic and it works as follows:
 in case of multiple keys pressed simoultaneously \, only the key pressed
 in the first time will work (and therefore other keys pressed after
 this will be ignored). For a new key to work first release all the
@@ -370,24 +370,24 @@ normalize 1;
 #X connect 110 0 111 0;
 #X connect 111 0 112 1;
 #X connect 112 0 86 1;
-#X restore 61 136 pd guts;
-#X msg -1 35 sound1 \; selection 0;
-#X msg 86 35 sound2 \; selection 1;
-#X obj 210 17 bng 50 250 50 0 enter empty empty 17 7 0 10 -262144 -1
--1;
-#X obj -1 12 loadbang;
-#X obj 36 -133 SYNTHESIZER FOR JAMES TENNEY'S CRITICAL BAND;
-#X text -4 98 To see your mouse pointer again \, press your mouse button
-(mac) or left button.;
-#X text -7 160 NOTE:;
-#X text -2 80 TO EXIT FULLSCREEN \, PRESS ESC.;
-#X text -2 -93 Choose which of the following two sounds (default is
+#X restore 104 284 pd guts;
+#X msg 42 183 sound1 \; selection 0;
+#X msg 129 183 sound2 \; selection 1;
+#X obj 253 165 bng 50 250 50 0 enter empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 42 160 loadbang;
+#X obj 79 15 SYNTHESIZER FOR JAMES TENNEY'S CRITICAL BAND;
+#X text 39 246 To see your mouse pointer again \, press your mouse
+button (mac) or left button.;
+#X text 36 308 NOTE:;
+#X text 41 228 TO EXIT FULLSCREEN \, PRESS ESC.;
+#X text 41 55 Choose which of the following two sounds (default is
 sound1) you want to play. Even if they don't resemble any acoustic
 instrument's timbre \, the twofold division of the ensemble into winds
 and strings was considered when designing these sounds. Only in that
 sense "sound1" identifies with the wind section while "sound2" does
 with the string section:;
-#X text -6 -110 INSTRUCTIONS:;
-#X text 169 -5 TO START PLAYING \, PRESS:;
-#X text -2 269 ángel faraldo \, march 2010;
+#X text 37 38 INSTRUCTIONS:;
+#X text 212 143 TO START PLAYING \, PRESS:;
+#X text 41 417 ángel faraldo \, march 2010;
 #X connect 6 0 3 0;

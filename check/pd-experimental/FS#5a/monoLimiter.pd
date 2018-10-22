@@ -1,5 +1,5 @@
-#N canvas 519 555 427 385 10;
-#N canvas 139 400 538 388 processing 0;
+#N canvas 198 112 427 385 10;
+#N canvas 139 400 538 388 processing 1;
 #N canvas 251 397 368 402 amp-factor 0;
 #X obj 19 22 inlet~;
 #X obj 186 277 dbtorms~;
@@ -36,7 +36,7 @@
 #X obj 64 300 *~;
 #X obj 66 36 inlet~;
 #X obj 64 350 outlet~;
-#N canvas 320 492 534 384 att-rel-filtering 0;
+#N canvas 320 459 534 384 att-rel-filtering 0;
 #X obj 22 26 inlet~;
 #X text 67 26 amp-factor;
 #X obj 21 235 outlet~;
@@ -52,7 +52,7 @@
 #X obj 288 205 +;
 #X obj 328 169 t b f;
 #X obj 288 226 dbtorms;
-#N canvas 635 269 362 593 maxhold~ 0;
+#N canvas 413 91 362 593 maxhold~ 1;
 #X obj 148 154 - 1;
 #X obj 32 193 f;
 #X obj 57 175 t b f;
@@ -138,8 +138,8 @@
 #X restore 21 223 pd processing;
 #X obj 79 149 f;
 #X obj 131 204 f;
-#X floatatom 79 121 5 0 0 1 threshold(-30/0dB) - -;
-#X floatatom 131 179 5 0 0 1 level(-30/0dB) - -;
+#X floatatom 79 121 5 0 0 1 threshold(-30/0dB) - -, f 5;
+#X floatatom 131 179 5 0 0 1 level(-30/0dB) - -, f 5;
 #X obj 21 195 inlet~;
 #X obj 21 245 outlet~;
 #X obj 79 96 r LimThreshold;

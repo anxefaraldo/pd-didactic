@@ -13,7 +13,7 @@
 #X obj 102 -23 cnv 15 100 30 empty empty MODULATION 0 10 0 14 -233017
 -66577 0;
 #X obj 104 0 hsl 330 30 0 127 0 0 RingerPitch MIDI_RingerPitch empty
--2 -8 0 10 -191407 -99865 -1 16343 1;
+-2 -8 0 10 -191407 -99865 -1 15543 1;
 #X obj 322 50 cnv 15 20 20 empty pitchCents +0 0 12 0 11 -233017 -66577
 0;
 #X obj 366 52 cnv 15 30 30 empty empty Hz: 0 10 0 10 -233017 -66577
@@ -25,7 +25,7 @@
 #X obj 106 106 cnv 15 15 15 empty empty 1 0 10 0 10 -233017 -66577
 0;
 #X obj 105 162 nbx 3 14 -1e+37 1e+37 0 0 asdfdfad par1 empty 0 -8 0
-10 -191407 -1 -1 100 256;
+10 -191407 -1 -1 0 256;
 #X obj 105 123 knob 32 32 0 127 0 0 RAW_par1 MIDI_par1 empty 0 -8 0
 8 -262144 -162280 -1 3100 1;
 #X obj 156 106 cnv 15 15 15 empty empty 2 0 10 0 10 -233017 -66577
@@ -40,7 +40,7 @@
 0;
 #X obj 406 106 cnv 15 15 15 empty empty 7 0 10 0 10 -233017 -66577
 0;
-#X symbolatom 293 52 4 0 0 0 - pitchName asd;
+#X symbolatom 293 52 4 0 0 0 - pitchName asd, f 4;
 #X obj 154 123 knob 32 32 0 127 0 0 RAW_par2 MIDI_par2 empty 0 -8 0
 8 -262144 -162280 -1 3000 1;
 #X obj 204 123 knob 32 32 0 127 0 0 RAW_par3 MIDI_par3 empty 0 -8 0
@@ -54,7 +54,7 @@
 #X obj 404 123 knob 32 32 0 127 0 0 RAW_par7 MIDI_par7 empty 0 -8 0
 8 -262144 -162280 -1 0 1;
 #X obj 155 162 nbx 3 14 -1e+37 1e+37 0 0 asdfdfad par2 empty 0 -8 0
-10 -191407 -1 -1 96 256;
+10 -191407 -1 -1 0 256;
 #X obj 205 162 nbx 3 14 -1e+37 1e+37 0 0 asdfdfad par3 empty 0 -8 0
 10 -191407 -1 -1 0 256;
 #X obj 255 162 nbx 3 14 -1e+37 1e+37 0 0 asdfdfad par4 empty 0 -8 0
@@ -105,7 +105,7 @@
 -128992 -1;
 #X obj 506 -16 bng 10 250 50 0 learn_Volume -- empty 17 7 0 10 -228856
 -128992 -1;
-#X floatatom 497 179 5 0 0 0 - vis_Volume sdfg;
+#X floatatom 497 179 5 0 0 0 - vis_Volume sdfg, f 5;
 #X obj 106 206 cnv 15 15 15 empty empty 1/2 0 10 0 10 -233017 -66577
 0;
 #X obj 156 206 cnv 15 15 15 empty empty 1/3 0 10 0 10 -233017 -66577
@@ -131,7 +131,7 @@
 #X obj 354 223 knob 32 32 0 127 0 0 RAW_sub7 MIDI_sub7 empty 0 -8 0
 8 -262144 -162280 -1 0 1;
 #X obj 105 262 nbx 3 14 -1e+37 1e+37 0 0 asdfdfad sub2 empty 0 -8 0
-10 -191407 -1 -1 100 256;
+10 -191407 -1 -1 0 256;
 #X obj 155 262 nbx 3 14 -1e+37 1e+37 0 0 asdfdfad sub3 empty 0 -8 0
 10 -191407 -1 -1 0 256;
 #X obj 205 262 nbx 3 14 -1e+37 1e+37 0 0 asdfdfad sub4 empty 0 -8 0
@@ -165,9 +165,9 @@
 #X obj -4 -31 cnv 15 40 20 empty empty LIVE 45 25 0 14 -233017 -66577
 0;
 #X obj 4 -21 vradio 30 1 0 2 selInput MIDI_input empty 0 -8 0 10 -191407
--99865 -99865 0;
+-99865 -99865 1;
 #X obj 451 213 tgl 60 0 recMsg MIDI_recMsg empty 17 7 0 10 -262144
--1 -1 1 1;
+-1 -1 0 1;
 #X obj 451 213 tgl 60 0 recMsg MIDI_recMsg empty 17 7 0 10 -262144
 -1 -1 0 1;
 #X obj 451 213 cnv 15 60 60 empty recStatus empty 7 31 0 20 -191407
@@ -178,8 +178,8 @@
 -1 -1;
 #X obj 5 51 cnv 15 60 30 empty empty OPEN 8 15 0 18 -191407 -66577
 0;
-#N canvas 53 22 845 627 instructions 1;
-#N canvas 96 22 1036 698 code 1;
+#N canvas 53 23 845 627 instructions 0;
+#N canvas 96 23 1036 698 code 0;
 #X obj 106 451 hip~ 5;
 #X obj 106 297 hip~ 5;
 #X obj 19 296 hip~ 5;
@@ -443,17 +443,17 @@ writesf~ 2 \, obj 200 150 r~ recR \, obj 175 225 *~ \, connect 0 0
 #X obj 451 127 s MIDI_Volume;
 #X msg 613 66 menusave;
 #X obj 613 89 s pd-Ringo.pd;
-#X obj 11 216 midilearn;
-#X obj 121 216 midilearn;
-#X obj 231 216 midilearn;
-#X obj 341 216 midilearn;
-#X obj 451 216 midilearn;
-#X obj 561 216 midilearn;
-#X obj 671 216 midilearn;
-#X obj 11 66 midilearn;
-#X obj 151 66 midilearn;
-#X obj 311 66 midilearn;
-#X obj 451 66 midilearn;
+#X obj 11 216 gspd/midi-learn;
+#X obj 121 216 gspd/midi-learn;
+#X obj 231 216 gspd/midi-learn;
+#X obj 341 216 gspd/midi-learn;
+#X obj 451 216 gspd/midi-learn;
+#X obj 561 216 gspd/midi-learn;
+#X obj 671 216 gspd/midi-learn;
+#X obj 11 66 gspd/midi-learn;
+#X obj 151 66 gspd/midi-learn;
+#X obj 311 66 gspd/midi-learn;
+#X obj 451 66 gspd/midi-learn;
 #X obj 613 43 r savePatch;
 #X obj 24 191 s savePatch;
 #X obj 134 191 s savePatch;
@@ -495,12 +495,12 @@ writesf~ 2 \, obj 200 150 r~ recR \, obj 175 225 *~ \, connect 0 0
 #X obj 451 546 / 1.27;
 #X obj 561 546 / 1.27;
 #X obj 18 480 r init;
-#X obj 11 456 midilearn;
-#X obj 121 456 midilearn;
-#X obj 231 456 midilearn;
-#X obj 341 456 midilearn;
-#X obj 451 456 midilearn;
-#X obj 561 456 midilearn;
+#X obj 11 456 gspd/midi-learn;
+#X obj 121 456 gspd/midi-learn;
+#X obj 231 456 gspd/midi-learn;
+#X obj 341 456 gspd/midi-learn;
+#X obj 451 456 gspd/midi-learn;
+#X obj 561 456 gspd/midi-learn;
 #X obj 24 431 s savePatch;
 #X obj 134 431 s savePatch;
 #X obj 244 431 s savePatch;

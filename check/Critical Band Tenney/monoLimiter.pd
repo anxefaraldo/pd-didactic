@@ -138,8 +138,8 @@
 #X restore 21 223 pd processing;
 #X obj 132 77 f;
 #X obj 184 132 f;
-#X floatatom 132 49 5 0 0 1 threshold(-30/0dB) - -;
-#X floatatom 184 107 5 0 0 1 level(-30/0dB) - -;
+#X floatatom 132 49 5 0 0 1 threshold(-30/0dB) - -, f 5;
+#X floatatom 184 107 5 0 0 1 level(-30/0dB) - -, f 5;
 #X obj 21 195 inlet~;
 #X obj 21 245 outlet~;
 #X obj 132 24 r LimThreshold;
