@@ -1,0 +1,36 @@
+#N canvas 977 100 549 678 12;
+#X text 37 27 SOME FACTS:;
+#X text 42 52 - Notes separated by Octaves are perceived as so highly
+similar as to have the same note name;
+#X text 42 91 - Two tones an octave apart have a relationship of doubling/halving
+their frequencies;
+#X text 42 131 - In western music \, 1 octave is divided into twelve
+"perceivable equal parts \, called semitones.;
+#X text 41 221 - There must be a convention to convert musical tones
+to sound vibrations (in Hertz). A widespread convention is to assume
+middle a (A4) to be 440 Hz.;
+#X text 42 171 - That is done via the ratio given by the formula pow2(2
+\, 1/12);
+#X text 43 302 SEMITONES and FREQUENCY;
+#X floatatom 45 333 5 0 0 0 - - -;
+#X obj 59 469 * 440;
+#X floatatom 59 502 0 0 0 0 - - -;
+#X obj 45 439 pow, f 27;
+#X obj 45 384 expr pow(2.0 \, (1.0/12.0));
+#X obj 45 359 t b f, f 27;
+#X floatatom 52 410 0 0 0 0 - - -;
+#X text 108 466 with a standard reference frequency (A4) we can obtain
+the transposition factor of something...., f 49;
+#X floatatom 45 573 0 0 0 0 - - -;
+#X text 105 564 with midi reference frequency (midi note 0 = 8.1758
+Hz) we can get the whole range of midi note numbers;
+#X obj 45 540 * 8.1758;
+#X connect 7 0 12 0;
+#X connect 8 0 9 0;
+#X connect 10 0 8 0;
+#X connect 10 0 17 0;
+#X connect 11 0 13 0;
+#X connect 11 0 10 0;
+#X connect 12 0 11 0;
+#X connect 12 1 10 1;
+#X connect 17 0 15 0;

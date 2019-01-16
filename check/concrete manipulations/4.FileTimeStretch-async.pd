@@ -1,0 +1,115 @@
+#N canvas 116 42 867 660 10;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-file 159706 float 2;
+#X coords 0 1 159706 -1 200 170 1;
+#X restore 24 24 graph;
+#X obj 499 80 cnv 15 180 25 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X obj 478 285 r \$0-size;
+#X obj 478 306 - 3;
+#X obj 457 349 +~ 1;
+#X obj 457 328 *~ 1;
+#X obj 462 221 phasor~;
+#X obj 477 35 loadbang;
+#X obj 477 58 samplerate~;
+#X obj 462 79 /;
+#X obj 462 15 r \$0-size;
+#X msg 462 99 1 \$1;
+#X obj 462 119 /;
+#X obj 462 141 f;
+#X obj 462 198 * 1;
+#X obj 509 153 t b f;
+#X obj 509 131 /;
+#X floatatom 509 84 5 0 0 1 - - -;
+#X msg 509 109 1 \$1;
+#X obj 391 255 samphold~;
+#X obj 447 285 *~;
+#X obj 493 192 cnv 15 180 25 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X msg 501 196 0;
+#X text 528 196 reset (start file);
+#X text 546 84 time stretch factor;
+#X obj 386 204 cnv 15 60 25 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X obj 391 209 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 410 209 loop?;
+#X obj 391 232 sig~ 0;
+#X obj 463 369 cnv 15 360 40 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X text 474 371 all we've done so far is reading the array from left
+to right..;
+#X obj 231 17 cnv 15 135 25 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X obj 235 113 soundfiler;
+#X obj 235 175 s \$0-size;
+#X obj 235 46 openpanel;
+#X msg 235 90 read -resize \$1 \$2-file;
+#X obj 235 68 pack s \$0;
+#X obj 235 22 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 235 153 f;
+#X obj 243 133 bng 17 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 257 21 open a soundfile;
+#X obj 133 474 cnv 15 320 25 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X text 144 476 click on the object to see the guts of the patch:;
+#X obj 505 414 cnv 15 200 25 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X floatatom 509 420 5 0 0 1 - - -;
+#X obj 457 478 a.stretch-async \$0;
+#X obj 555 446 cnv 15 150 25 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 545 418 size deviation (sigma);
+#X floatatom 562 452 5 0 0 1 - - -;
+#X text 599 451 window size mean;
+#X obj 457 573 *~;
+#X obj 472 552 line~;
+#X msg 472 530 \$1 20;
+#X obj 442 596 cnv 15 220 25 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 475 505 hsl 128 15 0.01 4 1 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 609 504 volume compensation;
+#X text 480 599 angelfaraldo@gmail.com - 2012;
+#X obj 447 599 dac~;
+#X connect 2 0 3 0;
+#X connect 3 0 5 1;
+#X connect 4 0 45 0;
+#X connect 5 0 4 0;
+#X connect 6 0 19 1;
+#X connect 6 0 20 1;
+#X connect 7 0 8 0;
+#X connect 8 0 9 1;
+#X connect 9 0 11 0;
+#X connect 10 0 9 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 14 0 6 0;
+#X connect 15 0 14 0;
+#X connect 15 1 14 1;
+#X connect 16 0 15 0;
+#X connect 17 0 18 0;
+#X connect 18 0 16 0;
+#X connect 19 0 20 0;
+#X connect 20 0 5 0;
+#X connect 22 0 6 1;
+#X connect 26 0 28 0;
+#X connect 28 0 19 0;
+#X connect 32 0 38 0;
+#X connect 34 0 36 0;
+#X connect 35 0 32 0;
+#X connect 36 0 35 0;
+#X connect 37 0 34 0;
+#X connect 38 0 33 0;
+#X connect 39 0 38 0;
+#X connect 44 0 45 1;
+#X connect 45 0 50 0;
+#X connect 48 0 45 2;
+#X connect 50 0 57 0;
+#X connect 50 0 57 1;
+#X connect 51 0 50 1;
+#X connect 52 0 51 0;
+#X connect 54 0 52 0;

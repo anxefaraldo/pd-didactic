@@ -1,0 +1,91 @@
+#N canvas 358 48 726 817 10;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array array1 64 float 1;
+#A 0 -0.529957 0.763031 0.0298437 0.922138 -0.240159 0.734364 0.09662
+0.907912 0.593559 0.706802 0.362719 0.481635 0.852682 0.551912 0.0873126
+-0.685076 0.490472 -0.543798 0.42166 -0.863476 -0.452405 -0.969504
+0.174736 0.0916822 0.667741 0.91931 -0.921143 -0.398473 -0.886744 0.910227
+0.555303 -0.277562 0.280761 -0.456729 -0.0200581 -0.994573 0.71678
+-0.779719 0.44886 0.855508 0.633365 -0.18571 0.0439806 0.391073 -0.0762807
+0.778895 0.598694 -0.196731 -0.322176 -0.242364 -0.0365214 0.215373
+-0.801938 -0.306631 -0.228471 0.0421625 0.514845 0.43764 0.704378 -0.150702
+0.402235 0.860064 -0.742474 -0.287309;
+#X coords 0 1 63 -1 200 140 1 0 0;
+#X restore 17 127 graph;
+#X obj 16 69 noise~;
+#X obj 16 90 tabsend~ array1;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array array2 64 float 1;
+#A 0 -0.18408 -0.321779 -0.452958 -0.574965 -0.685306 -0.781775 -0.862389
+-0.925528 -0.969928 -0.994643 -0.999224 -0.983548 -0.947935 -0.893133
+-0.820202 -0.730667 -0.626324 -0.509281 -0.381928 -0.246826 -0.106726
+0.0355372 0.177079 0.315036 0.446604 0.569123 0.680117 0.777311 0.858769
+0.922815 0.968157 0.993902 0.999471 0.98481 0.950188 0.896302 0.824272
+0.735514 0.631865 0.515411 0.388505 0.253734 0.113815 -0.028408 -0.170057
+-0.308256 -0.440214 -0.563245 -0.674862 -0.772817 -0.855086 -0.920045
+-0.966353 -0.993072 -0.999689 -0.986016 -0.952379 -0.899443 -0.828268
+-0.740326 -0.637363 -0.521492 -0.395056 -0.260607;
+#X coords 0 1 63 -1 200 140 1 0 0;
+#X restore 490 126 graph;
+#X text 124 78 tabsend~ fills the entire table at each dsp block. Do
+not mind the refresh ratio \, that is much slower than reality \, (i.e.
+every 1.45 ms.);
+#X obj 15 289 tabreceive~ array1;
+#X text 120 612 this is just to show the effect of the scaling on the
+complete table...;
+#X text 262 173 note that the tables are 64 points long. This is because
+of the blocksize. If you're using fft processing \, the table should
+be = blockize~ (which you set via the [block~] object., f 33;
+#X obj 488 93 tabsend~ array2;
+#X obj 16 617 tabsend~ array3;
+#X obj 488 72 osc~ 1000;
+#X text 11 20 OBVIOUSLY \, TO RUN THIS PATCH YOU HAVE TO TURN ON THE
+DSP COMPUTATION!, f 70;
+#X obj 163 289 tabreceive~ array2;
+#X obj 16 594 +~, f 25;
+#X obj 16 569 *~;
+#X text 298 348 INTERPOLATION can be seen as an scaled sumation of
+two tables (containing the amplitude spectra of sounds A and B). The
+scaling can be controled with a reciprocal amplitude control (i.e.
+a crossfade);
+#X obj 163 569 *~;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array array3 64 float 1;
+#A 0 -0.526364 -0.863642 0.0764553 0.754309 0.934859 0.568408 -0.181559
+0.992913 -0.152039 -0.361475 0.187239 0.593148 0.0709891 0.0542144
+0.293585 -0.812431 0.283769 -0.912079 0.890299 0.715856 -0.996473 0.686408
+0.137921 -0.215803 -0.899481 -0.919872 0.870327 0.524655 -0.18635 0.892601
+-0.63964 -0.0454505 0.266105 -0.250211 -0.414548 -0.164172 0.480971
+-0.610531 0.993251 -0.965558 -0.103139 -0.72939 -0.232757 0.379723
+-0.616457 0.682748 -0.40762 0.0237533 0.757558 -0.644641 -0.0792958
+-0.699252 -0.202146 0.567238 -0.263029 -0.913577 0.761404 0.755868
+0.824278 0.657375 0.398832 -0.373198 0.529685 -0.949546;
+#X coords 0 1 63 -1 200 140 1 0 0;
+#X restore 18 656 graph;
+#X obj 181 425 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 178 447 5 0 0 0 - - -;
+#X text 325 419 This slider controls the relative influence of spectra
+A and B \, represented by 0 and 2 0.5 would represent a balanced mix
+between the two spectra. So you just need to use this range to invert
+the multiplication.;
+#X obj 31 523 - 1;
+#X obj 31 544 abs;
+#X floatatom 44 568 5 0 0 0 - - -;
+#X text 64 499 as you should figure \, this operation simply inverts
+the range 0-1., f 15;
+#X text 329 472 HERE IS WHERE YOU SHOULD PLUG YOUR INPUT SENSOR DATA!
+;
+#X connect 1 0 2 0;
+#X connect 5 0 14 0;
+#X connect 10 0 8 0;
+#X connect 12 0 16 0;
+#X connect 13 0 9 0;
+#X connect 14 0 13 0;
+#X connect 16 0 13 1;
+#X connect 18 0 19 0;
+#X connect 18 0 21 0;
+#X connect 19 0 16 1;
+#X connect 21 0 22 0;
+#X connect 22 0 14 1;
+#X connect 22 0 23 0;

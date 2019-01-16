@@ -1,0 +1,28 @@
+#N canvas 885 106 285 284 12;
+#N canvas 0 23 548 248 sample 0;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array my-soundfile 146432 float 0;
+#X coords 0 1 146431 -1 200 140 1 0 0;
+#X restore 100 20 graph;
+#X obj 103 172 loadbang;
+#X obj 102 217 soundfiler;
+#X msg 103 195 read -resize ./test-delay.wav my-soundfile;
+#X connect 1 0 3 0;
+#X connect 3 0 2 0;
+#X restore 23 199 pd sample;
+#X floatatom 53 90 4 0 999 0 - - -;
+#X obj 35 141 +~;
+#X obj 35 12 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 45 61 delwrite~ my-delay 1000;
+#X obj 53 116 delread~ my-delay;
+#X obj 35 33 tabplay~ my-soundfile;
+#X text 91 89 ms.;
+#X obj 22 171 dac~;
+#X connect 1 0 5 0;
+#X connect 2 0 8 0;
+#X connect 2 0 8 1;
+#X connect 3 0 6 0;
+#X connect 5 0 2 1;
+#X connect 6 0 2 0;
+#X connect 6 0 4 0;

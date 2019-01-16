@@ -1,0 +1,33 @@
+#N canvas 868 614 559 338 10;
+#X obj 68 41 timer;
+#X obj 95 15 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 68 74 t f f;
+#X obj 69 117 -, f 5;
+#X floatatom 69 143 0 0 0 0 - - -;
+#X text 122 69 if you do not understand the use of the object trigger
+(t) \, please revise the documentation. It is VERY IMPORTANT;
+#X floatatom 69 207 5 0 0 0 - - -;
+#X obj 69 172 moses 2000;
+#X text 151 165 this object "ignores" numbers above the threshold of
+2000 ms. (likely happening each time you try to set a new tempo;
+#X obj 69 263 /;
+#X msg 69 238 60000 \$1;
+#X floatatom 69 285 5 0 0 0 - - -;
+#X text 108 206 ms.;
+#X text 108 286 bmp;
+#X text 147 214 Last \, for visualisation purposes \, you might want
+to display the tempo information in BEATS PER MINUTE \, which is a
+more humanly measurement of the speed/tempo of a musical piece. This
+can be done applying THE SAME formula that we had learnt to convert
+BPM's to MILLISECONDS.;
+#X text 121 110 we subtract the current value to the previously stored
+one. HOW SHOULD YOU CONNECT THESE CABLES FOR IT TO WORK PROPERLY?;
+#X connect 0 0 2 0;
+#X connect 1 0 0 1;
+#X connect 3 0 4 0;
+#X connect 4 0 7 0;
+#X connect 6 0 10 0;
+#X connect 7 0 6 0;
+#X connect 9 0 11 0;
+#X connect 10 0 9 0;

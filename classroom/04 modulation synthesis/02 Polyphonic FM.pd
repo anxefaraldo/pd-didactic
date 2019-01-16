@@ -1,0 +1,52 @@
+#N canvas 421 78 563 414 10;
+#X obj 370 172 notein;
+#X obj 360 247 pack 0 0 0;
+#X obj 360 202 pack 0 0;
+#X obj 360 268 s carrier;
+#X obj 196 170 a.voiceFM 1;
+#X obj 196 190 a.voiceFM 2;
+#X obj 196 210 a.voiceFM 3;
+#X obj 196 230 a.voiceFM 4;
+#X obj 276 230 a.voiceFM 8;
+#X obj 276 210 a.voiceFM 7;
+#X obj 276 190 a.voiceFM 6;
+#X obj 276 170 a.voiceFM 5;
+#X obj 360 224 poly 8 1;
+#X obj 35 14 cnv 15 400 150 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X obj 45 115 poly;
+#X obj 45 89 stripnote;
+#X obj 45 64 mtof;
+#X obj 81 64 ftom;
+#X obj 45 37 notein;
+#X obj 95 37 ctlin;
+#X text 137 37 comunicación entre nuestros Aparatos MIDI y pd;
+#X text 115 63 conversiones entre números MIDI y frecuencias.;
+#X text 118 89 filtra mensages con note-off (velocity = 0);
+#X text 81 108 se encarga del numero de voces y la correcta distribucion
+de los mensajes (on/off);
+#X text 45 14 Creando un sintetizador polifónico con MIDI;
+#X obj 38 169 cnv 15 150 100 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X floatatom 89 217 5 0 0 0 1: - ratio;
+#X text 92 194 ratio C:M;
+#X text 40 172 FM SYNTHESIS CONTROLS;
+#X floatatom 89 240 6 0 0 0 index= - index;
+#X floatatom 153 220 5 0 0 0 A - A;
+#X floatatom 153 240 5 0 0 0 R - R;
+#X obj 40 326 cnv 15 290 25 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 51 282 catch~ sumOut;
+#X obj 45 330 dac~;
+#X obj 51 305 *~ 0.1;
+#X text 83 329 angelfaraldo@gmail.com - 2008 (rev 2012);
+#X connect 0 0 2 0;
+#X connect 0 1 2 1;
+#X connect 1 0 3 0;
+#X connect 2 0 12 0;
+#X connect 12 0 1 0;
+#X connect 12 1 1 1;
+#X connect 12 2 1 2;
+#X connect 33 0 35 0;
+#X connect 35 0 34 0;
+#X connect 35 0 34 1;

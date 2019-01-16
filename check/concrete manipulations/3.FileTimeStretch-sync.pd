@@ -1,0 +1,100 @@
+#N canvas 116 42 1009 581 10;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-file 2.6318e+06 float 2;
+#X coords 0 1 2.6318e+06 -1 200 170 1;
+#X restore 28 31 graph;
+#X obj 503 87 cnv 15 180 25 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X obj 482 292 r \$0-size;
+#X obj 482 313 - 3;
+#X obj 461 356 +~ 1;
+#X obj 461 335 *~ 1;
+#X obj 466 228 phasor~;
+#X obj 481 42 loadbang;
+#X obj 481 65 samplerate~;
+#X obj 466 86 /;
+#X obj 466 22 r \$0-size;
+#X msg 466 106 1 \$1;
+#X obj 466 126 /;
+#X obj 466 148 f;
+#X obj 466 205 * 1;
+#X obj 513 160 t b f;
+#X obj 513 138 /;
+#X floatatom 513 91 5 0 0 1 - - -;
+#X msg 513 116 1 \$1;
+#X obj 395 262 samphold~;
+#X obj 451 292 *~;
+#X obj 497 199 cnv 15 180 25 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X msg 505 203 0;
+#X text 532 203 reset (start file);
+#X text 550 91 time stretch factor;
+#X obj 390 211 cnv 15 60 25 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X obj 395 216 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 414 216 loop?;
+#X obj 395 239 sig~ 0;
+#X obj 467 376 cnv 15 360 40 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X text 478 378 all we've done so far is reading the array from left
+to right..;
+#X obj 235 24 cnv 15 135 25 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X obj 239 120 soundfiler;
+#X obj 239 182 s \$0-size;
+#X obj 239 53 openpanel;
+#X msg 239 97 read -resize \$1 \$2-file;
+#X obj 239 75 pack s \$0;
+#X obj 239 29 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 239 160 f;
+#X obj 247 140 bng 17 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 261 28 open a soundfile;
+#X obj 549 421 cnv 15 250 25 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X floatatom 560 425 5 0 0 1 - - -;
+#X text 597 425 window size (have a look inside);
+#X obj 137 446 cnv 15 320 25 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X text 148 448 click on the object to see the guts of the patch:;
+#X obj 461 450 a.stretch-sync \$0;
+#X obj 446 473 cnv 15 220 25 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 451 476 dac~;
+#X text 484 477 angelfaraldo@gmail.com - 2012;
+#X connect 2 0 3 0;
+#X connect 3 0 5 1;
+#X connect 4 0 46 0;
+#X connect 5 0 4 0;
+#X connect 6 0 19 1;
+#X connect 6 0 20 1;
+#X connect 7 0 8 0;
+#X connect 8 0 9 1;
+#X connect 9 0 11 0;
+#X connect 10 0 9 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 14 0 6 0;
+#X connect 15 0 14 0;
+#X connect 15 1 14 1;
+#X connect 16 0 15 0;
+#X connect 17 0 18 0;
+#X connect 18 0 16 0;
+#X connect 19 0 20 0;
+#X connect 20 0 5 0;
+#X connect 22 0 6 1;
+#X connect 26 0 28 0;
+#X connect 28 0 19 0;
+#X connect 32 0 38 0;
+#X connect 34 0 36 0;
+#X connect 35 0 32 0;
+#X connect 36 0 35 0;
+#X connect 37 0 34 0;
+#X connect 38 0 33 0;
+#X connect 39 0 38 0;
+#X connect 42 0 46 1;
+#X connect 46 0 48 0;
+#X connect 46 0 48 1;

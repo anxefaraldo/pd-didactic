@@ -1,52 +1,52 @@
-#N canvas 148 22 633 671 10;
+#N canvas 148 23 633 671 10;
 #X declare -path ../;
-#X obj -136 -338 openpanel;
-#X obj -136 -359 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 179 -110 openpanel;
+#X obj 179 -131 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X msg -146 -315 read \$1;
-#X obj -146 103 noteout;
-#X msg -14 -338 loop \$1;
-#X obj -14 -359 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+#X msg 169 -87 read \$1;
+#X obj 169 331 noteout;
+#X msg 301 -110 loop \$1;
+#X obj 301 -131 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
 0 1;
-#X obj -74 -359 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+#X obj 241 -131 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
 0 1;
-#X msg -74 -338 play \$1;
-#X msg 127 -339 flush;
-#X msg 45 -339 quantize \$1;
-#X obj 45 -357 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X floatatom 1 -231 5 0 0 0 - - -;
-#X obj -187 -223 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X text -89 102 FIRST outlet outputs midi notes in pd style;
-#X obj -56 -231 / 4;
-#X floatatom -56 -208 5 0 0 0 - - -;
-#X text -20 -209 bars;
-#X obj -66 -172 add2list;
-#X obj -125 -219 packel 2;
-#X obj -56 -252 packel 1 4;
-#X obj 127 -316 t a b;
-#X text 35 -231 bpm;
-#X obj -66 -128 list-unique;
-#X obj -87 -83 list;
-#X obj 66 -103 sort;
-#X obj 66 -78 list split;
-#X obj 123 -122 list length;
-#X obj 66 -155 t l l;
-#X obj 123 -100 - 1;
-#X obj 66 -54 f;
-#X floatatom 113 -31 5 0 0 0 - - -;
-#X floatatom 66 -31 5 0 0 0 - - -;
-#X obj -66 -150 midi2pc;
-#X obj 113 -10 mod 12;
-#X obj 66 -10 mod 12;
-#X floatatom 66 12 5 0 0 0 - - -;
-#X floatatom 113 12 5 0 0 0 - - -;
-#X floatatom 221 -92 5 0 0 0 - - -;
-#X obj 201 -138 list;
-#X msg -281 -478 refresh;
-#X text -222 -479 "refresh" to get list of files and init;
-#X obj -269 -454 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X msg 241 -110 play \$1;
+#X msg 442 -111 flush;
+#X msg 360 -111 quantize \$1;
+#X obj 360 -129 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X floatatom 316 -3 5 0 0 0 - - -;
+#X obj 128 5 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 226 330 FIRST outlet outputs midi notes in pd style;
+#X obj 259 -3 / 4;
+#X floatatom 259 20 5 0 0 0 - - -;
+#X text 295 19 bars;
+#X obj 249 56 add2list;
+#X obj 190 9 packel 2;
+#X obj 259 -24 packel 1 4;
+#X obj 442 -88 t a b;
+#X text 350 -3 bpm;
+#X obj 249 100 list-unique;
+#X obj 228 145 list;
+#X obj 381 125 sort;
+#X obj 381 150 list split;
+#X obj 438 106 list length;
+#X obj 381 73 t l l;
+#X obj 438 128 - 1;
+#X obj 381 174 f;
+#X floatatom 428 197 5 0 0 0 - - -;
+#X floatatom 381 197 5 0 0 0 - - -;
+#X obj 249 78 midi2pc;
+#X obj 428 218 mod 12;
+#X obj 381 218 mod 12;
+#X floatatom 381 240 5 0 0 0 - - -;
+#X floatatom 428 240 5 0 0 0 - - -;
+#X floatatom 536 136 5 0 0 0 - - -;
+#X obj 516 90 list;
+#X msg 34 -250 refresh;
+#X text 93 -251 "refresh" to get list of files and init;
+#X obj 46 -226 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #N canvas 438 372 588 585 extract_ground_truth 0;
 #X floatatom -261 -334 5 0 0 0 - - -;
@@ -110,28 +110,28 @@
 #X connect 26 0 25 0;
 #X connect 27 0 10 0;
 #X connect 27 1 0 0;
-#X restore -281 -405 pd extract_ground_truth;
-#X obj -281 -503 loadbang;
-#X obj -281 -381 key2pc;
-#X floatatom -248 -359 5 0 0 0 - - -;
-#X floatatom -281 -359 5 0 0 0 - - -;
-#X msg -260 -431 all;
-#X text -243 -455 "bang" to retrieve single files!;
-#X text -233 -432 "all" to retrieve the remanent of files!;
-#X obj -136 -382 print NAME;
-#X obj 201 -62 list-apply mod 12;
-#X obj -87 -61 print SCALE;
-#X obj -281 -313 print KEY;
-#X obj -281 -336 pack;
-#X obj 201 -40 print STAT_MODE;
-#X obj 66 39 pack;
-#X obj -118 76 print LOW/HIGH;
-#X obj -116 56 list;
-#X msg 48 -315 panic;
-#X obj -146 -269 midi-player;
-#X obj 201 -114 list-mode;
-#X obj 161 -426 declare -path ../;
-#X obj -66 -105 pcs-pseudoprimeform;
+#X restore 34 -177 pd extract_ground_truth;
+#X obj 34 -275 loadbang;
+#X obj 34 -153 key2pc;
+#X floatatom 67 -131 5 0 0 0 - - -;
+#X floatatom 34 -131 5 0 0 0 - - -;
+#X msg 55 -203 all;
+#X text 72 -227 "bang" to retrieve single files!;
+#X text 82 -204 "all" to retrieve the remanent of files!;
+#X obj 179 -154 print NAME;
+#X obj 516 166 list-apply mod 12;
+#X obj 228 167 print SCALE;
+#X obj 34 -85 print KEY;
+#X obj 34 -108 pack;
+#X obj 516 188 print STAT_MODE;
+#X obj 381 267 pack;
+#X obj 197 304 print LOW/HIGH;
+#X obj 199 284 list;
+#X msg 363 -87 panic;
+#X obj 169 -41 midi-player;
+#X obj 516 114 list-mode;
+#X obj 476 -198 declare -path ../;
+#X obj 249 123 pcs-pseudoprimeform;
 #X connect 0 0 2 0;
 #X connect 1 0 0 0;
 #X connect 2 0 60 0;

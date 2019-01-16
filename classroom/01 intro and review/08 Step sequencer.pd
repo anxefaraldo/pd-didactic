@@ -1,0 +1,151 @@
+#N canvas 0 23 899 826 12;
+#X obj 50 149 metro 1000;
+#X obj 50 124 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 117 25 5 0 0 0 - - -;
+#X obj 117 125 /, f 18;
+#X text 160 24 bmp;
+#X obj 117 75 float 60;
+#X obj 117 50 trigger bang float;
+#X obj 50 174 int;
+#X obj 87 175 + 1;
+#X floatatom 50 226 5 0 0 0 - - -;
+#X obj 50 252 hradio 20 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
+-1 5;
+#X obj 220 254 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 240 254 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 260 254 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 280 254 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 300 254 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 320 254 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 340 254 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 360 254 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 117 100 * 500;
+#X floatatom 530 242 5 0 0 0 - - -;
+#X obj 530 428 hradio 25 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 5;
+#X text 529 214 MELODIC APPROACH!;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array melodic_sequence 8 float 2;
+#X coords 0 12 8 0 200 140 1 0 0;
+#X restore 530 288 graph;
+#X obj 530 488 tabread melodic_sequence;
+#X floatatom 530 462 5 0 0 0 - - -;
+#X floatatom 530 514 5 0 0 0 - - -;
+#X obj 48 454 f;
+#X obj 78 454 f;
+#X obj 108 454 f;
+#X obj 138 454 f;
+#X obj 168 455 f;
+#X obj 198 454 f;
+#X obj 228 454 f;
+#X obj 258 454 f;
+#X text 52 734 BUT HERE WE HAVE TOO MANY CABLES... AND TOO MANY EQUAL
+THINGS... IS NOT THERE A WAY IN WHICH WE CAN ORDER ALL THIS IN A MORE
+EFFICIENT AND BETTER WAY!?;
+#X obj 50 330 select 0 1 2 3 4 5 6 7;
+#X text 101 217 PERCUSSIVE APPROACH!;
+#X obj 50 200 mod 8;
+#X obj 531 560 + 48;
+#X obj 550 672 dac~;
+#X obj 531 607 osc~ 40;
+#X obj 531 535 int;
+#X obj 531 583 mtof;
+#X text 499 738 >>>> check Pd documentation for non-local connections
+\, variables and encapsulation!, f 45;
+#X text 438 306 CHECK THE PROPERTIES OF THE TABLE! GUI OBJECTS HAVE
+CONFIGURABLE PARAMETERS, f 12;
+#X msg 613 608 0;
+#X obj 561 640 *~ 0;
+#X msg 653 608 0.1;
+#X obj 227 176 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 353 399 5 0 0 0 - - -;
+#X obj 354 431 send number1;
+#N canvas 320 55 450 300 envolvente 0;
+#X obj 74 226 dac~;
+#X obj 208 171 line~;
+#X obj 85 194 *~, f 18;
+#X obj 134 64 sel 1;
+#X obj 134 88 t b b, f 11;
+#X msg 134 138 0 10;
+#X obj 85 171 osc~ 40;
+#X msg 208 112 0 \, 1 1;
+#X obj 134 113 delay 10;
+#X obj 133 5 inlet;
+#X floatatom 151 34 5 0 0 0 - - -;
+#X connect 1 0 2 1;
+#X connect 2 0 0 1;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 8 0;
+#X connect 4 1 7 0;
+#X connect 5 0 1 0;
+#X connect 6 0 2 0;
+#X connect 7 0 1 0;
+#X connect 8 0 5 0;
+#X connect 9 0 3 0;
+#X connect 9 0 10 0;
+#X restore 131 520 pd envolvente;
+#X connect 0 0 7 0;
+#X connect 0 0 49 0;
+#X connect 1 0 0 0;
+#X connect 2 0 6 0;
+#X connect 3 0 0 1;
+#X connect 5 0 19 0;
+#X connect 6 0 5 0;
+#X connect 6 1 3 1;
+#X connect 7 0 8 0;
+#X connect 7 0 38 0;
+#X connect 8 0 7 1;
+#X connect 9 0 10 0;
+#X connect 9 0 20 0;
+#X connect 10 0 36 0;
+#X connect 11 0 27 1;
+#X connect 12 0 28 1;
+#X connect 13 0 29 1;
+#X connect 14 0 30 1;
+#X connect 15 0 31 1;
+#X connect 16 0 32 1;
+#X connect 17 0 33 1;
+#X connect 18 0 34 1;
+#X connect 19 0 3 0;
+#X connect 20 0 21 0;
+#X connect 21 0 25 0;
+#X connect 24 0 26 0;
+#X connect 25 0 24 0;
+#X connect 26 0 42 0;
+#X connect 27 0 52 0;
+#X connect 28 0 52 0;
+#X connect 29 0 52 0;
+#X connect 30 0 52 0;
+#X connect 31 0 52 0;
+#X connect 32 0 52 0;
+#X connect 33 0 52 0;
+#X connect 34 0 52 0;
+#X connect 36 0 27 0;
+#X connect 36 1 28 0;
+#X connect 36 2 29 0;
+#X connect 36 3 30 0;
+#X connect 36 4 31 0;
+#X connect 36 5 32 0;
+#X connect 36 6 33 0;
+#X connect 36 7 34 0;
+#X connect 38 0 9 0;
+#X connect 39 0 43 0;
+#X connect 41 0 47 0;
+#X connect 42 0 39 0;
+#X connect 43 0 41 0;
+#X connect 46 0 47 1;
+#X connect 47 0 40 1;
+#X connect 47 0 40 0;
+#X connect 48 0 47 1;
+#X connect 50 0 51 0;

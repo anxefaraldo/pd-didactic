@@ -1,0 +1,36 @@
+#N canvas 459 279 993 598 10;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array tests 88200 float 2;
+#X coords 0 1 88200 -1 200 140 1 0 0;
+#X restore 51 80 graph;
+#X obj 259 202 soundfiler;
+#X msg 259 181 read -resize \$1 tests;
+#X obj 259 142 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 259 161 openpanel;
+#X obj 483 132 metro 250;
+#X obj 483 112 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 513 162 + 1;
+#X floatatom 534 113 5 0 0 0 - - -;
+#X floatatom 483 212 5 0 0 0 - - -;
+#X text 526 211 azimuth en grados;
+#X obj 483 162 f 0;
+#X obj 432 233 binaupan~;
+#X obj 440 274 dac~;
+#X obj 432 68 osc~ 300;
+#X obj 484 188 mod 360;
+#X connect 2 0 1 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 5 0 11 0;
+#X connect 6 0 5 0;
+#X connect 7 0 11 1;
+#X connect 8 0 5 1;
+#X connect 9 0 12 1;
+#X connect 11 0 7 0;
+#X connect 11 0 15 0;
+#X connect 12 0 13 0;
+#X connect 12 1 13 1;
+#X connect 14 0 12 0;
+#X connect 15 0 9 0;

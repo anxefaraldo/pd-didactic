@@ -1,0 +1,59 @@
+#N canvas 167 56 606 768 12;
+#X obj 67 210 osc~ 440;
+#X obj 55 718 dac~;
+#X obj 84 651 line~;
+#X obj 66 674 *~;
+#X msg 84 626 \$1 1000;
+#X obj 84 600 dbtorms;
+#X obj 87 556 hsl 128 15 0 100 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 11700 1;
+#X floatatom 91 577 5 0 0 0 - - -;
+#X obj 67 153 mtof;
+#X text 110 154 midi note to hertz!;
+#X msg 31 77 60;
+#X msg 71 76 62;
+#X msg 114 76 67;
+#X msg 155 76 69;
+#X text 42 48 midi note numbers;
+#X text 98 528 WE KEEP THIS AS MASTER VOLUME;
+#X obj 306 403 line~;
+#X obj 66 444 *~;
+#X obj 67 181 trigger float bang;
+#X text 206 179 we use the same event to activate two instructions
+;
+#X msg 306 374 0 \, 1 50;
+#X obj 190 297 delay 60;
+#X obj 190 209 trigger bang bang;
+#X msg 190 328 0 100;
+#X text 370 374 ATTACK TIME;
+#X text 242 330 RELEASE TIME;
+#X text 200 231 we have to schedule a "NOTE OFF" at least for the duration
+of the fade in part! It the delay time is longer than the attack time
+\, we have a portion of "SUSTAINED" sound., f 46;
+#X text 144 459 THE TOTAL DURATION OF THE EVENT IS:;
+#X text 148 480 delay time (including attack and sustain) + release
+time;
+#X text 43 23 FIXED DURATION ENVELOPE!;
+#X text 370 396 NOTE THE COMMA!;
+#X connect 0 0 17 0;
+#X connect 2 0 3 1;
+#X connect 3 0 1 0;
+#X connect 3 0 1 1;
+#X connect 4 0 2 0;
+#X connect 5 0 4 0;
+#X connect 6 0 5 0;
+#X connect 6 0 7 0;
+#X connect 8 0 18 0;
+#X connect 10 0 8 0;
+#X connect 11 0 8 0;
+#X connect 12 0 8 0;
+#X connect 13 0 8 0;
+#X connect 16 0 17 1;
+#X connect 17 0 3 0;
+#X connect 18 0 0 0;
+#X connect 18 1 22 0;
+#X connect 20 0 16 0;
+#X connect 21 0 23 0;
+#X connect 22 0 21 0;
+#X connect 22 1 20 0;
+#X connect 23 0 16 0;

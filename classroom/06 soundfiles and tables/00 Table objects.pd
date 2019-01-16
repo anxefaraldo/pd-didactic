@@ -1,0 +1,87 @@
+#N canvas 60 23 894 556 12;
+#X obj 50 262 zexy/tabset;
+#X obj 50 293 zexy/tabdump;
+#X obj 50 231 arraysize;
+#X text 50 202 Pd-extended;
+#X text 158 202 Pd vanilla > 0.46;
+#X obj 168 232 array size;
+#X obj 168 263 array set;
+#X obj 168 294 array get;
+#X text 144 235 =;
+#X text 144 263 =;
+#X text 144 290 =;
+#X text 50 174 MORE TABLE OPERATIONS;
+#X text 308 53 AUDIO;
+#X obj 308 82 tabwrite~;
+#X obj 308 206 tabread~;
+#X obj 308 144 tabsend~;
+#X obj 308 237 tabreceive~;
+#X obj 308 113 tabosc4~;
+#X obj 308 268 tabread4~;
+#X obj 424 464 s array2;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array array2 10 float 2;
+#X coords 0 -15 10 15 200 140 1 0 0;
+#X restore 107 377 graph;
+#X obj 308 175 tabplay~;
+#X text 50 53 CONTROL;
+#X obj 50 82 tabwrite;
+#X obj 50 113 tabread;
+#X obj 50 144 tabread4;
+#X floatatom 425 78 5 0 0 0 - - -;
+#X msg 425 108 const \$1;
+#X msg 446 152 resize \$1;
+#X floatatom 446 132 5 0 0 0 - - -;
+#X text 425 49 METHODS TO TABLES;
+#X msg 544 434 write ./test1.txt;
+#X msg 530 407 read ./test1.txt;
+#X floatatom 515 238 5 0 0 0 - - -;
+#N canvas 12 67 488 465 Common_uses_for_arrays_in_PD 0;
+#X text 7 28 Arrays are versatile. Their simple structure make them
+useful in countless situations. This page discusses perhaps the most
+common applications.;
+#X obj 1 1 cnv 15 425 20 empty \$0-pddp.cnv.subheading empty 20 10
+1 18 -261106 -33289 0;
+#X text 7 0 Common Uses for Arrays in Pd;
+#X text 7 84 1) Audio sample data: when an array's values are limited
+to a range between -1 and 1 \, the numbers are suitable for conversion
+to analog audio signal. These arrays are typically many thousands of
+elements and stored on hard disk in the form of aiff \, wav or pure
+text.;
+#X text 7 168 2) MIDI Sequencers: array values limited to a range between
+0 and 127 are suitable for MIDI output to be used as pitch \, velocity
+\, or controller numbers. Some MIDI information requires a much larger
+range \, such as pitch benders.;
+#X text 7 238 3) Envelopes: an array with four elements can be used
+effectively as an ADSR enveloper. There are numerous examples of this
+in other Pd help documents.;
+#X text 7 294 4) Math and conversion tables: arrays are an excellent
+visual tool when performing Fourier analysis and other higher mathematic
+functions.;
+#X text 7 350 5) Wave editing: with proper manipulation of array data
+\, Pd can be a fully functional wave editor \, complete with mouse-clickable
+cut-n-paste \, pitch-shift \, time expansion \, down/upsampling \,
+and other tools typically found in commercial wave editors.;
+#X restore 46 22 pd Common_uses_for_arrays_in_PD;
+#X text 654 337 low x \, high y \, high x \, low y;
+#X obj 515 311 pack;
+#X obj 547 287 * -1;
+#X obj 515 263 t f f;
+#X msg 515 337 bounds 0 \$1 512 \$2;
+#X text 550 383 USEFUL TO STORE/RECALL PRESETS;
+#X msg 478 209 normalize;
+#X msg 463 181 sinesum 512 1 0.5 0.25;
+#X connect 26 0 27 0;
+#X connect 27 0 19 0;
+#X connect 28 0 19 0;
+#X connect 29 0 28 0;
+#X connect 31 0 19 0;
+#X connect 32 0 19 0;
+#X connect 33 0 38 0;
+#X connect 36 0 39 0;
+#X connect 37 0 36 1;
+#X connect 38 0 36 0;
+#X connect 38 1 37 0;
+#X connect 39 0 19 0;
+#X connect 41 0 19 0;
+#X connect 42 0 19 0;
