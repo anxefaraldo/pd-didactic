@@ -1,4 +1,4 @@
-#N canvas 395 313 605 664 10;
+#N canvas 395 313 283 544 10;
 #X obj 106 489 throw~ suma;
 #X obj 107 278 *~;
 #X obj 121 256 line~;

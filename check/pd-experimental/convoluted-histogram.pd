@@ -2,7 +2,7 @@
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array hist 30 float 0;
 #X coords 0 20 29 -0 200 140 1 0 0;
-#X restore -2061 38 graph;
+#X restore 19 38 graph;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array filter 100 float 1;
 #A 0 1 0.82454 0.667956 0.534673 0.424385 0.334739 0.262731 0.205368
@@ -22,18 +22,18 @@
 1.40274e-23 1.24324e-24 8.2803e-26 3.83912e-27 1.10778e-28 1.67219e-30
 9.87088e-33 1.32058e-35 1.1767e-39 0 -0;
 #X coords 0 1 99 -1 200 140 1 0 0;
-#X restore -1848 39 graph;
+#X restore 232 39 graph;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array output 65 float 0;
 #X coords 0 50 64 0 400 140 1 0 0;
-#X restore -2054 233 graph;
-#X obj -1636 294 bng 50 250 50 0 empty empty empty 17 7 0 10 -262144
+#X restore 26 233 graph;
+#X obj 444 294 bng 50 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj -2053 234 cnv 15 204 138 empty empty empty 20 12 0 14 -233017
--66577 0;
-#X text -1858 372 0;
-#X text -1672 375 +inf;
-#X text -2062 375 -inf;
+#X obj 27 234 cnv 15 204 138 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 222 372 0;
+#X text 408 375 +inf;
+#X text 18 375 -inf;
 #N canvas 127 252 421 411 convolve 0;
 #X obj -258 -2844 forloop;
 #X obj -191 -2912 r conv-size;
@@ -82,26 +82,26 @@
 #X connect 18 0 3 0;
 #X connect 19 0 12 0;
 #X connect 20 0 2 0;
-#X restore -1636 355 pd convolve;
-#X obj -1435 93 until;
-#X obj -1435 118 random 30;
-#X obj -1435 213 tabwrite hist;
-#X obj -1435 139 t f f;
-#X obj -1435 163 tabread hist;
-#X obj -1435 187 + 1;
-#X msg -1435 37 200;
-#X obj -1435 59 t f b;
-#X text -1408 35 create random histogram;
-#X obj -1633 61 forloop;
-#X obj -1633 186 tabwrite filter;
-#X msg -1633 39 100;
-#X obj -1633 104 - 99;
-#X obj -1633 81 t f f;
-#X obj -1633 126 * -0.01;
-#X text -1599 35 generate filter response;
-#X obj -1633 161 expr sin(pow($f1 \, 23));
-#X msg -1371 96 \; hist const 0 \; output const 0 \; filter normalize
+#X restore 444 355 pd convolve;
+#X obj 645 93 until;
+#X obj 645 118 random 30;
+#X obj 645 213 tabwrite hist;
+#X obj 645 139 t f f;
+#X obj 645 163 tabread hist;
+#X obj 645 187 + 1;
+#X msg 645 37 200;
+#X obj 645 59 t f b;
+#X text 672 35 create random histogram;
+#X obj 447 186 tabwrite filter;
+#X msg 447 39 100;
+#X obj 447 104 - 99;
+#X obj 447 81 t f f;
+#X obj 447 126 * -0.01;
+#X text 481 35 generate filter response;
+#X obj 447 161 expr sin(pow($f1 \, 23));
+#X msg 709 96 \; hist const 0 \; output const 0 \; filter normalize
 ;
+#X obj 447 61 gspd/forloop;
 #X connect 3 0 8 0;
 #X connect 9 0 10 0;
 #X connect 10 0 12 0;
@@ -111,11 +111,11 @@
 #X connect 14 0 11 0;
 #X connect 15 0 16 0;
 #X connect 16 0 9 0;
-#X connect 16 1 26 0;
-#X connect 18 0 22 0;
-#X connect 20 0 18 0;
-#X connect 21 0 23 0;
-#X connect 22 0 21 0;
-#X connect 22 1 19 1;
-#X connect 23 0 25 0;
-#X connect 25 0 19 0;
+#X connect 16 1 25 0;
+#X connect 19 0 26 0;
+#X connect 20 0 22 0;
+#X connect 21 0 20 0;
+#X connect 21 1 18 1;
+#X connect 22 0 24 0;
+#X connect 24 0 18 0;
+#X connect 26 0 21 0;

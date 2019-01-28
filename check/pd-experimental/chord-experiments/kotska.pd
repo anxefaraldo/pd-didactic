@@ -12,10 +12,10 @@
 #X coords -1 1 12 0 200 140 1 0 0;
 #X restore 40 215 graph;
 #X obj 302 323 tabread major;
-#X floatatom 302 403 7 0 0 0 - - -, f 7;
+#X floatatom 302 403 7 0 0 0 - - -;
 #X obj 302 249 list-abs/list-sieve;
 #X obj 413 322 tabread major;
-#X floatatom 413 412 7 0 0 0 - - -, f 7;
+#X floatatom 413 412 7 0 0 0 - - -;
 #X obj 394 172 t b a b;
 #X msg 303 206 12;
 #X obj 413 363 -;
@@ -28,7 +28,7 @@
 #X obj 354 448 f;
 #X obj 309 445 f;
 #X obj 341 487 *;
-#X floatatom 341 509 6 0 0 0 - - -, f 6;
+#X floatatom 341 509 6 0 0 0 - - -;
 #X obj 251 409 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X msg 394 150 0 4 7;

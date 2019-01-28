@@ -1,4 +1,4 @@
-#N canvas 49 73 318 256 10;
+#N canvas 923 329 318 246 10;
 #X floatatom 11 4 10 0 0 1 Frequency(Hz) - -;
 #X floatatom 11 162 10 0 0 1 Bark - -;
 #X obj 11 66 / 1315.8;
