@@ -11,7 +11,7 @@
 #X obj 28 161 change;
 #X obj 28 182 swap \$1;
 #X obj 28 205 pack, f 7;
-#X obj 28 228 s QWERTY;
+#X obj 28 228 s \$2-QWERTY;
 #X connect 0 0 1 0;
 #X connect 1 0 7 0;
 #X connect 2 0 4 0;

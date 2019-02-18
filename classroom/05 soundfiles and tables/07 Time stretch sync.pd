@@ -1,4 +1,4 @@
-#N canvas 540 37 606 397 10;
+#N canvas 15 23 1133 955 10;
 #N canvas 0 22 450 300 (subpatch) 0;
 #X array soundfile 492032 float 0;
 #X coords 0 1 492031 -1 200 70 1 0 0;
@@ -31,7 +31,7 @@ we are using to loop through the original file. experiment with different
 sizes since they have a considerable effect on the audio., f 29;
 #X obj 133 217 f 300;
 #X obj 288 270 s~ read-point;
-#N canvas 426 427 620 468 time-stretch 1;
+#N canvas 17 23 1169 924 time-stretch 0;
 #X obj 22 176 cnv 15 280 200 empty empty empty 20 12 0 14 -261682 -66577
 0;
 #X obj 303 176 cnv 15 280 200 empty empty empty 20 12 0 14 -203904
@@ -66,7 +66,7 @@ sizes since they have a considerable effect on the audio., f 29;
 #X obj 136 16 r loop-size;
 #X obj 46 185 r~ read-point;
 #X obj 346 199 r~ read-point;
-#X obj 421 118 -~ 0.5;
+#X obj 421 118 +~ 0.5;
 #X connect 2 0 3 0;
 #X connect 3 0 27 0;
 #X connect 4 0 5 0;

@@ -1,4 +1,4 @@
-#N canvas 60 23 894 556 12;
+#N canvas 296 268 894 556 12;
 #X obj 50 262 zexy/tabset;
 #X obj 50 293 zexy/tabdump;
 #X obj 50 231 arraysize;

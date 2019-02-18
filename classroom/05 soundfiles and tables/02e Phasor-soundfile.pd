@@ -33,14 +33,14 @@ phase xlabel -1.15 0 \$1 \$2 \$3 \$4 \; phase xticks 1 \$1 \$2 \$3
 #X connect 6 0 3 3;
 #X restore 99 495 pd ticks;
 #N canvas 0 22 450 278 (subpatch) 0;
-#X array phase 65559 float 2;
-#X coords 0 1 65559 -1 700 140 1 0 0;
+#X array phase 515897 float 2;
+#X coords 0 1 515897 -1 700 140 1 0 0;
 #X restore 29 36 graph;
 #N canvas 0 22 450 278 (subpatch) 0;
-#X array soundfile 65559 float 2;
-#X coords 0 1 65559 -1 700 140 1 0 0;
+#X array soundfile 515897 float 2;
+#X coords 0 1 515897 -1 700 140 1 0 0;
 #X restore 29 36 graph;
-#X obj 453 416 cnv 15 55 30 empty empty empty 20 12 0 14 -4034 -66577
+#X obj 440 416 cnv 15 55 30 empty empty empty 20 12 0 14 -4034 -66577
 0;
 #X obj 519 234 cnv 15 110 30 empty empty empty 20 12 0 14 -4034 -66577
 0;
@@ -54,8 +54,8 @@ phase xlabel -1.15 0 \$1 \$2 \$3 \$4 \; phase xticks 1 \$1 \$2 \$3
 #X obj 521 267 t b f;
 #X obj 441 455 t b f b, f 13;
 #X msg 568 484 0, f 1;
-#X floatatom 454 419 5 0 0 0 - - -;
-#X text 514 420 frequency;
+#X floatatom 441 419 5 0 0 0 - - -;
+#X text 501 420 frequency;
 #X connect 0 0 3 0;
 #X connect 1 0 5 0;
 #X connect 2 0 1 0;
@@ -69,7 +69,6 @@ phase xlabel -1.15 0 \$1 \$2 \$3 \$4 \; phase xticks 1 \$1 \$2 \$3
 #X connect 16 0 20 0;
 #X connect 17 0 18 0;
 #X connect 19 0 21 0;
-#X connect 20 0 22 0;
 #X connect 20 0 24 0;
 #X connect 21 0 15 0;
 #X connect 21 1 20 1;
@@ -77,3 +76,4 @@ phase xlabel -1.15 0 \$1 \$2 \$3 \$4 \; phase xticks 1 \$1 \$2 \$3
 #X connect 22 1 17 0;
 #X connect 22 2 23 0;
 #X connect 23 0 17 1;
+#X connect 24 0 22 0;

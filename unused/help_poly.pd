@@ -1,5 +1,0 @@
-#N canvas 716 326 214 118 10;
-#X obj 25 43 route \$1;
-#X text 25 73 HERE YOUR PATCH!;
-#X obj 25 16 r packages_from_poly_object;
-#X connect 2 0 0 0;

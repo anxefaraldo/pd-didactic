@@ -1,0 +1,37 @@
+#N canvas 640 160 980 392 16;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-file 492032 float 2;
+#X coords 0 1 492032 -1 200 170 1;
+#X restore 23 31 graph;
+#X obj 17 214 cnv 15 220 25 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X obj 23 333 soundfiler;
+#X obj 23 242 openpanel;
+#X msg 23 303 read -resize \$1 \$2-file;
+#X obj 23 272 pack s \$0;
+#X obj 23 216 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 40 211 open a soundfile;
+#X obj 308 284 dac~;
+#X obj 308 247 tabplay~ \$0-file;
+#X msg 386 136 0 44100;
+#X msg 387 105 44100;
+#X msg 386 75 bang;
+#X text 448 73 "bang" or 0 plays whole sample;
+#X text 450 104 play starting at 44100th sample;
+#X text 471 134 play starting at beginning for 44100 samples;
+#X msg 385 166 44100 1000;
+#X text 511 165 play from 44100 through 45099 (1000 samples);
+#X msg 387 198 stop;
+#X text 445 198 stop playing (outputs zeros when stopped);
+#X connect 3 0 5 0;
+#X connect 4 0 2 0;
+#X connect 5 0 4 0;
+#X connect 6 0 3 0;
+#X connect 9 0 8 0;
+#X connect 9 0 8 1;
+#X connect 10 0 9 0;
+#X connect 11 0 9 0;
+#X connect 12 0 9 0;
+#X connect 16 0 9 0;
+#X connect 18 0 9 0;
