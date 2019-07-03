@@ -1,0 +1,12 @@
+#N canvas 354 22 374 253 10;
+#X obj 42 156 pack s f;
+#X obj 137 139 r \$1-\$2;
+#X obj 42 39 r \$1-textfile.bng.\$3;
+#X obj 42 125 symbol \$2;
+#X obj 42 219 s \$1-add.textfile;
+#X msg 42 188 \$1 \$2;
+#X connect 0 0 5 0;
+#X connect 1 0 0 1;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X connect 5 0 4 0;

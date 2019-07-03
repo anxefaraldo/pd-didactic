@@ -1,0 +1,270 @@
+#N canvas 579 22 705 640 10;
+#X obj -1 5 cnv 15 700 60 empty empty pitchSalience 20 12 0 14 -233017
+-66577 0;
+#N canvas 316 22 495 361 peaks 0;
+#X obj 49 75 list split 1;
+#X obj 83 103 list split 2;
+#X obj 49 264 list;
+#X obj 100 218 list prepend;
+#X obj 193 235 t l;
+#X obj 83 131 unpack;
+#X obj 238 215 list prepend;
+#X obj 326 232 t l;
+#X obj 107 265 list;
+#X obj 49 237 t b b;
+#X obj 49 313 outlet;
+#X obj 107 315 outlet;
+#X obj 14 174 b;
+#X obj 12 7 sigmund~ -npts 8192 -hop 4096 -maxfreq 5000 -npeak 20 env
+peaks;
+#X obj 12 -16 inlet~;
+#X connect 0 1 1 0;
+#X connect 1 0 5 0;
+#X connect 2 0 10 0;
+#X connect 3 0 4 0;
+#X connect 3 0 2 1;
+#X connect 4 0 3 1;
+#X connect 5 0 3 0;
+#X connect 5 1 6 0;
+#X connect 6 0 7 0;
+#X connect 6 0 8 1;
+#X connect 7 0 6 1;
+#X connect 8 0 11 0;
+#X connect 9 0 2 0;
+#X connect 9 1 8 0;
+#X connect 12 0 9 0;
+#X connect 12 0 3 1;
+#X connect 12 0 6 1;
+#X connect 13 0 12 0;
+#X connect 13 1 0 0;
+#X connect 14 0 13 0;
+#X restore 24 334 pd peaks;
+#X floatatom 42 484 5 0 0 1 fundamentalBass(freq) - -;
+#X floatatom 61 456 5 0 0 1 multiplicity - -;
+#X floatatom 80 427 5 0 0 1 pureTonalness - -;
+#X floatatom 99 401 5 0 0 1 complexTonalness - -;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array \$0-pitchSalience 121 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0045526 0 0.00505845
+0.00574127 0.00569075 0.00637918 0.00650372 0.0313417 0 0.0756174 0
+0.010654 0.0373422 0.012176 0 0.0114825 0.0510174 0 0 0.0626835 0 0.0151753
+0 0.021308 0.0191376 0 0 0 0.102035 0 0 0.0287063 0 0 0 0.0426161 0
+0 0 0 0.136578 0 0 0.172238 0 0 0 0.255696 0 0 0 0.017019 0 0.01891
+0 0.0212738 0 0.0243129 0 0 0.028365 0 0 0.034038 0 0 0 0.0425475 0
+0 0 0 0.0567301 0 0 0 0 0 0 0.0850951 0 0 0 0 0 0 0 0 0 0 0 0.51057
+0 0 0 0 0 0 0 0 0;
+#X coords 0 1 120 0 200 140 1 0 0;
+#X restore 466 282 graph;
+#X obj 24 519 list prepend 0;
+#X text 551 32 2013 Gilberto Bernardes;
+#X obj 24 373 pitchSalience;
+#N canvas 520 22 469 711 moreDetails 0;
+#X text 12 13 Although Terhardt's model of pitch perception has been
+highly influential in auditory perception circles \, his work remains
+poorly understood among researchers working in the field of music perception.
+There is some merit \, therefore \, in reviewing the basic elements
+of the model. Broadly speaking \, Terhardt's model of pitch entails
+three stages of analysis. The first stage analyzes the input signal
+and determines the audibility of the various frequency components.
+The second stage looks for frequency components that may be perceived
+as harmonics of complex tones \, and determines the pitches of the
+corresponding fundamentals. The third stage combines the various pitch
+components into a single spectrum representing the listener's subjective
+experience of the sound. More specifically \, stage 1 accepts some
+spectrum specifying frequency and sound pressure level information
+(in decibels SPL). In order to account for masking \, each spectral
+component is taken in turn \, and the masking effect of all other components
+is estimated and combined. In the present study \, a masking algorithm
+was implemented in which critical band rate was specified by Moore
+and Glasberg's ERB-rate scale (1983) \, and each component was assigned
+a symmetrical triangular masking pattern with upper and lower slopes
+of 12 dB per critical band. Analysing both the influence of the threshold
+of hearing and the masking of concurrent spectral components results
+in a measure Terhardt calls SPL excess \, i.e. \, sound pressure level
+(in dB) above masked threshold. If SPL excess is positive \, then the
+corresponding component is predicted to be audible \; if not \, it
+is assumed inaudible \, and is omitted from all further calculations.
+Two further factors influence the audibility of pure tone components.
+First \, the audibility (or perceptual clarity \, or salience) of a
+pure tone (or pure tone component) does not vary linearly with respect
+to changes in SPL excess \, except at very low levels (under about
+20 dB). At higher levels \, the audibility of a tone becomes saturated
+-- i.e. \, continuing to increase the sound pressure level will not
+make the tone any more audible. In Terhardt's model \, the SPL excess
+above masked threshold is thus modified by a saturation function. The
+saturation function scales audibility values so that they lie between
+0 (inaudible) and 1 (maximum audibility \, or maximum perceptual clarity).
+At low values of SPL excess \, the audibility of pure tone components
+grows proportionally \; at high values of SPL excess \, audibility
+gravitates toward the saturation level of 1.0. Listener sensitivity
+to the pitch of pure tones is also known to change with frequency.
+The greatest sensitivity occurs in a broad region centered at about
+700 hertz (F5). This is accounted for in the model by weighting the
+output of the above saturation function according to a "spectral dominance"
+characteristic. The effect of spectral dominance on the pitch of complex
+tones was studied experimentally by Plomp (1967) and Ritsma (1967).
+The result of these calculations is a measure which Terhardt calls
+the spectral pitch weight for each pure tone component in the spectrum.
+Elsewhere \, this has been referred to as pure tone audibility (Parncutt
+\, 1989). To summarize \, stage 1 of Terhardt's pitch model determines
+the relative audibility (or relative salience) of each of the pure
+tone components in the spectrum. The result of this processing is a
+graph relating audibility (pitch weight) to spectral pitch for pure
+tone components in the signal. Stage 2 of the pitch model takes the
+results of stage 1 and attempts to identify complex tones that may
+be present in the signal. This is done using a harmonic pitch-pattern
+recognition procedure. The spectrum is scanned for the presence of
+audible tone components whose frequencies correspond approximately
+to the harmonic series. When an approximately harmonic set of components
+is found \, a virtual pitch is assigned to the fundamental of the series.
+In addition \, each virtual pitch is assigned a weight -- a measure
+of goodness of fit to the harmonic series "template." In stage 3 \,
+a composite pitch spectrum is created by combining the spectral (stage
+1) and virtual (stage 2) pitch information. Sometimes \, spectral and
+virtual pitches coincide or lie very close to each other. For example
+\, the spectral pitch of the first harmonic of a complex tone coincides
+with the overall virtual pitch of the tone. When a spectral and a virtual
+pitch lie very close to each other \, the pitch having the higher pitch
+weight is assumed to dominate the pitch having the lower pitch weight.
+This effect is dependent upon the degree of "analytic listening" --
+that is \, the degree to which the listener's attention is drawn to
+spectral rather than virtual pitches. The result of stage 3 analysis
+is a composite portrait of all pitches which could be perceived in
+a given acoustical spectrum. For a given listener \, in a given context
+\, only a particular subset of these possible pitches will be heard
+-- typically those pitches \, or that pitch \, having the highest pitch
+weight;
+#X text 12 1219 Parncutt \, R. (1989). Harmony: A Psychoacoustical
+Approach. Berlin \, Springer-Verlag.;
+#X text 12 1268 Terhardt \, E. \, G. Stoll and M. Seewann (1982). “Algorithm
+for Extraction of Pitch and Pitch Salience from Complex Tonal Signals.”
+Journal of the Acoustical Society of America 71(3): 679-688.;
+#X restore 571 106 pd moreDetails;
+#N canvas 246 22 524 530 (subpatch) 0;
+#X obj 56 259 noise~;
+#X obj 157 330 *~;
+#X obj 250 313 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 163 68 5 1 100 0 q - -;
+#X obj 56 330 *~;
+#X obj 92 330 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 56 301 bp~ 1000 1;
+#X obj 5 25 vradio 35 1 0 4 \$0-input \$0-input.r input~ 0 -8 0 10
+-262144 -1 -1 0;
+#X text 44 71 noise;
+#X obj 49 467 outlet~;
+#X text 44 36 mute;
+#X obj 5 296 == 1;
+#X floatatom 117 69 5 0 0 0 freq - -;
+#X text 44 106 chord;
+#X obj 256 19 loadbang;
+#X obj 196 373 *~;
+#X obj 289 356 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 226 421 *~;
+#X obj 319 404 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 118 104 bng 15 250 50 0 empty empty M -10 8 0 10 -262144 -1
+-1;
+#X obj 163 104 bng 15 250 50 0 empty empty m -10 8 0 10 -262144 -1
+-1;
+#X msg 256 42 1000;
+#X msg 301 42 2;
+#X obj 128 391 *~ 0.2;
+#X obj 116 468 dac~;
+#X obj 157 301 osc~ 261.626;
+#X obj 196 344 osc~ 329.628;
+#X obj 226 392 osc~ 391.995;
+#X text 44 139 3 random notes;
+#X msg 319 224 261.626 329.628 391.995;
+#X obj 309 276 unpack f f f;
+#X obj 294 172 list-random 500 3;
+#X obj 291 197 list-math + 80;
+#X obj 250 289 >= 2;
+#X obj 289 332 >= 2;
+#X obj 319 380 >= 2;
+#X obj 295 148 sel 3;
+#X obj 424 196 sel 2;
+#X msg 328 250 261.626 311.127 391.995;
+#X connect 0 0 6 0;
+#X connect 1 0 23 0;
+#X connect 2 0 1 1;
+#X connect 3 0 6 2;
+#X connect 4 0 9 0;
+#X connect 4 0 24 0;
+#X connect 4 0 24 1;
+#X connect 5 0 4 1;
+#X connect 6 0 4 0;
+#X connect 7 0 11 0;
+#X connect 7 0 33 0;
+#X connect 7 0 34 0;
+#X connect 7 0 35 0;
+#X connect 7 0 36 0;
+#X connect 7 0 37 0;
+#X connect 11 0 5 0;
+#X connect 12 0 6 1;
+#X connect 14 0 21 0;
+#X connect 14 0 22 0;
+#X connect 15 0 23 0;
+#X connect 16 0 15 1;
+#X connect 17 0 23 0;
+#X connect 18 0 17 1;
+#X connect 19 0 29 0;
+#X connect 20 0 38 0;
+#X connect 21 0 12 0;
+#X connect 22 0 3 0;
+#X connect 23 0 9 0;
+#X connect 23 0 24 1;
+#X connect 23 0 24 0;
+#X connect 25 0 1 0;
+#X connect 26 0 15 0;
+#X connect 27 0 17 0;
+#X connect 29 0 30 0;
+#X connect 30 0 25 0;
+#X connect 30 1 26 0;
+#X connect 30 2 27 0;
+#X connect 31 0 32 0;
+#X connect 32 0 30 0;
+#X connect 33 0 2 0;
+#X connect 34 0 16 0;
+#X connect 35 0 18 0;
+#X connect 36 0 31 0;
+#X connect 37 0 29 0;
+#X connect 38 0 30 0;
+#X coords 0 1 100 -1 200 180 1 0 0;
+#X restore 24 124 graph;
+#N canvas 22 368 494 344 META 0;
+#X text 12 45 LICENSE GPL v3;
+#X text 12 287 RELEASE_DATE 2013;
+#X text 12 267 WEBSITE https://sites.google.com/site/eargram/;
+#X text 12 247 AUTHOR Gilberto Bernardes;
+#X text 12 227 LIBRARY earGram_abs;
+#X text 13 143 OUTLET_O list (pitch salience);
+#X text 13 164 OUTLET_1 float (fundamental bass);
+#X text 13 184 OUTLET_2 float (pure tonalness);
+#X text 13 205 OUTLET_3 float (complex tonalness);
+#X text 12 100 INLET_0 list (frequencies);
+#X text 12 123 INLET_1 list (amplitudes);
+#X text 12 65 DESCRIPTION spectral representation of the listener's
+subjective experience of a sound;
+#X restore 653 607 pd META;
+#X obj 24 545 s \$0-pitchSalience;
+#X text 287 457 multiplicity is the estimation of the number of tones
+simultaneously noticed in a sound;
+#X text 493 47 based on code by Alexandre Porres;
+#X text 15 34 spectral representation of the listener's subjective
+experience of a sound;
+#X text 287 522 fundamental bass estimates the root of a chord or spectrum
+;
+#X text 288 489 tonalness the degree to which a sonority evokes the
+sensation of pitched tones;
+#X connect 1 0 9 0;
+#X connect 1 1 9 1;
+#X connect 7 0 13 0;
+#X connect 9 0 7 0;
+#X connect 9 1 2 0;
+#X connect 9 2 3 0;
+#X connect 9 3 4 0;
+#X connect 9 4 5 0;
+#X connect 11 0 1 0;

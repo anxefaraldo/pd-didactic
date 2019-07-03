@@ -1,0 +1,41 @@
+#N canvas 0 22 719 377 10;
+#X obj 103 132 hsl 125 20 0 127 0 0 \$0-transport \$0-transport.r (t)ransport
+4 10 0 10 -166441 -166441 -1 0 0;
+#X obj 103 155 hsl 125 20 0 127 0 0 \$0-mixer \$0-mixer.r (m)ixer 4
+10 0 10 -166441 -166441 -1 0 0;
+#X obj 103 201 hsl 125 20 0 127 0 0 \$0-clusters \$0-clusters.r (c)lusters
+4 10 0 10 -162280 -162280 -1 0 0;
+#X obj 103 224 hsl 125 20 0 127 0 0 \$0-rgb \$0-rgb.r (r)gb 4 10 0
+10 -162280 -162280 -1 0 0;
+#X obj 103 247 hsl 125 20 0 127 0 0 \$0-help \$0-help.r (h)elp 4 10
+0 10 -166441 -166441 -1 0 0;
+#X obj 103 178 hsl 125 20 0 127 0 0 \$0-preferences \$0-preferences.r
+(p)references 4 10 0 10 -166441 -166441 -1 0 0;
+#X obj 103 100 hsl 125 20 0 127 0 0 \$0-window \$0-window.r window
+4 10 0 10 -166441 -166441 -1 8400 0;
+#X obj 283 69 r \$0-window;
+#X msg 283 225 color \$1 \$1 22;
+#X obj 283 119 21;
+#X obj 410 208 31;
+#X obj 383 159 delay 200;
+#X obj 383 136 b;
+#X obj 283 94 b;
+#X obj 383 182 t b b;
+#X obj 283 250 s \$0-window.r;
+#X msg 383 310 donecanvasdialog 1 -1 1 0 -1 1 1 130 200 100 100;
+#X obj 383 333 s pd-menu.window;
+#N canvas 0 22 450 300 menu.window 0;
+#X coords 0 -1 1 1 130 200 1;
+#X restore 499 73 pd menu.window;
+#X connect 7 0 13 0;
+#X connect 8 0 15 0;
+#X connect 9 0 8 0;
+#X connect 9 0 12 0;
+#X connect 10 0 8 0;
+#X connect 11 0 14 0;
+#X connect 12 0 11 0;
+#X connect 13 0 9 0;
+#X connect 14 0 16 0;
+#X connect 14 1 10 0;
+#X connect 16 0 17 0;
+#X coords 0 -1 1 1 130 20 1 100 100;

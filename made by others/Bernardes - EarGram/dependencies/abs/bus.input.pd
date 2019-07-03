@@ -1,0 +1,7 @@
+#N canvas 203 295 395 145 10;
+#X obj 31 68 outlet~;
+#X obj 188 68 outlet~;
+#X obj 188 32 catch~ \$2-signals.\$1R;
+#X obj 31 32 catch~ \$2-signals.\$1L;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;

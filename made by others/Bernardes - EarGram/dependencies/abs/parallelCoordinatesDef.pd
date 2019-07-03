@@ -1,0 +1,46 @@
+#N canvas 233 360 1093 100 10;
+#X obj 0 0 cnv 15 1054 85 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 43 1 cnv 15 100 15 empty empty noisiness 5 7 0 10 -262144 -1
+0;
+#X obj 86 18 cnv 15 100 15 empty empty pitch 5 7 0 10 -262144 -1 0
+;
+#X obj 131 35 cnv 15 100 15 empty empty fundamentalBass 5 7 0 10 -262144
+-1 0;
+#X obj 179 52 cnv 15 100 15 empty empty specVariability 5 7 0 10 -262144
+-1 0;
+#X obj 223 69 cnv 15 100 15 empty empty brightness 5 7 0 10 -262144
+-1 0;
+#X obj 270 1 cnv 15 100 15 empty empty specWidth 5 7 0 10 -262144 -1
+0;
+#X obj 312 18 cnv 15 100 15 empty empty sensoryDissonance 5 7 0 10
+-262144 -1 0;
+#X obj 359 35 cnv 15 100 15 empty empty hpcp1 5 7 0 10 -262144 -1 0
+;
+#X obj 404 52 cnv 15 100 15 empty empty hpcp2 5 7 0 10 -262144 -1 0
+;
+#X obj 453 69 cnv 15 100 15 empty empty hpcp3 5 7 0 10 -262144 -1 0
+;
+#X obj 497 1 cnv 15 100 15 empty empty hpcp4 5 7 0 10 -262144 -1 0
+;
+#X obj 542 18 cnv 15 100 15 empty empty hpcp5 5 7 0 10 -262144 -1 0
+;
+#X obj 589 35 cnv 15 100 15 empty empty hpcp6 5 7 0 10 -262144 -1 0
+;
+#X obj 638 52 cnv 15 100 15 empty empty hpcp7 5 7 0 10 -262144 -1 0
+;
+#X obj 681 69 cnv 15 100 15 empty empty hpcp8 5 7 0 10 -262144 -1 0
+;
+#X obj 726 1 cnv 15 100 15 empty empty hpcp9 5 7 0 10 -262144 -1 0
+;
+#X obj 767 18 cnv 15 100 15 empty empty hpcp10 5 7 0 10 -262144 -1
+0;
+#X obj 816 35 cnv 15 100 15 empty empty hpcp11 5 7 0 10 -262144 -1
+0;
+#X obj 861 52 cnv 15 100 15 empty empty hpcp12 5 7 0 10 -262144 -1
+0;
+#X obj 908 69 cnv 15 100 15 empty empty loudness 5 7 0 10 -262144 -1
+0;
+#X obj 953 0 cnv 15 100 15 empty empty duration 5 7 0 10 -262144 -1
+0;
+#X coords 0 -1 1 1 1054 85 1 0 0;

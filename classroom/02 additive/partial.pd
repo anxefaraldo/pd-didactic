@@ -1,0 +1,10 @@
+#N canvas 438 195 704 356 12;
+#X obj 236 119 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -261234
+-1 -1 5700 1;
+#X obj 233 51 r r_amps;
+#X obj 233 76 route \$1;
+#X obj 233 162 s h\$1;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X coords 0 -1 1 1 160 40 1 220 100;

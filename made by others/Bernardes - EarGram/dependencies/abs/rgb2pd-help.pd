@@ -1,0 +1,37 @@
+#N canvas 756 22 614 447 10;
+#X obj 6 6 cnv 15 600 60 empty empty rgb2pd 20 12 0 14 -233017 -66577
+0;
+#X text 455 48 2013 Gilberto Bernardes;
+#X obj 52 231 rgb2pd;
+#X obj 52 203 pack f f f;
+#X obj 240 216 cnv 15 250 60 empty \$0-cnvColor empty 20 12 0 14 -165312
+-262144 0;
+#X floatatom 109 171 5 0 256 1 B - -;
+#X floatatom 80 146 5 0 256 1 G - -;
+#X floatatom 52 121 5 0 256 1 R - -;
+#X floatatom 52 257 10 0 0 0 - - -;
+#X msg 52 283 color \$1;
+#X obj 52 309 s \$0-cnvColor;
+#N canvas 618 431 494 344 META 0;
+#X text 12 45 LICENSE GPL v3;
+#X text 12 265 RELEASE_DATE 2013;
+#X text 12 245 WEBSITE https://sites.google.com/site/eargram/;
+#X text 12 225 AUTHOR Gilberto Bernardes;
+#X text 12 205 LIBRARY earGram_abs;
+#X text 12 111 INLET_0 float (red);
+#X text 13 131 INLET_1 float (green);
+#X text 13 150 INLET_2 float (blue);
+#X text 13 170 OUTLET_0 float;
+#X text 12 65 DESCRIPTION converts rgb values to a single color value
+(pd objects);
+#X restore 552 417 pd META;
+#X text 25 46 converts rgb values to a single color value (pd objects)
+;
+#X text 107 414 TODO: general color convertion;
+#X connect 2 0 8 0;
+#X connect 3 0 2 0;
+#X connect 5 0 3 2;
+#X connect 6 0 3 1;
+#X connect 7 0 3 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;

@@ -1,0 +1,44 @@
+#N canvas 308 22 778 503 10;
+#X obj 350 46 sel 0 1 2 3;
+#X obj 350 70 \$0;
+#X obj 365 172 \$0;
+#X obj 381 272 \$0;
+#X obj 397 374 \$0;
+#X obj 100 100 cnv 15 115 120 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 100 100 vradio 30 1 0 4 \$1-rt.button \$1-rt.button.r empty
+0 -8 0 10 -262144 -1 -1 0;
+#X obj 131 114 cnv 15 80 15 empty empty off 0 6 0 10 -1 -262144 0;
+#X obj 131 144 cnv 15 80 15 empty empty calibrate 0 6 0 10 -1 -262144
+0;
+#X obj 131 174 cnv 15 80 15 empty empty record 0 6 0 10 -1 -262144
+0;
+#X obj 350 21 r \$1-rt.button;
+#X msg 350 93 \; \$1-color.0 color 1 0 \; \$1-color.1 color 12 0 \;
+\$1-color.2 color 12 13 \; \$1-color.3 color 12 0;
+#X obj 102 192 cnv 15 26 26 empty \$0-color.3 R 4 13 0 30 -33289 -262144
+0;
+#X obj 102 162 cnv 15 26 26 empty \$0-color.2 . 0 0 0 45 -33289 -258699
+0;
+#X obj 102 102 cnv 15 26 26 empty \$0-color.0 X 3 13 0 30 -166441 -262144
+0;
+#X obj 102 132 cnv 15 26 26 empty \$0-color.1 C 4 13 0 30 -33289 -262144
+0;
+#X obj 131 203 cnv 15 80 15 empty empty reset 0 6 0 10 -1 -262144 0
+;
+#X msg 365 194 \; \$1-color.0 color 12 0 \; \$1-color.1 color 1 0 \;
+\$1-color.2 color 12 13 \; \$1-color.3 color 12 0;
+#X msg 381 298 \; \$1-color.0 color 12 0 \; \$1-color.1 color 12 0
+\; \$1-color.2 color 1 13 \; \$1-color.3 color 12 0;
+#X msg 397 400 \; \$1-color.0 color 12 0 \; \$1-color.1 color 12 0
+\; \$1-color.2 color 12 13 \; \$1-color.3 color 1 0;
+#X connect 0 0 1 0;
+#X connect 0 1 2 0;
+#X connect 0 2 3 0;
+#X connect 0 3 4 0;
+#X connect 1 0 11 0;
+#X connect 2 0 17 0;
+#X connect 3 0 18 0;
+#X connect 4 0 19 0;
+#X connect 10 0 0 0;
+#X coords 0 -1 1 1 115 120 1 100 100;

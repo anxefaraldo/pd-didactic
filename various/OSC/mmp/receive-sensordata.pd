@@ -1,4 +1,4 @@
-#N canvas 1043 429 1079 436 10;
+#N canvas 1043 429 1079 592 10;
 #X msg 29 70 listen 0;
 #X msg 16 18 listen 54321;
 #X obj 16 96 netreceive -u -b 54321;
@@ -25,7 +25,7 @@ been connected to [send toNetwork] inside the smartphone patch.;
 \, routed via [receive fromNetwork];
 #X obj 16 162 route tilts compass location distanceFilter;
 #X obj 207 184 print DF;
-#X obj 581 13 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 581 13 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 581 34 oscformat enableLocation;
 #X obj 607 120 oscformat getDistanceFilter;

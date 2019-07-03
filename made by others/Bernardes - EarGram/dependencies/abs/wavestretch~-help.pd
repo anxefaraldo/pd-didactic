@@ -1,0 +1,61 @@
+#N canvas 185 22 712 438 10;
+#X obj 85 288 dbtorms;
+#X obj 85 312 pack 0 20;
+#X obj 85 335 line~;
+#X obj 31 352 *~;
+#X obj 31 379 dac~;
+#X obj 88 265 hsl 128 15 0 100 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 0;
+#X obj 5 -22 cnv 15 700 60 empty empty wavestretch~ 20 12 0 14 -233017
+-66577 0;
+#X obj 30 72 bng 15 250 50 0 empty empty 1)click_here_to_open_a_sound
+17 7 0 10 -262144 -1 -1;
+#X obj 31 218 wavestretch~ \$0-sound;
+#N canvas 0 22 450 300 openFile 0;
+#X obj 13 161 table \$0-sound;
+#X obj 13 57 openpanel;
+#X msg 13 109 read -resize \$1 \$2-sound;
+#X obj 13 83 pack s \$0;
+#X obj 13 135 soundfiler;
+#X obj 13 31 inlet;
+#X connect 1 0 3 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 0;
+#X connect 5 0 1 0;
+#X restore 30 96 pd openFile;
+#X text 289 182 (start point \, length \, envelope 0/1 \, new length
+\, transposition);
+#X msg 31 128 88200 88200 1 120000 60;
+#X msg 94 157 88200 88200 1 88200 60;
+#X msg 135 187 88200 88200 1 60000 60;
+#X text 552 16 2013 Gilberto Bernardes;
+#X text 23 8 sample player (with time-stretch and transposition capabilities)
+;
+#N canvas 423 299 494 344 META 0;
+#X text 12 45 LICENSE GPL v3;
+#X text 12 218 RELEASE_DATE 2013;
+#X text 12 198 WEBSITE https://sites.google.com/site/eargram/;
+#X text 12 178 AUTHOR Gilberto Bernardes;
+#X text 12 25 KEYWORDS;
+#X text 12 158 LIBRARY earGram_abs;
+#X text 12 65 DESCRIPTION sample player (with time-stretch and transposition
+capabilities);
+#X text 12 95 INLET_0 list (start point \, length \, envelope \, new
+length \, transposition);
+#X text 13 140 OUTLET_1 bang (end of file);
+#X text 13 124 OUTLET_0 audio;
+#X restore 658 387 pd META;
+#X obj 154 242 bng 15 250 50 0 empty empty EOF 17 7 0 10 -262144 -1
+-1;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 1;
+#X connect 3 0 4 0;
+#X connect 3 0 4 1;
+#X connect 5 0 0 0;
+#X connect 7 0 9 0;
+#X connect 8 0 3 0;
+#X connect 8 1 17 0;
+#X connect 11 0 8 0;
+#X connect 12 0 8 0;
+#X connect 13 0 8 0;

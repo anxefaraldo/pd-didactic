@@ -1,0 +1,33 @@
+#N canvas 294 182 556 373 10;
+#X obj 2 3 cnv 15 550 60 empty empty vead~ 20 12 0 14 -233017 -66577
+0;
+#X text 403 41 2013 Gilberto Bernardes;
+#N canvas 449 357 494 344 META 0;
+#X text 12 45 LICENSE GPL v3;
+#X text 12 217 RELEASE_DATE 2013;
+#X text 12 197 WEBSITE https://sites.google.com/site/eargram/;
+#X text 12 177 AUTHOR Gilberto Bernardes;
+#X text 12 25 KEYWORDS;
+#X text 12 157 LIBRARY earGram_abs;
+#X text 12 65 DESCRIPTION creates an amplitude envelope;
+#X text 12 84 INLET_0 bang;
+#X text 12 102 INLET_1 bang;
+#X text 12 120 INLET_2 bang;
+#X text 12 139 OUTLET_0 signal;
+#X restore 498 339 pd META;
+#X obj 45 129 pink~;
+#X obj 45 201 *~;
+#X obj 45 229 dac~;
+#X obj 120 117 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 154 135 5 0 0 1 attack_time - -;
+#X floatatom 189 160 5 0 0 1 release_time - -;
+#X text 19 43 amplitude evelope;
+#X obj 120 184 vead~ 100 30;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 0 5 1;
+#X connect 6 0 10 0;
+#X connect 7 0 10 1;
+#X connect 8 0 10 2;
+#X connect 10 0 4 1;

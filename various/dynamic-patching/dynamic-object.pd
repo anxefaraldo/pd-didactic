@@ -1,0 +1,51 @@
+#N canvas 1351 280 940 617 12;
+#X text 484 76 1;
+#X text 484 106 2;
+#X text 484 136 3;
+#X text 484 166 4;
+#X text 484 196 5;
+#X text 484 229 6;
+#X text 484 259 7;
+#X text 484 289 8;
+#X text 484 318 9;
+#X text 484 348 10;
+#X text 505 33 To add an object into a patch just send a message to
+the patch itself :;
+#X msg 540 166 connect 35 0 37 0;
+#X msg 550 196 connect 36 0 37 1;
+#X msg 570 256 connect 37 0 38 0;
+#X msg 590 316 connect 38 0 39 0;
+#X text 26 40 SELECTORS: "msg" \, "floatatom" \, "obj" \, "text" \,
+"array" \, "symbolatom" \, "scalar" or "graph";
+#X msg 30 300 connect nobj1 nout nobj2 nin;
+#X text 22 328 !!! W A R N I N G !!! It's very important to respect
+the order in which objects are created. If you don't the "connect"
+selector won't work correctly. If you get stuck \, reload this patch
+and try again.;
+#X text 21 92 The next 2 numbers are X & Y position in the canvas.
+Then it's a symbol for the name of the obj \, the content of the msg
+\, etc... and some additionals parameters:;
+#X msg 24 150 selector xpos ypos name arg1 arg2 ...;
+#X obj 510 382 s pd-dynamic-object.pd;
+#X text 24 186 For connecting objects use the selector "connect". It
+takes 4 arguments: (1) the number of the first object \, (2) the number
+of the outlet (total count of outlets in order of object creation and
+left-to-right \, starting at zero) \, (3) the number of the second
+object \, and (4) the number of the inlet (total count of outlets in
+order of object creation and left-to-right \, starting at zero):;
+#X msg 510 76 msg 100 400 bang;
+#X msg 530 136 obj 100 430 metro 500;
+#X msg 520 106 floatatom 220 400 7 50 5000;
+#X msg 560 226 obj 100 460 random 127;
+#X msg 580 286 floatatom 100 490 5;
+#X msg 600 346 text 220 490 That's it !;
+#X connect 11 0 20 0;
+#X connect 12 0 20 0;
+#X connect 13 0 20 0;
+#X connect 14 0 20 0;
+#X connect 22 0 20 0;
+#X connect 23 0 20 0;
+#X connect 24 0 20 0;
+#X connect 25 0 20 0;
+#X connect 26 0 20 0;
+#X connect 27 0 20 0;
