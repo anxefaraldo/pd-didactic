@@ -1,6 +1,0 @@
-#N canvas 431 22 368 236 10;
-#X text 20 14 Description: A color selector.;
-#X text 19 48 Click and drag!;
-#X text 20 32 tags: ui;
-#X text 30 206 arg: send-name;
-#X obj 27 83 colorGrid \$0;
