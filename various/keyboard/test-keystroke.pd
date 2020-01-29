@@ -1,0 +1,25 @@
+#N canvas 854 110 947 606 10;
+#X obj 242 134 pack 0 0 0;
+#X obj 242 158 print;
+#X obj 10 9 cnv 15 200 250 empty empty empty 20 12 0 14 -261682 -66577
+0;
+#X obj 18 17 keystroke 122;
+#X obj 18 47 keystroke 120;
+#X obj 18 77 keystroke 99;
+#X obj 18 107 keystroke 118;
+#X obj 18 137 keystroke 98;
+#X obj 18 167 keystroke 110;
+#X obj 18 197 keystroke 109;
+#X obj 18 227 keystroke 44;
+#X obj 108 32 keystroke 115;
+#X obj 108 62 keystroke 100;
+#X obj 108 122 keystroke 103;
+#X obj 108 152 keystroke 104;
+#X obj 108 182 keystroke 106;
+#X obj 242 86 r polykeyboard;
+#X obj 242 109 poly 3 1, f 10;
+#X connect 0 0 1 0;
+#X connect 16 0 17 0;
+#X connect 17 0 0 0;
+#X connect 17 1 0 1;
+#X connect 17 2 0 2;

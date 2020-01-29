@@ -1,0 +1,39 @@
+#N canvas 89 166 617 381 12;
+#X obj 37 200 hradio 32 1 0 4 empty val state 0 -8 1 10 -262144 -1
+-1 2;
+#X floatatom 37 144 5 0 0 0 - - val;
+#X obj 37 74 metro 200;
+#X obj 37 55 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X msg 311 45 80 10 10;
+#X text 406 69 dont need to be normalized;
+#X floatatom 181 124 5 0 0 0 - - -;
+#X msg 312 69 25 50 25 50;
+#X obj 37 100 list-abs/list-wrandom;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array markov1 3 float 3;
+#A 0 10 20 70;
+#X coords 0 100 3 0 200 140 1 0 0;
+#X restore 308 200 graph;
+#X msg 181 151 \; markov1 resize \$1;
+#X msg 312 93 10 20 40;
+#X obj 372 130 list prepend 0;
+#X obj 372 154 s markov1;
+#X msg 312 22 10 20 70;
+#X obj 53 126 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X connect 2 0 8 0;
+#X connect 3 0 2 0;
+#X connect 4 0 8 1;
+#X connect 4 0 12 0;
+#X connect 6 0 10 0;
+#X connect 7 0 8 1;
+#X connect 7 0 12 0;
+#X connect 8 0 1 0;
+#X connect 8 0 15 0;
+#X connect 8 1 6 0;
+#X connect 11 0 8 1;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 14 0 8 1;
+#X connect 14 0 12 0;

@@ -632,9 +632,6 @@ with a given pitch., f 25;
 #X text 124 656 sample & hold (audio to data);
 #X text 229 37 cosine \, white noise and sawtooth (monopolar 0-1) oscillators.
 , f 61;
-#X text 27 778 sergi.jorda@upf.edu \, angel.faraldo@upf.edu;
-#X text 29 748 COMPUTATIONAL MUSIC CREATIVITY // SMC-UPF // 2018-2019
-;
 #X text 16 550 MISC AUDIO CONTROL OBJECTS;
 #X obj 17 404 bob~;
 #X text 135 394 more flexible (parameters can be change with audio
@@ -650,3 +647,4 @@ operators and functions., f 40;
 #X obj 18 289 else/adsr~;
 #X obj 138 289 else/asr~;
 #X text 246 287 envelopes with a \, (d) \, s \, r (in ms);
+#X text 32 783 angel.faraldo@upf.edu;

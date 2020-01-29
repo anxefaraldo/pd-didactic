@@ -8,10 +8,6 @@
 #X text 207 498 (new objects are placed inside the subpatch);
 #X text 212 520 angel faraldo 2019;
 #N canvas 599 23 561 752 \$0-instances 0;
-#X obj 25 25 keystroke 97 1513;
-#X obj 25 50 keystroke 98 1513;
-#X obj 25 75 keystroke 99 1513;
-#X obj 25 100 keystroke 100 1513;
 #X restore 205 474 pd \$0-instances;
 #X obj 193 454 s pd-\$0-instances;
 #X obj 40 139 iemlib/dollarg;

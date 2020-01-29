@@ -1,0 +1,371 @@
+#N canvas 730 187 760 450 12;
+#X obj 192 21 cnv 15 200 133 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#N canvas 0 23 450 278 (subpatch) 0;
+#X array waveform 259 float 1;
+#A 0 -0.0758576 0 0.0758576 0.151259 0.22575 0.298886 0.370232 0.439366
+0.505884 0.569402 0.629561 0.686025 0.73849 0.78668 0.830352 0.869301
+0.903353 0.932376 0.956271 0.974981 0.988488 0.996808 1 0.998157 0.991409
+0.97992 0.963888 0.94354 0.919135 0.890955 0.859306 0.824517 0.786934
+0.746916 0.704835 0.661072 0.616012 0.570041 0.523545 0.476904 0.430491
+0.384667 0.339778 0.296157 0.254114 0.213938 0.175894 0.140224 0.107139
+0.0768217 0.0494267 0.0250762 0.00386161 -0.0141573 -0.0289523 -0.0405264
+-0.0489129 -0.054175 -0.0564043 -0.0557193 -0.0522641 -0.0462062 -0.0377346
+-0.0270574 -0.0143997 -8.20971e-07 0.0158883 0.0330077 0.0510911 0.069869
+0.089071 0.108429 0.127679 0.146565 0.164841 0.182272 0.198639 0.213738
+0.227383 0.23941 0.249673 0.258052 0.264448 0.268786 0.271017 0.271116
+0.269082 0.264938 0.258732 0.250534 0.240436 0.22855 0.215007 0.199957
+0.183562 0.166002 0.147466 0.128152 0.108266 0.0880183 0.0676219 0.0472895
+0.0272315 0.00765355 -0.0112454 -0.0292756 -0.0462582 -0.0620275 -0.0764325
+-0.0893385 -0.100628 -0.110204 -0.117987 -0.123921 -0.127968 -0.130114
+-0.130365 -0.128751 -0.12532 -0.120142 -0.113307 -0.104922 -0.0951123
+-0.0840199 -0.0718 -0.0586207 -0.0446606 -0.0301073 -0.0151549 -1.64195e-06
+0.0151516 0.0301042 0.0446575 0.0586177 0.0717973 0.0840174 0.09511
+0.10492 0.113305 0.120141 0.125319 0.128751 0.130365 0.130114 0.127968
+0.123922 0.117989 0.110206 0.100631 0.0893411 0.0764355 0.0620308 0.0462617
+0.0292793 0.0112494 -0.00764938 -0.0272272 -0.0472851 -0.0676175 -0.0880139
+-0.108262 -0.128148 -0.147462 -0.165998 -0.183559 -0.199953 -0.215004
+-0.228547 -0.240434 -0.250532 -0.258731 -0.264937 -0.269081 -0.271116
+-0.271018 -0.268787 -0.264449 -0.258054 -0.249675 -0.239412 -0.227386
+-0.213741 -0.198643 -0.182276 -0.164845 -0.146569 -0.127683 -0.108433
+-0.0890752 -0.0698731 -0.0510951 -0.0330115 -0.0158919 -2.46294e-06
+0.0143968 0.0270549 0.0377325 0.0462046 0.0522631 0.0557189 0.0564045
+0.0541758 0.0489144 0.0405285 0.0289552 0.0141609 -0.00385737 -0.0250713
+-0.049421 -0.0768154 -0.107132 -0.140217 -0.175886 -0.213929 -0.254105
+-0.296148 -0.339769 -0.384657 -0.430481 -0.476894 -0.523535 -0.570031
+-0.616002 -0.661063 -0.704826 -0.746907 -0.786926 -0.82451 -0.859299
+-0.890948 -0.919129 -0.943535 -0.963884 -0.979917 -0.991407 -0.998156
+-1 -0.996809 -0.98849 -0.974985 -0.956276 -0.932381 -0.90336 -0.869309
+-0.830361 -0.78669 -0.738501 -0.686037 -0.629574 -0.569416 -0.505898
+-0.439381 -0.370247 -0.298902 -0.225766 -0.151275 -0.0758739 -1.64195e-05
+0.0758412;
+#X coords 0 1 258 -1 200 133 1 0 0;
+#X restore 192 21 graph;
+#N canvas 879 149 1046 1004 things 1;
+#N canvas 51 96 501 328 fft 0;
+#X obj 44 72 inlet~;
+#X obj 44 100 rfft~;
+#X obj 44 133 *~;
+#X obj 75 133 *~;
+#X obj 44 163 sqrt~;
+#X obj 347 117 block~ 4096 1;
+#X obj 44 189 biquad~ 0 0 0 0 1;
+#X text 108 101 Fourier series;
+#X text 113 154 magnitude;
+#X text 111 139 calculate;
+#X text 36 11 This subpatch computes the spectrum of the incoming signal
+with a (rectangular windowed) FFT. FFTs aren't properly introduced
+until much later.;
+#X text 108 71 signal to analyze;
+#X text 178 175 delay two samples;
+#X text 177 191 for better graphing;
+#X obj 44 275 tabwrite~ spectrum;
+#X obj 64 247 metro 500;
+#X obj 64 220 loadbang;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 0 2 1;
+#X connect 1 1 3 0;
+#X connect 1 1 3 1;
+#X connect 2 0 4 0;
+#X connect 3 0 4 0;
+#X connect 4 0 6 0;
+#X connect 6 0 14 0;
+#X connect 15 0 14 0;
+#X connect 16 0 15 0;
+#X restore 14 253 pd fft;
+#X obj 450 9 loadbang;
+#X msg 459 33 \; pd dsp 1;
+#X obj 576 168 s waveform;
+#X obj 576 112 pack 0 0 0 0 0 0 0, f 46;
+#X obj 865 41 t b f;
+#X obj 816 42 t b f;
+#X obj 766 42 t b f;
+#X obj 716 42 t b f;
+#X obj 666 42 t b f;
+#X obj 616 42 t b f;
+#X obj 865 16 r h7;
+#X obj 816 17 r h6;
+#X obj 766 17 r h5;
+#X obj 716 17 r h4;
+#X obj 666 17 r h3;
+#X obj 616 17 r h2;
+#X obj 576 17 r h1;
+#X msg 576 140 sinesum 256 \$1 \$2 \$3 \$4 \$5 \$6 \$7 \, normalize
+;
+#X obj 14 227 tabosc4~ waveform;
+#X obj 14 117 samplerate~;
+#X obj 14 94 bng 18 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X floatatom 24 164 0 0 0 0 - - -;
+#X obj 14 70 loadbang;
+#X text 12 11 At load time \, calculate a good choice of fundamental
+frequency for showing spectra: the 16th bin in a 4096-point spectrum
+\, so SR*16/4096 or SR/256.;
+#X floatatom 145 166 5 0 0 0 - - -;
+#X obj 145 142 / 4096;
+#X text 147 116 One bin is SR/4096:;
+#X obj 145 188 s freq-step;
+#X obj 14 140 / 256;
+#X obj 47 613 cnv 15 100 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 56 645 /;
+#X msg 56 618 1 \$1;
+#X text 63 713 amplitude = 1/h;
+#X text 62 678 SAWTOOTH;
+#X text 63 695 even and odd harmonics;
+#X obj 244 618 cnv 15 100 130 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X obj 251 720 /;
+#X msg 251 695 1 \$1;
+#X text 246 752 SQUARE;
+#X text 246 771 only odd harmonics;
+#X obj 283 647 mod 2;
+#X obj 251 620 t f f;
+#X obj 251 671 *, f 5;
+#X text 245 790 amplitude = odd(1/h);
+#X text 449 884 TRIANGLE;
+#N canvas 542 108 258 432 create-waveform 0;
+#X obj 29 372 send waveform;
+#X obj 87 31 t l;
+#X obj 29 113 list length;
+#X obj 29 184 list, f 13;
+#X obj 29 90 t l l, f 13;
+#X obj 29 137 ==, f 21;
+#X obj 29 160 sel 1;
+#X obj 29 290 list trim;
+#X obj 29 61 list prepend;
+#X obj 29 266 list append, f 16;
+#X obj 29 208 t b l, f 16;
+#X obj 29 22 inlet;
+#X obj 141 48 t b f;
+#X obj 141 21 receive nh;
+#X msg 29 238 sinesum 256;
+#X msg 29 341 normalize;
+#X obj 29 315 t b a;
+#X connect 1 0 8 1;
+#X connect 2 0 5 0;
+#X connect 3 0 10 0;
+#X connect 4 0 2 0;
+#X connect 4 1 3 1;
+#X connect 5 0 6 0;
+#X connect 6 0 3 0;
+#X connect 7 0 16 0;
+#X connect 8 0 1 0;
+#X connect 8 0 4 0;
+#X connect 9 0 7 0;
+#X connect 10 0 14 0;
+#X connect 10 1 9 1;
+#X connect 11 0 8 0;
+#X connect 12 0 8 1;
+#X connect 12 1 5 1;
+#X connect 13 0 12 0;
+#X connect 14 0 9 0;
+#X connect 15 0 0 0;
+#X connect 16 0 15 0;
+#X connect 16 1 0 0;
+#X restore 56 920 pd create-waveform;
+#X text 448 903 amplitude = odd(1/hn^2);
+#X obj 420 621 cnv 15 150 260 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X obj 428 778 /;
+#X msg 428 753 1 \$1;
+#X obj 457 648 mod 2;
+#X obj 425 674 *, f 5;
+#X obj 428 728 *;
+#X obj 425 624 t f f;
+#X obj 425 702 t f f f;
+#X obj 480 742 mod 4;
+#X obj 481 768 == 1;
+#X obj 450 850 * -1;
+#X obj 481 792 sel 1 0;
+#X msg 477 817 -1;
+#X msg 517 817 1;
+#X text 448 922 only odd harmonics \, with phase shift;
+#X obj 207 464 symbol;
+#X msg 56 435 20;
+#N canvas 0 23 279 304 number-of-harmonics 0;
+#X obj 48 95 until;
+#X msg 66 142 1;
+#X obj 49 70 t f b f, f 18;
+#X obj 48 168 f 1;
+#X obj 89 167 + 1;
+#X obj 49 13 inlet;
+#X obj 48 200 outlet;
+#X obj 172 200 send nh;
+#X obj 49 43 f;
+#X obj 174 12 inlet;
+#X connect 0 0 3 0;
+#X connect 1 0 3 1;
+#X connect 2 0 0 0;
+#X connect 2 1 1 0;
+#X connect 2 2 7 0;
+#X connect 3 0 4 0;
+#X connect 3 0 6 0;
+#X connect 4 0 3 1;
+#X connect 5 0 8 0;
+#X connect 8 0 2 0;
+#X connect 9 0 8 0;
+#X restore 56 512 pd number-of-harmonics;
+#X floatatom 56 461 5 0 0 0 - - -;
+#X obj 56 409 loadbang;
+#X obj 56 536 pack f s, f 26;
+#X msg 56 560 \$2 \$1;
+#X obj 207 487 t b s;
+#X msg 754 410 \; waveform read clarinet.txt \; waveform normalize
+;
+#X msg 620 471 \; waveform read violin.txt \; waveform normalize;
+#X obj 66 485 r n_harmonics;
+#X msg 209 375 saw;
+#X msg 238 396 square;
+#X msg 297 425 triang;
+#X obj 754 386 r cl;
+#X obj 620 446 r vln;
+#X obj 211 347 r saw;
+#X obj 258 369 r square;
+#X obj 322 375 r triang;
+#X obj 56 585 route saw square triang, f 80;
+#X obj 429 389 tabosc4~ waveform;
+#X obj 419 458 dac~;
+#X obj 429 363 mtof;
+#X obj 429 255 loadbang;
+#X msg 429 279 48;
+#X floatatom 429 342 5 0 0 0 - - -;
+#X obj 566 388 line~;
+#X msg 566 363 \$1 100;
+#X obj 429 424 *~, f 20;
+#X obj 571 338 r vol;
+#X obj 435 311 r note;
+#X connect 1 0 2 0;
+#X connect 4 0 18 0;
+#X connect 5 0 4 0;
+#X connect 5 1 4 6;
+#X connect 6 0 4 0;
+#X connect 6 1 4 5;
+#X connect 7 0 4 0;
+#X connect 7 1 4 4;
+#X connect 8 0 4 0;
+#X connect 8 1 4 3;
+#X connect 9 0 4 0;
+#X connect 9 1 4 2;
+#X connect 10 0 4 0;
+#X connect 10 1 4 1;
+#X connect 11 0 5 0;
+#X connect 12 0 6 0;
+#X connect 13 0 7 0;
+#X connect 14 0 8 0;
+#X connect 15 0 9 0;
+#X connect 16 0 10 0;
+#X connect 17 0 4 0;
+#X connect 18 0 3 0;
+#X connect 19 0 0 0;
+#X connect 20 0 26 0;
+#X connect 20 0 29 0;
+#X connect 21 0 20 0;
+#X connect 23 0 21 0;
+#X connect 25 0 28 0;
+#X connect 26 0 25 0;
+#X connect 29 0 22 0;
+#X connect 29 0 19 0;
+#X connect 31 0 46 0;
+#X connect 32 0 31 0;
+#X connect 37 0 46 0;
+#X connect 38 0 37 0;
+#X connect 41 0 43 1;
+#X connect 42 0 43 0;
+#X connect 42 1 41 0;
+#X connect 43 0 38 0;
+#X connect 49 0 58 0;
+#X connect 50 0 49 0;
+#X connect 51 0 52 1;
+#X connect 52 0 55 0;
+#X connect 53 0 50 0;
+#X connect 54 0 52 0;
+#X connect 54 1 51 0;
+#X connect 55 0 53 0;
+#X connect 55 1 53 1;
+#X connect 55 2 56 0;
+#X connect 56 0 57 0;
+#X connect 57 0 59 0;
+#X connect 58 0 46 0;
+#X connect 59 0 60 0;
+#X connect 59 1 61 0;
+#X connect 60 0 58 1;
+#X connect 61 0 58 1;
+#X connect 63 0 70 0;
+#X connect 64 0 66 0;
+#X connect 65 0 68 0;
+#X connect 66 0 65 0;
+#X connect 67 0 64 0;
+#X connect 68 0 69 0;
+#X connect 69 0 82 0;
+#X connect 70 0 65 1;
+#X connect 70 1 68 1;
+#X connect 73 0 65 0;
+#X connect 74 0 63 0;
+#X connect 75 0 63 0;
+#X connect 76 0 63 0;
+#X connect 77 0 71 0;
+#X connect 78 0 72 0;
+#X connect 79 0 74 0;
+#X connect 80 0 75 0;
+#X connect 81 0 76 0;
+#X connect 82 0 32 0;
+#X connect 82 1 42 0;
+#X connect 82 2 54 0;
+#X connect 83 0 91 0;
+#X connect 85 0 83 0;
+#X connect 86 0 87 0;
+#X connect 87 0 88 0;
+#X connect 88 0 85 0;
+#X connect 89 0 91 1;
+#X connect 90 0 89 0;
+#X connect 91 0 84 0;
+#X connect 91 0 84 1;
+#X connect 92 0 90 0;
+#X connect 93 0 88 0;
+#X restore 247 338 pd things;
+#X obj 429 21 cnv 15 257 133 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#N canvas 0 23 450 300 (subpatch) 0;
+#X array spectrum 128 float 0;
+#X coords 0 2048 127 0 257 133 1 0 0;
+#X restore 429 21 graph;
+#X text 460 160 1;
+#X text 494 160 2;
+#X text 526 160 3;
+#X text 558 160 4;
+#X text 591 160 5;
+#X text 621 160 6;
+#X text 652 160 7;
+#X text 428 160 0;
+#X text 423 181 harmonic number ------------------;
+#X obj 195 228 ui.keyboard @size 294 105 @receive "(null)" @send "note"
+@pinned 1 @background_color 0.93 0 0.1 1 @border_color 0.525659 0.525659
+0.525659 1 @label_color 0 0 0 1 @active_color 0.95 0.77 0.77 0.5 @fontname
+"Helvetica" @fontweight "normal" @fontslant "roman" @fontsize 11 @label
+"(null)" @label_inner 0 @label_side "top" @label_align "left" @label_valign
+"top" @label_margins 0 0 @keys 13 @shift 48;
+#X obj 195 338 s note;
+#X obj 15 284 partial 7;
+#X obj 15 239 partial 6;
+#X obj 15 193 partial 5;
+#X obj 15 149 partial 4;
+#X obj 15 103 partial 3;
+#X obj 15 56 partial 2;
+#X obj 15 11 partial 1;
+#X obj 25 392 hsl 200 30 0 1 0 0 vol empty volume -2 -12 0 18 -261234
+-1 -1 13400 1;
+#X obj 504 308 bng 70 250 50 0 saw empty saw 15 35 0 24 -261234 -1
+-1;
+#X obj 584 308 bng 70 250 50 0 square empty sqr 15 35 0 24 -261234
+-1 -1;
+#X obj 664 308 bng 70 250 50 0 triang empty trg 15 35 0 24 -261234
+-1 -1;
+#X obj 504 226 bng 70 250 50 0 cl empty cl 21 35 0 24 -261234 -1 -1
+;
+#X obj 584 226 bng 70 250 50 0 vln empty vln 15 35 0 24 -261234 -1
+-1;
+#X obj 506 390 nbx 3 28 1 100 0 0 n_harmonics empty harmonics 90 15
+0 24 -261234 -1 -1 1 256;
+#X connect 14 0 15 0;

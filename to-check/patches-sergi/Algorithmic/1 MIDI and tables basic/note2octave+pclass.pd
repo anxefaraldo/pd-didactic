@@ -1,0 +1,16 @@
+#N canvas 291 195 487 311 12;
+#X obj 14 11 inlet;
+#X obj 53 79 % 12;
+#X obj 14 79 / 12;
+#X obj 14 39 t f f;
+#X obj 14 112 i;
+#X obj 14 144 outlet;
+#X obj 66 144 outlet;
+#X text 76 11 a MIDI note enters;
+#X text 13 169 outputs the octave and pitch class [0-11];
+#X connect 0 0 3 0;
+#X connect 1 0 6 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 0;
+#X connect 3 1 1 0;
+#X connect 4 0 5 0;

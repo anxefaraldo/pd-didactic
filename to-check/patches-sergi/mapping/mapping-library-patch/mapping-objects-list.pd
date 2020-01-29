@@ -1,0 +1,120 @@
+#N canvas 105 23 1038 687 10;
+#X obj 28 631 amplitude_n;
+#X obj 25 6 autoscale;
+#X obj 93 105 breakpoint_smooth;
+#X obj 24 105 breakpoint;
+#X obj 29 489 buttongate;
+#X obj 24 346 bytemask;
+#X obj 24 50 cartesian2spherical;
+#X obj 24 322 center_point;
+#X obj 189 173 circular_seat;
+#X obj 84 173 circular_sigmoid;
+#X obj 26 173 circular;
+#X obj 29 513 correlation;
+#X obj 26 197 cubic_seat;
+#X obj 388 101 curve_draw;
+#X obj 25 130 curve_exp;
+#X obj 196 132 curve_fade;
+#X obj 284 113 curve_graph;
+#X obj 91 131 curve_log;
+#X obj 156 132 curve;
+#X obj 106 513 debounce;
+#X obj 138 346 debytemask;
+#X obj 148 50 degrees2mapping;
+#X obj 30 536 delay_n;
+#X obj 106 323 desegment;
+#X text 25 -15 basic;
+#X text 23 31 coordinates;
+#X text 26 80 xy curves;
+#X text 25 302 distribute ins/outs;
+#X text 27 462 time related;
+#X obj 30 561 diff_n;
+#X text 79 561 derivative;
+#X obj 82 425 distance_n;
+#X obj 23 425 distance;
+#X text 25 406 relative;
+#X obj 154 425 distance2d;
+#X obj 29 584 downsample;
+#X obj 191 221 elliptic_seat;
+#X obj 84 221 elliptic_sigmoid;
+#X obj 26 221 elliptic;
+#X obj 186 559 env-;
+#X obj 159 559 env;
+#X obj 218 559 env+;
+#X text 252 560 envelope followers;
+#X obj 28 244 exponential_curve;
+#X obj 141 244 exponential_seat;
+#X obj 247 243 exponential_sigmoid;
+#X obj 29 607 fir;
+#X obj 425 247 gaussian;
+#X obj 103 583 hysteresis;
+#X obj 60 608 iir;
+#X obj 171 323 join;
+#X obj 212 323 disjoin;
+#X obj 99 489 keygate;
+#X text 92 607 filters;
+#X obj 104 631 last_n;
+#X obj 25 370 listto;
+#X obj 376 559 local_max;
+#X obj 375 538 local_min;
+#X obj 28 270 logistic_sigmoid;
+#X obj 144 607 lop;
+#X obj 499 -1 mapping-meta;
+#X obj 247 50 mapping2degrees;
+#X obj 92 6 mapping2midi;
+#X obj 346 50 mapping2radians;
+#X obj 375 517 max_n;
+#X obj 151 631 mean_n;
+#X obj 71 654 median_3;
+#X obj 186 654 median_7;
+#X obj 129 654 median_5;
+#X obj 243 654 median_n;
+#X obj 27 654 median;
+#X obj 173 6 midi2mapping;
+#X obj 375 496 min_n;
+#X obj 485 573 multi_slider;
+#X obj 426 270 nl;
+#X obj 255 7 notescale;
+#X obj 277 369 one2four;
+#X obj 277 347 one2three;
+#X obj 277 324 one2two;
+#X obj 694 573 oscillo;
+#X obj 609 -2 cnv 15 400 300 empty empty empty 20 12 0 14 -261682 -66577
+0;
+#X obj 558 308 cnv 15 450 250 empty empty empty 20 12 0 14 -262130
+-66577 0;
+#X obj 570 395 pmattractor_2d;
+#X obj 663 395 pmattractor_3d;
+#X obj 570 417 pmcloud_1d;
+#X obj 637 417 pmcloud_2d;
+#X obj 706 417 pmcloud_3d;
+#X obj 878 439 pmcube_3d;
+#X obj 627 440 pmfilter_2d;
+#X obj 704 440 pmfilter_3d;
+#X obj 570 441 pmfilter;
+#X obj 569 488 pmmulti_stable_2d;
+#X obj 645 464 pmopen_string_1d;
+#X obj 569 509 pmrepulsor_1d;
+#X obj 656 509 pmrepulsor_2d;
+#X obj 743 509 pmrepulsor_3d;
+#X obj 753 464 pmrigid_open_string_2d;
+#X obj 897 464 pmrigid_string_2d;
+#X obj 801 439 pmsquare_2d;
+#X obj 569 464 pmstring_1d;
+#X text 569 320 the following objects \, need the additional msd2D
+& msd3D objects \, not included anymore in Pd Extended \, but still
+downloable from here http://puredata.info/docs/faq/how-do-i-download-the-flext-binaries-that-used-to-be-included-in-pd-extended
+;
+#X text 635 22 IMPORTANT! In this patch I've tried to organize by topics
+the full mapping library by Cyrille Henry and Hans-Christoph Steiner.
+This library is already included with Pd-Extended (so this patch should
+load all its objects without any additional settings). Sadly \, the
+library is not very well documented. Although each object has its own
+help (just click help with the left button on any object) \, there's
+no document that lists and describes all these objects. Moreover \,
+I haven't been yet able to classify all its available objects. In fact
+I have started classifying them in alphabetical order \, and have just
+arrived to the letter 'p'! If you want to check the whole list \, you
+can browse the following folder of Pd Extended: Contents/Resources/extra/mapping
+Don't worry \, and don't feel overloaded by these dozens of objects.
+It is not about using or trying all of them!! (Sergi 29/10/14);

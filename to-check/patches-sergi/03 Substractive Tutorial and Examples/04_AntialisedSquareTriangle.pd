@@ -1,0 +1,26 @@
+#N canvas 11 23 1254 752 24;
+#X obj 16 52 table ciclo 2051;
+#X msg 266 53 \; ciclo normalize 1;
+#X msg 16 140 \; ciclo sinesum 2051 1 0 0.333 0 0.2 0 0.1428 0 0.111
+0 0.0909;
+#X text 15 107 SQUARE;
+#X text 15 222 TRIANGLE;
+#X msg 17 256 \; ciclo sinesum 2051 1 0 -0.1111 0 0.04 0 -0.00204 0
+0.0012345 0 -0.008826;
+#X text 12 -49 TRIANGLE: harmónicos impares con amplitud = 1/n2 (cuadrado)
+y signo negativo en 3o \, 7o \, 11o... SQUARE: hamónicos impares con
+amplitud = 1/n;
+#X text 16 384 para reproducirlas usamos tabread~ y phasor~ en forma
+parecida a como hicimos con los loops;
+#X floatatom 24 469 5 0 0 0 - - -;
+#X obj 24 512 mtof;
+#X obj 24 557 phasor~;
+#X obj 24 601 *~ 2051;
+#X obj 205 476 tabread~ ciclo;
+#X obj 205 540 dac~;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 12 0 13 1;
