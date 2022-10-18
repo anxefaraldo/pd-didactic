@@ -1,0 +1,30 @@
+#N canvas 73 73 447 360 10;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array LastNotes 16 float 3;
+#A 0 2 3 5 7 9 5 2 3 5 6 7 5 4 10 11 11;
+#X coords 0 0 16 11 200 140 1;
+#X restore 223 41 graph;
+#X obj 23 25 hradio 15 1 0 12 empty empty empty 0 -8 0 10 -262144 -1
+-1 4;
+#X floatatom 23 59 5 0 0 0 - - -;
+#X obj 23 168 pack 1 1;
+#X obj 50 109 i;
+#X obj 84 109 + 1;
+#X obj 23 195 tabwrite LastNotes;
+#X obj 23 83 t f b;
+#X obj 50 136 % 16;
+#X text 20 221 Aqui hemos creado una tabla de 16 posiciones (con valores
+de 0-11) para guardar los 16 ultimos pitch classes que han entrado
+en el sistema Si leiésemos esta tabla de forma aleatoria nos daría
+una de las últimas 16 alturas que han entrado (como q guardamos repeticiones)
+una nota que ha entrado + veces \, también tendría + probabilidades
+de salir;
+#X connect 1 0 2 0;
+#X connect 2 0 7 0;
+#X connect 3 0 6 0;
+#X connect 4 0 5 0;
+#X connect 4 0 8 0;
+#X connect 5 0 4 1;
+#X connect 7 0 3 0;
+#X connect 7 1 4 0;
+#X connect 8 0 3 1;

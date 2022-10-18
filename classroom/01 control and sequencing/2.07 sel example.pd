@@ -1,0 +1,63 @@
+#N canvas 184 97 737 344 16;
+#X obj 15 178 sel 0 1 2 3 4 5 6 7;
+#X obj 16 222 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 39 223 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 61 223 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 85 223 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 108 223 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 131 223 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 155 223 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 178 223 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 202 223 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 15 101 5 0 0 0 - - -;
+#X obj 15 72 hradio 15 0 0 8 empty empty empty 0 -8 0 10 -262144 -1
+-1 2;
+#X msg 146 72 20;
+#X text 11 7 this is the Hradio object. You can set the # of cases
+in its properties (we have here 8 cases \, each outputting a value
+from 0 to 7;
+#X text 188 70 here a number not in the 0-7 range (could be anyone)
+;
+#X obj 15 252 print a;
+#X obj 96 252 print b;
+#X obj 177 252 print c;
+#X obj 257 252 print d;
+#X obj 17 282 print e;
+#X obj 97 282 print f;
+#X obj 178 282 print g;
+#X obj 258 282 print h;
+#X obj 15 311 print i;
+#X obj 15 135 t f f;
+#X obj 230 179 print;
+#X connect 0 0 1 0;
+#X connect 0 1 2 0;
+#X connect 0 2 3 0;
+#X connect 0 3 4 0;
+#X connect 0 4 5 0;
+#X connect 0 5 6 0;
+#X connect 0 6 7 0;
+#X connect 0 7 8 0;
+#X connect 0 8 9 0;
+#X connect 1 0 15 0;
+#X connect 2 0 16 0;
+#X connect 3 0 17 0;
+#X connect 4 0 18 0;
+#X connect 5 0 19 0;
+#X connect 6 0 20 0;
+#X connect 7 0 21 0;
+#X connect 8 0 22 0;
+#X connect 9 0 23 0;
+#X connect 10 0 24 0;
+#X connect 11 0 10 0;
+#X connect 12 0 10 0;
+#X connect 24 0 0 0;
+#X connect 24 1 25 0;

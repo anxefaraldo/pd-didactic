@@ -1,0 +1,142 @@
+#N canvas 261 239 836 633 12;
+#X obj 32 341 catch~ sum_sines;
+#X obj 57 414 line~;
+#X obj 32 439 *~, f 4;
+#X obj 26 469 dac~;
+#X obj 32 20 harmonic 1;
+#X obj 32 112 harmonic 3;
+#X obj 32 158 harmonic 4;
+#X obj 32 202 harmonic 5;
+#X obj 32 248 harmonic 6;
+#X obj 32 293 harmonic 7;
+#X obj 60 368 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #fcc4c4
+#000000 #000000 0 1;
+#X obj 212 32 cnv 15 200 133 empty empty empty 20 12 0 14 #fcc4c4 #404040
+0;
+#N canvas 0 23 450 278 (subpatch) 0;
+#X array waveform 259 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 1 258 -1 200 133 1 0 0;
+#X restore 212 32 graph;
+#X obj 32 65 harmonic 2;
+#N canvas 358 634 450 300 things 0;
+#X obj 72 49 array max waveform;
+#X floatatom 72 73 5 0 0 0 - - - 0;
+#X obj 72 28 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#N canvas 51 96 488 678 fft 0;
+#X obj 21 64 inlet~;
+#X obj 31 95 rfft~;
+#X obj 31 128 *~;
+#X obj 62 128 *~;
+#X obj 31 158 sqrt~;
+#X obj 334 112 block~ 4096 1;
+#X obj 31 184 biquad~ 0 0 0 0 1;
+#X text 95 96 Fourier series;
+#X text 100 149 magnitude;
+#X text 98 134 calculate;
+#X text 23 6 This subpatch computes the spectrum of the incoming signal
+with a (rectangular windowed) FFT. FFTs aren't properly introduced
+until much later.;
+#X text 85 63 signal to analyze;
+#X text 165 170 delay two samples;
+#X text 164 186 for better graphing;
+#X obj 18 508 samplerate~;
+#X obj 18 485 bng 18 250 50 0 empty empty empty 0 -6 0 8 #fcfcfc #000000
+#000000;
+#X floatatom 18 555 0 0 0 0 - - - 0;
+#X obj 18 461 loadbang;
+#X text 16 402 At load time \, calculate a good choice of fundamental
+frequency for showing spectra: the 16th bin in a 4096-point spectrum
+\, so SR*16/4096 or SR/256.;
+#X floatatom 149 557 5 0 0 0 - - - 0;
+#X obj 149 533 / 4096;
+#X text 151 507 One bin is SR/4096:;
+#X obj 149 579 s freq-step;
+#X obj 18 578 s vis_fundamental;
+#X obj 161 364 tabwrite~ spectrum;
+#X obj 22 364 tabwrite~ waveform;
+#X obj 161 289 metro 500;
+#X obj 161 215 loadbang;
+#X obj 161 312 t b b b;
+#X obj 169 264 s zero_phase;
+#X obj 18 531 / 256;
+#X msg 169 240 0.75;
+#X connect 0 0 1 0;
+#X connect 0 0 25 0;
+#X connect 1 0 2 0;
+#X connect 1 0 2 1;
+#X connect 1 1 3 0;
+#X connect 1 1 3 1;
+#X connect 2 0 4 0;
+#X connect 3 0 4 0;
+#X connect 4 0 6 0;
+#X connect 6 0 24 0;
+#X connect 14 0 20 0;
+#X connect 14 0 30 0;
+#X connect 15 0 14 0;
+#X connect 16 0 23 0;
+#X connect 17 0 15 0;
+#X connect 19 0 22 0;
+#X connect 20 0 19 0;
+#X connect 26 0 28 0;
+#X connect 27 0 26 0;
+#X connect 27 0 31 0;
+#X connect 28 1 24 0;
+#X connect 28 1 25 0;
+#X connect 30 0 16 0;
+#X connect 31 0 29 0;
+#X restore 70 166 pd fft;
+#X obj 70 140 catch~ vis_sum;
+#X msg 205 217 \; waveform resize 259;
+#X obj 292 132 send freq;
+#X obj 292 107 mtof;
+#X obj 292 30 loadbang;
+#X floatatom 292 85 5 0 0 0 - - - 0;
+#X msg 292 55 48, f 2;
+#X obj 365 33 r note;
+#X floatatom 376 67 5 0 0 0 - - - 0;
+#X msg 198 95 \; pd dsp 1;
+#X connect 0 0 1 0;
+#X connect 2 0 0 0;
+#X connect 4 0 3 0;
+#X connect 7 0 6 0;
+#X connect 8 0 10 0;
+#X connect 8 0 13 0;
+#X connect 9 0 7 0;
+#X connect 10 0 9 0;
+#X connect 11 0 9 0;
+#X connect 11 0 12 0;
+#X restore 281 326 pd things;
+#X msg 57 389 \$1 100;
+#X obj 449 32 cnv 15 257 133 empty empty empty 20 12 0 14 #fcc4c4 #404040
+0;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array spectrum 128 float 0;
+#X coords 0 4300 127 -40 257 133 1 0 0;
+#X restore 449 32 graph;
+#X text 480 171 1;
+#X text 514 171 2;
+#X text 546 171 3;
+#X text 578 171 4;
+#X text 611 171 5;
+#X text 641 171 6;
+#X text 672 171 7;
+#X text 448 171 0;
+#X text 443 192 harmonic number ------------------;
+#X obj 229 326 s note;
+#X obj 229 239 else/keyboard 17 80 4 3 0 0 empty empty;
+#X connect 0 0 2 0;
+#X connect 1 0 2 1;
+#X connect 2 0 3 0;
+#X connect 2 0 3 1;
+#X connect 10 0 15 0;
+#X connect 15 0 1 0;
+#X connect 28 0 27 0;

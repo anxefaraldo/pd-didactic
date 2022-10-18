@@ -1,0 +1,50 @@
+#N canvas 601 94 836 1035 16;
+#X msg 17 105 12;
+#X msg 624 518 0;
+#X floatatom 35 974 5 0 0 0 - - -;
+#X msg 71 569 12 3;
+#X msg 58 527 11 3 \, 11 4;
+#X obj 33 493 pack 1 1;
+#X floatatom 33 461 5 0 0 0 - - -;
+#X floatatom 110 462 5 0 0 0 - - -;
+#X obj 17 21 table test;
+#X obj 35 940 tabread test;
+#X text 18 54 by default \, arrays have 100 elements and range [-1
+\, +1] we can change that in "properties" \, or with messages ==>;
+#X msg 17 134 \; test resize \$1;
+#X msg 624 575 \; test const \$1;
+#X floatatom 624 547 5 0 0 0 - - -;
+#X msg 18 183 \; test bounds 0 11 11 0;
+#X text 19 231 x_left \, y_top \, x_rigth \, y_bottom;
+#X msg 370 341 \; test 0 0 0 2 4 4 5 5 7 7 9 11 11;
+#X msg 50 896 set test;
+#X msg 31 696 \; test read major.txt;
+#X msg 253 695 \; test read cromatic.txt;
+#X obj 204 939 table othert;
+#X msg 35 864 set othert;
+#X obj 30 605 tabwrite test;
+#X text 128 571 writing elements (index goes 2nd!!);
+#X msg 20 343 \; test 0 0 1 2 3 4 5 6 7 8 9 10 11;
+#X text 23 288 We can set table content via messages too (the 1st value
+indicates the index at which we start to write):;
+#X text 30 424 Or write with packs of [value \, index]:;
+#X text 37 653 And read/write table content from text files:;
+#X text 624 479 set constants:;
+#X msg 506 696 \; test read penta.txt;
+#X text 35 803 we can dynamically change the source/referenced table:
+, f 30;
+#X msg 204 866 \; othert read minor.txt \; othert bounds 0 11 11 0
+;
+#X text 187 131 <<< WHAT IS THIS? YET ANOTHER WAY OF SENDING NON-PHYSICAL
+MESSAGES!, f 33;
+#X connect 0 0 11 0;
+#X connect 1 0 13 0;
+#X connect 3 0 22 0;
+#X connect 4 0 22 0;
+#X connect 5 0 22 0;
+#X connect 6 0 5 0;
+#X connect 7 0 5 1;
+#X connect 9 0 2 0;
+#X connect 13 0 12 0;
+#X connect 17 0 9 0;
+#X connect 21 0 9 0;

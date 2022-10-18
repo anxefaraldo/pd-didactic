@@ -1,33 +1,0 @@
-#N canvas 4 101 472 358 10;
-#X obj 24 76 expr ($f3*(1-$f1)*(1-$f2))+($f4*$f1*(1-$f2))+($f6*(1-$f1)*$f2)+($f5*$f1*$f2)
-;
-#X obj 68 51 t b f;
-#X obj 166 27 inlet;
-#X obj 238 27 inlet;
-#X obj 309 27 inlet;
-#X obj 381 27 inlet;
-#X obj 24 135 outlet;
-#X obj 24 27 inlet;
-#X obj 68 27 inlet;
-#X text 22 8 x [0-1] y [0-1];
-#X text 26 325 sergi jorda 2014;
-#X text 164 7 (0 \, 0) (1 \, 0) (1 \, 1) (0 \, 1);
-#X text 25 158 this bilinear interpolation assumes the following inlets
-(from left to right) inlet1: x (normalized 0-1) inlet2: y (normalized
-0-1) inlet3: 0 \,  0 coordinate or top-left position: can be ANY
-value inlet4: 1 \, 0 coordinate or top-right position: can be
-ANY value inlet5: 1 \, 1 or down-rigth position. ANY value inlet6:
-0 \, 1 or down-left. ANY value;
-#X text 25 259 How to use it: inlet1 and inlet2 are the real-time 2D
-input [0-1]. inlets 3-6 correspond to the values in the corners for
-1D. If you want to control a ND parameter space (with a 2D) \, just
-copy this object N times.;
-#X connect 0 0 6 0;
-#X connect 1 0 0 0;
-#X connect 1 1 0 1;
-#X connect 2 0 0 2;
-#X connect 3 0 0 3;
-#X connect 4 0 0 4;
-#X connect 5 0 0 5;
-#X connect 7 0 0 0;
-#X connect 8 0 1 0;

@@ -1,0 +1,23 @@
+#N canvas 1119 216 1065 506 16;
+#X obj 149 51 phasor~;
+#X text 240 40 phasor outputs a sawtooth in range 0-1 used to control
+the phase of oscillators and tables., f 47;
+#X obj 281 132 *~ 0.5;
+#X text 365 131 adds 0.5 to the phase \, now in range 0.5 to 1.5;
+#X obj 47 301 tabread4~;
+#X obj 47 268 *~ 44100;
+#X obj 281 306 tabread4~;
+#X obj 281 273 *~ 44100;
+#X obj 281 198 wrap~;
+#X text 347 185 takes only the decimal portion of the signal \, wrapping
+the input in the range 0-1. this has the effect of shifting the phasor
+signal 50 % out of phase (180 degrees);
+#X text 40 338 these would hipotetically read a table with one second
+of audio @ SR = 44100 \, two times \, with a phase displacement of
+180 degrees, f 37;
+#X connect 0 0 2 0;
+#X connect 0 0 5 0;
+#X connect 2 0 8 0;
+#X connect 5 0 4 0;
+#X connect 7 0 6 0;
+#X connect 8 0 7 0;

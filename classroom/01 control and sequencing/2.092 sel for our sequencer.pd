@@ -1,0 +1,94 @@
+#N canvas 91 23 769 715 16;
+#X obj 13 127 i;
+#X obj 59 128 + 1;
+#X floatatom 13 165 5 0 0 0 - - -;
+#X msg 40 55 0;
+#X obj 13 192 % 8;
+#X floatatom 13 220 5 0 0 0 - - -;
+#X text 54 190 modulo operator;
+#X msg 67 11 stop;
+#X msg 13 11 bang;
+#X obj 13 86 metro 500;
+#X text 121 86 500ms = 120 BPM;
+#X text 78 54 resets counter everytime we start;
+#X text 121 10 START/STOP metronome;
+#X obj 142 253 sel 0 1 2 3 4 5 6 7;
+#X floatatom 17 324 5 0 0 0 - - -;
+#X floatatom 76 325 5 0 0 0 - - -;
+#X text 20 409 but there's a problem with that \, because each time
+we'll try to change a note from the sequence it will inmediately get
+triggered (ie it will sound \, even if it wasn't the current step)
+;
+#X obj 25 577 i;
+#X floatatom 52 550 5 0 0 0 - - -;
+#X obj 25 508 sel 0 1 2 3 4 5 6 7;
+#X obj 82 577 i;
+#X floatatom 109 550 5 0 0 0 - - -;
+#X text 126 581 ... so instead we can do something as here...;
+#X floatatom 82 620 5 0 0 0 - - -;
+#X text 144 618 and then sent this changing value to the NOTE input
+of our synth...;
+#X floatatom 132 325 5 0 0 0 - - -;
+#X floatatom 190 325 5 0 0 0 - - -;
+#X floatatom 246 325 5 0 0 0 - - -;
+#X floatatom 304 325 5 0 0 0 - - -;
+#X floatatom 360 325 5 0 0 0 - - -;
+#X floatatom 418 325 5 0 0 0 - - -;
+#X floatatom 222 378 5 0 0 0 - - -;
+#X obj 17 303 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 75 303 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 132 302 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 190 302 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 245 304 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 303 304 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 360 303 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 418 303 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X connect 0 0 1 0;
+#X connect 0 0 2 0;
+#X connect 1 0 0 1;
+#X connect 2 0 4 0;
+#X connect 3 0 0 1;
+#X connect 4 0 5 0;
+#X connect 5 0 13 0;
+#X connect 7 0 9 0;
+#X connect 8 0 3 0;
+#X connect 8 0 9 0;
+#X connect 9 0 0 0;
+#X connect 13 0 32 0;
+#X connect 13 1 33 0;
+#X connect 13 2 34 0;
+#X connect 13 3 35 0;
+#X connect 13 4 36 0;
+#X connect 13 5 37 0;
+#X connect 13 6 38 0;
+#X connect 13 7 39 0;
+#X connect 14 0 31 0;
+#X connect 15 0 31 0;
+#X connect 17 0 23 0;
+#X connect 18 0 17 1;
+#X connect 19 0 17 0;
+#X connect 19 1 20 0;
+#X connect 20 0 23 0;
+#X connect 21 0 20 1;
+#X connect 25 0 31 0;
+#X connect 26 0 31 0;
+#X connect 27 0 31 0;
+#X connect 28 0 31 0;
+#X connect 29 0 31 0;
+#X connect 30 0 31 0;
+#X connect 32 0 14 0;
+#X connect 33 0 15 0;
+#X connect 34 0 25 0;
+#X connect 35 0 26 0;
+#X connect 36 0 27 0;
+#X connect 37 0 28 0;
+#X connect 38 0 29 0;
+#X connect 39 0 30 0;

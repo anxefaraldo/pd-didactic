@@ -1,0 +1,46 @@
+#N canvas 0 23 1085 555 12;
+#X text 62 41 (0) SELECTORS: "msg" \, "floatatom" \, "obj" \, "text"
+\, "array" \, "symbolatom" \, "scalar" or "graph";
+#X text 57 93 (1) The next 2 numbers are X & Y position in the canvas.
+Then it's a symbol for the name of the obj \, the content of the msg
+\, etc... and some additionals parameters:;
+#X msg 60 151 selector xpos ypos name arg1 arg2 ...;
+#X text 60 187 (3) For connecting objects use the selector "connect".
+It takes 4 arguments: (1) the number of the first object \, (2) the
+number of the outlet \, (3) the number of the second object \, and
+(4) the number of the inlet:;
+#X msg 63 261 connect nobj1 nout nobj2 nin;
+#X text 58 299 (5) !!! W A R N I N G !!! It's very important to respect
+the order in which objects are created. If you don't the "connect"
+selector won't work correctly. If you get stuck \, reload this patch
+and try again.;
+#X text 511 34 (6) To add objects into a patch just send messages to
+the patch itself. In this example follow order strictly from top to
+bottom:;
+#X obj 516 443 s pd-1-dynamic-object.pd;
+#X msg 546 177 connect 19 0 21 0;
+#X msg 556 207 connect 20 0 21 1;
+#X msg 576 267 connect 21 0 22 0;
+#X msg 596 327 connect 22 0 23 0;
+#X msg 516 87 msg 70 400 bang;
+#X msg 536 147 obj 70 430 metro 500;
+#X msg 566 237 obj 70 460 random 127;
+#X msg 586 297 floatatom 70 490 5;
+#X msg 606 357 text 70 520 Yo've just created and connected dynamically
+objects 19 to 23 This example is not very practical because you need
+to take strict care of creation order. (As soon as you edit an object
+you create it anew thus altering the whole patch creation order).;
+#X msg 526 117 floatatom 130 400 7 50 5000;
+#X text 515 476 (18) this comment is the last object created in a regular
+way \, at it the 18th object in the patch (since everything is an object:
+comments \, messages \, atoms and objects themselves);
+#X connect 8 0 7 0;
+#X connect 9 0 7 0;
+#X connect 10 0 7 0;
+#X connect 11 0 7 0;
+#X connect 12 0 7 0;
+#X connect 13 0 7 0;
+#X connect 14 0 7 0;
+#X connect 15 0 7 0;
+#X connect 16 0 7 0;
+#X connect 17 0 7 0;

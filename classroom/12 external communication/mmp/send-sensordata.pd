@@ -1,0 +1,10 @@
+#N canvas 936 71 499 159 10;
+#X obj 16 40 send toNetwork;
+#X text 111 40 send message straight to multicast on user-specified port;
+#X obj 16 14 receive fromSystem;
+#X text 141 15 Here we receive data from the sensors;
+#X obj 16 87 receive fromNetwork;
+#X text 144 88 Here we update the system settings;
+#X obj 16 113 send toSystem;
+#X connect 2 0 0 0;
+#X connect 4 0 6 0;

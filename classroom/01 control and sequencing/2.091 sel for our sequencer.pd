@@ -1,0 +1,54 @@
+#N canvas 289 173 448 336 16;
+#X obj 13 127 i;
+#X obj 59 128 + 1;
+#X floatatom 13 165 5 0 0 0 - - -;
+#X msg 40 55 0;
+#X obj 13 192 % 8;
+#X floatatom 13 220 5 0 0 0 - - -;
+#X text 54 190 modulo operator;
+#X msg 67 11 stop;
+#X msg 13 11 bang;
+#X obj 13 86 metro 500;
+#X text 121 86 500ms = 120 BPM;
+#X text 78 54 resets counter everytime we start;
+#X text 121 10 START/STOP metronome;
+#X obj 13 250 sel 0 1 2 3 4 5 6 7;
+#X obj 14 294 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 37 295 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 59 295 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 83 295 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 106 295 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 129 295 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 153 295 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 176 295 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 200 295 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 9 313 these are "bang" objects;
+#X connect 0 0 1 0;
+#X connect 0 0 2 0;
+#X connect 1 0 0 1;
+#X connect 2 0 4 0;
+#X connect 3 0 0 1;
+#X connect 4 0 5 0;
+#X connect 5 0 13 0;
+#X connect 7 0 9 0;
+#X connect 8 0 3 0;
+#X connect 8 0 9 0;
+#X connect 9 0 0 0;
+#X connect 13 0 14 0;
+#X connect 13 1 15 0;
+#X connect 13 2 16 0;
+#X connect 13 3 17 0;
+#X connect 13 4 18 0;
+#X connect 13 5 19 0;
+#X connect 13 6 20 0;
+#X connect 13 7 21 0;
+#X connect 13 8 22 0;

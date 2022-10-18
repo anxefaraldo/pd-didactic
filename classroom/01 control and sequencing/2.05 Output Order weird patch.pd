@@ -1,0 +1,39 @@
+#N canvas 243 36 632 281 16;
+#X floatatom 130 79 5 0 0 0 - - -, f 5;
+#X floatatom 214 10 5 0 0 0 - - -, f 5;
+#X obj 130 113 +, f 4;
+#X floatatom 130 141 5 0 0 0 - - -, f 5;
+#X msg 130 49 bang;
+#X floatatom 497 73 5 0 0 0 - - -, f 5;
+#X floatatom 298 14 5 0 0 0 - - -, f 5;
+#X obj 497 107 +, f 4;
+#X floatatom 497 135 5 0 0 0 - - -, f 5;
+#X obj 298 74 print;
+#X obj 405 73 print;
+#X obj 298 43 trigger b f;
+#X floatatom 558 15 5 0 0 0 - - -, f 5;
+#X obj 497 45 trigger b f;
+#X floatatom 56 8 5 0 0 0 - - -, f 5;
+#X obj 5 55 + 1;
+#X floatatom 56 109 5 0 0 0 - - -, f 5;
+#X text 6 175 examples 1 and 2 migth behave as expected or not \, depending
+on the order we have drawn the connections;
+#X text 7 219 with the use of "trigger" (examples 3 and 4) \, the output
+order will be garanteed and the patch will always behave correctly
+;
+#X connect 0 0 2 0;
+#X connect 1 0 2 1;
+#X connect 1 0 4 0;
+#X connect 2 0 3 0;
+#X connect 4 0 0 0;
+#X connect 5 0 7 0;
+#X connect 6 0 11 0;
+#X connect 7 0 8 0;
+#X connect 11 0 9 0;
+#X connect 11 1 10 0;
+#X connect 12 0 13 0;
+#X connect 13 0 5 0;
+#X connect 13 1 7 1;
+#X connect 14 0 16 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;

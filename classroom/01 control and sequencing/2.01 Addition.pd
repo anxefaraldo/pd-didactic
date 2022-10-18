@@ -1,0 +1,42 @@
+#N canvas 91 86 401 492 16;
+#X obj 2 320 cnv 15 373 163 empty empty empty 20 12 0 14 -212954 -66577
+0;
+#X obj 2 182 cnv 15 373 124 empty empty empty 20 12 0 14 -259674 -66577
+0;
+#X obj 2 4 cnv 15 265 164 empty empty empty 20 12 0 14 -261338 -66577
+0;
+#X floatatom 128 51 5 0 0 0 - - -, f 5;
+#X floatatom 9 50 5 0 0 0 - - -, f 5;
+#X obj 59 100 +, f 2;
+#X floatatom 59 128 5 0 0 0 - - -, f 5;
+#X text 5 29 L:Hot inlet;
+#X text 127 28 R:Cold inlet;
+#X obj 9 423 i;
+#X floatatom 21 368 5 0 0 0 - - -, f 5;
+#X floatatom 36 395 5 0 0 0 - - -, f 5;
+#X floatatom 9 451 5 0 0 0 - - -, f 5;
+#X msg 10 341 bang;
+#X text 93 367 stores & triggers new value;
+#X text 93 340 triggers stored value;
+#X text 93 396 stores new value;
+#X text 92 427 integer object;
+#X floatatom 68 207 5 0 0 0 - - -, f 5;
+#X floatatom 11 207 5 0 0 0 - - -, f 5;
+#X floatatom 11 272 5 0 0 0 - - -, f 5;
+#X obj 11 245 + 10;
+#X text 4 7 Example 1;
+#X text 8 184 Example 2;
+#X text 8 317 Example 3;
+#X text 64 244 initial argument;
+#X text 126 191 modify the argument;
+#X text 121 210 (doesn't show though...);
+#X connect 3 0 5 1;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 9 0 12 0;
+#X connect 10 0 9 0;
+#X connect 11 0 9 1;
+#X connect 13 0 9 0;
+#X connect 18 0 21 1;
+#X connect 19 0 21 0;
+#X connect 21 0 20 0;

@@ -1,0 +1,31 @@
+#N canvas 34 107 1661 362 10;
+#X obj 14 16 receive fromGUI;
+#X msg 486 101 list /receiveSlider \$1;
+#X obj 14 129 send toNetwork;
+#X obj 486 29 receive fromNetwork;
+#X obj 486 123 send toGUI;
+#X floatatom 14 85 5 0 0 0 - - -;
+#X text 110 130 send message straight to multicast on user-specified
+port;
+#X obj 14 39 list trim;
+#X text 116 18 Here we receive data from the GUI;
+#X text 146 107 and we route it to the various network possibilities
+;
+#X msg 14 106 list /touchSlider \$1;
+#X text 559 124 Here we update the GUI;
+#X text 491 5 Here we update the GUI;
+#X obj 14 62 route /touchSlider;
+#X text 132 62 route address in the GUI widget;
+#X obj 486 55 list trim;
+#X obj 486 77 route /receiveSlider;
+#X text 631 101 route address in the GUI widget!;
+#X text 619 76 OSC address in computer;
+#X connect 0 0 7 0;
+#X connect 1 0 4 0;
+#X connect 3 0 15 0;
+#X connect 5 0 10 0;
+#X connect 7 0 13 0;
+#X connect 10 0 2 0;
+#X connect 13 0 5 0;
+#X connect 15 0 16 0;
+#X connect 16 0 1 0;

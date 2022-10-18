@@ -1,0 +1,31 @@
+#N canvas 364 215 787 493 12;
+#X obj 159 45 loadbang;
+#X text 232 34 sends a bang when the patch is opened. useful to initialize
+values!, f 38;
+#X msg 159 90 5;
+#X floatatom 159 165 5 0 0 0 - - -;
+#X text 198 79 messages preserve data \, so you will find the same
+message after reopening your patch. You can also interact with this
+object as if it were a button.;
+#X text 207 148 numberboxes DO NOT preserve data. They just reflect
+the last input they have receive (via a message or an object \, or
+via user interaction with mouse or keyboard;
+#X obj 159 325 f 5;
+#X msg 99 90 5;
+#X floatatom 99 166 5 0 0 0 - - -;
+#X floatatom 159 390 5 0 0 0 - - -;
+#X text 207 311 the object [f] (float) stores number variables. If
+you initialise it with an argument \, that will be preserved when you
+open the patch. You can interact with objects via connections.;
+#X obj 159 270 loadbang;
+#X text 232 259 sends a bang when the patch is opened. useful to initialize
+values!, f 38;
+#X obj 109 325 f 5;
+#X floatatom 109 390 5 0 0 0 - - -;
+#X floatatom 39 166 5 0 0 0 - - -;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 6 0 9 0;
+#X connect 7 0 8 0;
+#X connect 11 0 6 0;
+#X connect 13 0 14 0;
