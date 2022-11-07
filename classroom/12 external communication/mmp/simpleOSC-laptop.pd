@@ -1,4 +1,4 @@
-#N canvas 807 127 600 441 10;
+#N canvas 73 603 600 441 10;
 #X msg 30 68 listen 0;
 #X msg 17 16 listen 54321;
 #X obj 17 94 netreceive -u -b 54321;
@@ -13,13 +13,13 @@
 #X obj 120 224 list prepend send;
 #X obj 120 249 list trim;
 #X obj 120 200 oscformat receiveSlider;
-#X msg 129 269 connect 192.168.1.141 54322;
 #X msg 142 313 disconnect;
 #X text 308 270 IP address of smartphone;
 #X text 288 291 MMP listens on port 54322;
 #X text 214 333 this way we can send messages to the smartphone patch \, routed via [receive fromNetwork];
 #X text 30 35 If you want to communicate via OSC with your computer \, simply change the broadcast address to your computer's IP;
 #X text 164 88 through this object we should see everything that has been connected to [send toNetwork] inside the smartphone patch.;
+#X msg 129 269 connect 192.168.1.144 54322;
 #X connect 0 0 2 0;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
@@ -33,4 +33,4 @@
 #X connect 12 0 10 0;
 #X connect 13 0 11 0;
 #X connect 14 0 10 0;
-#X connect 15 0 10 0;
+#X connect 20 0 10 0;
