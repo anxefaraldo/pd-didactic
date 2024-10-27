@@ -1,12 +1,12 @@
 #N canvas 267 653 621 368 10;
-#X text 130 94 send message straight to multicast on user-specified port;
+#X text 168 93 send message straight to multicast on user-specified port;
 #X obj 35 69 receive fromSystem;
-#X text 160 70 Here we receive data from the sensors;
+#X text 198 69 Here we receive data from the sensors;
 #X obj 25 241 receive fromNetwork;
 #X obj 14 267 send toSystem;
 #X obj 14 44 receive fromGUI;
-#X text 111 43 Here we receive data from the GUI;
-#X text 153 242 Here we update the system settings if we want to.;
+#X text 149 42 Here we receive data from the GUI;
+#X text 170 242 Here we update the system settings if we want to.;
 #X msg 14 171 list /enableLocation \$1;
 #X obj 14 118 list trim;
 #X obj 14 146 route /gpsToggle;
