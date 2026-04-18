@@ -19,8 +19,8 @@
 #X obj 73 161 r print-blocks;
 #X msg 73 186 0;
 #X obj 27 89 t b f, f 6;
-#X obj 27 310 print~ block-main-window;
-#X obj 37 285 r print-blocks;
+#X obj 27 321 print~ block-main-window;
+#X obj 55 293 r print-blocks;
 #X msg 27 37 64 \; pd dsp 1 \; print-blocks bang;
 #X connect 0 0 9 0;
 #X connect 1 0 11 0;
